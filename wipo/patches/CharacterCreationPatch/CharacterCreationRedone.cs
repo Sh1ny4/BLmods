@@ -274,79 +274,10 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
-        protected void AddChildhoodMenuPatch(CharacterCreation characterCreation)
-        {
-            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=8Yiwt1z6}Early Childhood", null), new TextObject("{=character_creation_content_16}As a child you were noted for...", null), new CharacterCreationOnInit(this.ChildhoodOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
-            CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
-
-            characterCreationCategory.AddCategoryOption(new TextObject("{=kmM68Qx4}your leadership skills.", null), new MBList<SkillObject> { DefaultSkills.Leadership, DefaultSkills.Tactics }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodYourLeadershipSkillsOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodLeadingOnApply), new TextObject("{=FfNwXtii}If the wolf pup gang of your early childhood had an alpha, it was definitely you. All the other kids followed your lead as you decided what to play and where to play, and led them in games and mischief.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=5HXS8HEY}your brawn.", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodYourBrawnOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodAthleticsOnApply), new TextObject("{=YKzuGc54}You were big, and other children looked to have you around in any scrap with children from a neighboring village. You pushed a plough and threw an axe like an adult.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=QrYjPUEf}your attention to detail.", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Crafting }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodAttentionToDetailOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMemoryOnApply), new TextObject("{=JUSHAPnu}You were quick on your feet and attentive to what was going on around you. Usually you could run away from trouble, though you could give a good account of yourself in a fight with other children if cornered.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=Y3UcaX74}your aptitude for numbers.", null), new MBList<SkillObject> { DefaultSkills.Engineering, DefaultSkills.Trade }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodAptitudeForNumbersOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMathOnApply), new TextObject("{=DFidSjIf}Most children around you had only the most rudimentary education, but you lingered after class to study letters and mathematics. You were fascinated by the marketplace - weights and measures, tallies and accounts, the chatter about profits and losses.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=GEYzLuwb}your way with people.", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Leadership }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodWayWithPeopleOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMannersOnApply), new TextObject("{=w2TEQq26}You were always attentive to other people, good at guessing their motivations. You studied how individuals were swayed, and tried out what you learned from adults on your friends.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=MEgLE2kj}your skill with horses.", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Medicine }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodSkillsWithHorsesOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodAffinityWithAnimalsOnApply), new TextObject("{=ngazFofr}You were always drawn to animals, and spent as much time as possible hanging out in the village stables. You could calm horses, and were sometimes called upon to break in new colts. You learned the basics of veterinary arts, much of which is applicable to humans as well.", null), null, 0, 0, 0, 0, 0);
-
-            characterCreation.AddNewMenu(characterCreationMenu);
-        }
-
-        new protected static void ChildhoodYourLeadershipSkillsOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_leader"
-            });
-        }
-        new protected static void ChildhoodYourBrawnOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_athlete"
-            });
-        }
-        new protected static void ChildhoodAttentionToDetailOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_memory"
-            });
-        }
-        new protected static void ChildhoodAptitudeForNumbersOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_numbers"
-            });
-        }
-        new protected static void ChildhoodWayWithPeopleOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_manners"
-            });
-        }
-        new protected static void ChildhoodSkillsWithHorsesOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_animals"
-            });
-        }
-
-
-
-
-
-
-
-
-
-
-
         protected void AddEducationMenuPatch(CharacterCreation characterCreation)
         {
-            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=rcoueCmk}Adolescence", null), this._educationIntroductoryText, new CharacterCreationOnInit(this.EducationOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
+            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Education", null), new TextObject("{=!}Education", null), new CharacterCreationOnInit(this.EducationOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
-
             characterCreationCategory.AddCategoryOption(new TextObject("{=RKVNvimC}herded the sheep.", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceHerderOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHerderOnApply), new TextObject("{=KfaqPpbK}You went with other fleet-footed youths to take the villages' sheep, goats or cattle to graze in pastures near the village. You were in charge of chasing down stray beasts, and always kept a big stone on hand to be hurled at lurking predators if necessary.", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=bTKiN0hr}worked in the village smithy.", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Crafting }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceSmithyOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceSmithyOnApply), new TextObject("{=y6j1bJTH}You were apprenticed to the local smith. You learned how to heat and forge metal, hammering for hours at a time until your muscles ached.", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=tI8ZLtoA}repaired projects.", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Engineering }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceRepairmanOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceRepairmanOnApply), new TextObject("{=6LFj919J}You helped dig wells, rethatch houses, and fix broken plows. You learned about the basics of construction, as well as what it takes to keep a farming community prosperous.", null), null, 0, 0, 0, 0, 0);
@@ -496,10 +427,79 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
+        protected void AddChildhoodMenuPatch(CharacterCreation characterCreation)
+        {
+            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Character", null), new TextObject("{=!}Character", null), new CharacterCreationOnInit(this.ChildhoodOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
+            CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
+
+            characterCreationCategory.AddCategoryOption(new TextObject("{=kmM68Qx4}your leadership skills.", null), new MBList<SkillObject> { DefaultSkills.Leadership, DefaultSkills.Tactics }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodYourLeadershipSkillsOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodLeadingOnApply), new TextObject("{=FfNwXtii}If the wolf pup gang of your early childhood had an alpha, it was definitely you. All the other kids followed your lead as you decided what to play and where to play, and led them in games and mischief.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=5HXS8HEY}your brawn.", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodYourBrawnOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodAthleticsOnApply), new TextObject("{=YKzuGc54}You were big, and other children looked to have you around in any scrap with children from a neighboring village. You pushed a plough and threw an axe like an adult.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=QrYjPUEf}your attention to detail.", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Crafting }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodAttentionToDetailOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMemoryOnApply), new TextObject("{=JUSHAPnu}You were quick on your feet and attentive to what was going on around you. Usually you could run away from trouble, though you could give a good account of yourself in a fight with other children if cornered.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=Y3UcaX74}your aptitude for numbers.", null), new MBList<SkillObject> { DefaultSkills.Engineering, DefaultSkills.Trade }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodAptitudeForNumbersOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMathOnApply), new TextObject("{=DFidSjIf}Most children around you had only the most rudimentary education, but you lingered after class to study letters and mathematics. You were fascinated by the marketplace - weights and measures, tallies and accounts, the chatter about profits and losses.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=GEYzLuwb}your way with people.", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Leadership }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodWayWithPeopleOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMannersOnApply), new TextObject("{=w2TEQq26}You were always attentive to other people, good at guessing their motivations. You studied how individuals were swayed, and tried out what you learned from adults on your friends.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=MEgLE2kj}your skill with horses.", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Medicine }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodSkillsWithHorsesOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodAffinityWithAnimalsOnApply), new TextObject("{=ngazFofr}You were always drawn to animals, and spent as much time as possible hanging out in the village stables. You could calm horses, and were sometimes called upon to break in new colts. You learned the basics of veterinary arts, much of which is applicable to humans as well.", null), null, 0, 0, 0, 0, 0);
+
+            characterCreation.AddNewMenu(characterCreationMenu);
+        }
+
+        new protected static void ChildhoodYourLeadershipSkillsOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string>
+            {
+                "act_childhood_leader"
+            });
+        }
+        new protected static void ChildhoodYourBrawnOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string>
+            {
+                "act_childhood_athlete"
+            });
+        }
+        new protected static void ChildhoodAttentionToDetailOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string>
+            {
+                "act_childhood_memory"
+            });
+        }
+        new protected static void ChildhoodAptitudeForNumbersOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string>
+            {
+                "act_childhood_numbers"
+            });
+        }
+        new protected static void ChildhoodWayWithPeopleOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string>
+            {
+                "act_childhood_manners"
+            });
+        }
+        new protected static void ChildhoodSkillsWithHorsesOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string>
+            {
+                "act_childhood_animals"
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
         protected void AddYouthMenuPatch(CharacterCreation characterCreation)
         {
-            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=ok8lSW6M}Youth", null), this._youthIntroductoryText, new CharacterCreationOnInit(this.YouthOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
+            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Adolescence", null), new TextObject("{=!}Adolescence", null), new CharacterCreationOnInit(this.YouthOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
+
 
             characterCreationCategory.AddCategoryOption(new TextObject("{=CITG915d}joined a commander's staff.", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Tactics }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(YouthCommanderOnCondition), new CharacterCreationOnSelect(YouthCommanderOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthCommanderOnApply), new TextObject("{=Ay0G3f7I}Your family arranged for you to be part of the staff of an imperial strategos. You were not given major responsibilities - mostly carrying messages and tending to his horse -- but it did give you a chance to see how campaigns were planned and men were deployed in battle.", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=bhE2i6OU}served as a baron's groom.", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Tactics }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(YouthGroomOnCondition), new CharacterCreationOnSelect(YouthGroomOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthGroomOnApply), new TextObject("{=iZKtGI6Y}Your family arranged for you to accompany a minor baron of the Vlandian kingdom. You were not given major responsibilities - mostly carrying messages and tending to his horse -- but it did give you a chance to see how campaigns were planned and men were deployed in battle.", null), null, 0, 0, 0, 0, 0);
@@ -707,7 +707,7 @@ namespace wipo.patches.CharacterCreationPatch
         protected void AddAdulthoodMenuPatch(CharacterCreation characterCreation)
         {
             MBTextManager.SetTextVariable("EXP_VALUE", 30);
-            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=MafIe9yI}Young Adulthood", null), new TextObject("{=4WYY0X59}Before you set out for a life of adventure, your biggest achievement was...", null), new CharacterCreationOnInit(this.AccomplishmentOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
+            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Adulthood", null), new TextObject("{=!}Adulthood", null), new CharacterCreationOnInit(this.AccomplishmentOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
 
             characterCreationCategory.AddCategoryOption(new TextObject("{=8bwpVpgy}you defeated an enemy in battle.", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.TwoHanded }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(AccomplishmentDefeatedEnemyOnConsequence), new CharacterCreationApplyFinalEffects(this.AccomplishmentDefeatedEnemyOnApply), new TextObject("{=1IEroJKs}Not everyone who musters for the levy marches to war, and not everyone who goes on campaign sees action. You did both, and you also took down an enemy warrior in direct one-to-one combat, in the full view of your comrades.", null), new MBList<TraitObject> { DefaultTraits.Valor }, 1, 20, 0, 0, 0);
