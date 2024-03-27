@@ -67,6 +67,7 @@
     <Compile Include="patches\BanditsTweaks\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
     <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
+    <Compile Include="patches\Leveling\DefaultAttributeInitializePatch.cs" />
     <Compile Include="patches\Leveling\SkillLimitPatch.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
     <Compile Include="patches\CostPatch\WagePatch.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnTypePatch.cs" />
+    <Compile Include="patches\Leveling\DefaultSkillInitializePatch.cs" />
     <Compile Include="patches\Tweaks\DisorganizedTweak.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
