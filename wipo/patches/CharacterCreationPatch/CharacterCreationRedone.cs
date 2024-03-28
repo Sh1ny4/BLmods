@@ -310,98 +310,62 @@ namespace wipo.patches.CharacterCreationPatch
 
         new protected void RuralAdolescenceHerderOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_streets"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_streets"});
             this.RefreshPropsAndClothing(characterCreation, false, "carry_bostaff_rogue1", true, "");
         }
         new protected void RuralAdolescenceSmithyOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_militia"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_militia"});
             this.RefreshPropsAndClothing(characterCreation, false, "peasant_hammer_1_t1", true, "");
         }
         new protected void RuralAdolescenceRepairmanOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_grit"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_grit"});
             this.RefreshPropsAndClothing(characterCreation, false, "carry_hammer", true, "");
         }
         new protected void RuralAdolescenceGathererOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_peddlers"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers"});
             this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_basket_a", true, "");
         }
         new protected void RuralAdolescenceHunterOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_sharp"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_sharp"});
             this.RefreshPropsAndClothing(characterCreation, false, "composite_bow", true, "");
         }
         new protected void RuralAdolescenceHelperOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_peddlers_2"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers_2"});
             this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_fabric_c", true, "");
         }
         new protected void UrbanAdolescenceWatcherOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_fox"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_fox"});
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
         new protected void UrbanAdolescenceMarketerOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_manners"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_manners"});
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
         new protected void UrbanAdolescenceGangerOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_athlete"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_athlete"});
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
         new protected void UrbanAdolescenceDockerOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_peddlers"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers"});
             this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_basket_a", true, "");
         }
         new protected void UrbanAdolescenceHorserOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_peddlers_2"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers_2"});
             this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_fabric_c", true, "");
         }
         new protected void UrbanAdolescenceTutorOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_book"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_book"});
             this.RefreshPropsAndClothing(characterCreation, false, "character_creation_notebook", false, "");
         }
 
@@ -432,45 +396,27 @@ namespace wipo.patches.CharacterCreationPatch
 
         new protected static void ChildhoodYourLeadershipSkillsOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_leader"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_leader"});
         }
         new protected static void ChildhoodYourBrawnOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_athlete"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_athlete"});
         }
         new protected static void ChildhoodAttentionToDetailOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_memory"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_memory"});
         }
         new protected static void ChildhoodAptitudeForNumbersOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_numbers"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_numbers"});
         }
         new protected static void ChildhoodWayWithPeopleOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_manners"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_manners"});
         }
         new protected static void ChildhoodSkillsWithHorsesOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_animals"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_animals"});
         }
 
 
@@ -570,82 +516,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiCaravanerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiSlaveWarriorOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiMountedArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthAseraiHashashinOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
 
 
@@ -661,82 +580,54 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
-        }
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});}
         protected void YouthBattaniaDruidOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthBataniaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthBattaniaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthBattanniaForesterOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthBattaniaKernOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthBattaniaFalxOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthBattaniaScoutOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthBattaniaThugOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
 
 
@@ -752,91 +643,61 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireEngineerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireLegionaryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthEmpireGangOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 10;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
 
 
@@ -852,82 +713,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitNomadOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthKhuzaitThugOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
 
 
@@ -943,82 +777,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaUNIQUEROUTEOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaShockTroopOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthSturgiaRaiderOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
 
 
@@ -1034,82 +841,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiaChamberlainOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiaGuildOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiaSerfOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiaLightCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiaCrossbowmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         protected void YouthVlandiHighwaymanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
 
 
@@ -1147,66 +927,39 @@ namespace wipo.patches.CharacterCreationPatch
 
         new protected void AccomplishmentDefeatedEnemyOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_athlete"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_athlete"});
         }
         new protected void AccomplishmentExpeditionOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_gracious"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_gracious"});
         }
         new protected void AccomplishmentMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_ready"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_ready"});
         }
         new protected void AccomplishmentSavedVillageOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_vibrant"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_vibrant"});
         }
         new protected void AccomplishmentSavedStreetOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_vibrant"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_vibrant"});
         }
         new protected void AccomplishmentWorkshopOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_decisive"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
         new protected void AccomplishmentSiegeHunterOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_tough"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_tough"});
         }
         new protected void AccomplishmentEscapadeOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_clever"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_clever"});
         }
         new protected void AccomplishmentTreaterOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_manners"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_manners"});
         }
 
 
@@ -1238,10 +991,7 @@ namespace wipo.patches.CharacterCreationPatch
         {
             characterCreation.ClearFaceGenPrefab();
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(20f, "act_childhood_schooled"));
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_focus"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_focus"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Minor;
             this.SetHeroAge(16f);
@@ -1255,11 +1005,8 @@ namespace wipo.patches.CharacterCreationPatch
         new protected void StartingAgeYoungOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ClearFaceGenPrefab();
-            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(20f, "act_childhood_schooled"));
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_focus"
-            });
+            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(21f, "act_childhood_schooled"));
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_focus"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.YoungAdult;
             this.SetHeroAge(21f);
@@ -1274,10 +1021,7 @@ namespace wipo.patches.CharacterCreationPatch
         {
             characterCreation.ClearFaceGenPrefab();
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(30f, "act_childhood_schooled"));
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_ready"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_ready"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Adult;
             this.SetHeroAge(30f);
@@ -1292,10 +1036,7 @@ namespace wipo.patches.CharacterCreationPatch
         {
             characterCreation.ClearFaceGenPrefab();
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(40f, "act_childhood_schooled"));
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_sharp"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_sharp"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.MiddleAged;
             this.SetHeroAge(40f);
@@ -1310,10 +1051,7 @@ namespace wipo.patches.CharacterCreationPatch
         {
             characterCreation.ClearFaceGenPrefab();
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(50f, "act_childhood_schooled"));
-            characterCreation.ChangeCharsAnimation(new List<string>
-            {
-                "act_childhood_tough"
-            });
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_tough"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Elder;
             this.SetHeroAge(50f);
