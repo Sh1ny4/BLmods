@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem.CharacterCreationContent;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.CampaignSystem.Conversation.Tags;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -34,52 +35,52 @@ namespace wipo.patches.CharacterCreationPatch
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=b4lDDcli}Family", null), new TextObject("{=XgFU1pCx}You were born into a family of..", null), new CharacterCreationOnInit(this.ParentsOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
 
             CharacterCreationCategory characterCreationCategory1 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(AseraiParentsOnCondition));
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=Sw8OxnNr}Kinsfolk of an emir", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Throwing }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiTribesmanOnApply), new TextObject("{=MFrIHJZM}Your family was from a smaller offshoot of an emir's tribe. Your father's land gave him enough income to afford a horse but he was not quite wealthy enough to buy the armor needed to join the heavier cavalry. He fought as one of the light horsemen for which the desert is famous.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=ngFVgwDD}Warrior-slaves", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiWariorSlaveOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiWariorSlaveOnApply), new TextObject("{=GsPC2MgU}Your father was part of one of the slave-bodyguards maintained by the Aserai emirs. He fought by his master's side with tribe's armored cavalry, and was freed - perhaps for an act of valor, or perhaps he paid for his freedom with his share of the spoils of battle. He then married your mother.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=651FhzdR}Urban merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiMerchantOnApply), new TextObject("{=1zXrlaav}Your family were respected traders in an oasis town. They ran caravans across the desert, and were experts in the finer points of negotiating passage through the desert tribes' territories.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=g31pXuqi}Oasis farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiOasisFarmerOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiOasisFarmerOnApply), new TextObject("{=5P0KqBAw}Your family tilled the soil in one of the oases of the Nahasa and tended the palm orchards that produced the desert's famous dates. Your father was a member of the main foot levy of his tribe, fighting with his kinsmen under the emir's banner.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=EEedqolz}Bedouin", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Bow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiBedouinOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBedouinOnApply), new TextObject("{=PKhcPbBX}Your family were part of a nomadic clan, crisscrossing the wastes between wadi beds and wells to feed their herds of goats and camels on the scraggly scrubs of the Nahasa.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=tRIrbTvv}Urban back-alley thugs", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Polearm }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiBackAlleyThugOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBackAlleyThugOnApply), new TextObject("{=6bUSbsKC}Your father worked for a fitiwi, one of the strongmen who keep order in the poorer quarters of the oasis towns. He resolved disputes over land, dice and insults, imposing his authority with the fitiwi's traditional staff.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=!}rais", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiTribesmanOnApply), new TextObject("{=MFrIHJZM}Your family was from a smaller offshoot of an emir's tribe. Your father's land gave him enough income to afford a horse but he was not quite wealthy enough to buy the armor needed to join the heavier cavalry. He fought as one of the light horsemen for which the desert is famous.", null), null, 0, 150, 3000, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=!}warrior-slaves", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiWariorSlaveOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiWariorSlaveOnApply), new TextObject("{=GsPC2MgU}Your father was part of one of the slave-bodyguards maintained by the Aserai emirs. He fought by his master's side with tribe's armored cavalry, and was freed - perhaps for an act of valor, or perhaps he paid for his freedom with his share of the spoils of battle. He then married your mother.", null), null, 0, 20, -600, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=!}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiMerchantOnApply), new TextObject("{=1zXrlaav}Your family were respected traders in an oasis town. They ran caravans across the desert, and were experts in the finer points of negotiating passage through the desert tribes' territories.", null), null, 0, 0, 4000, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=!}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiOasisFarmerOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiOasisFarmerOnApply), new TextObject("{=5P0KqBAw}Your family tilled the soil in one of the oases of the Nahasa and tended the palm orchards that produced the desert's famous dates. Your father was a member of the main foot levy of his tribe, fighting with his kinsmen under the emir's banner.", null), null, 0, 0, -900, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=!}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiBedouinOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBedouinOnApply), new TextObject("{=PKhcPbBX}Your family were part of a nomadic clan, crisscrossing the wastes between wadi beds and wells to feed their herds of goats and camels on the scraggly scrubs of the Nahasa.", null), null, 0, 10, 800, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=!}thugs", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiBackAlleyThugOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBackAlleyThugOnApply), new TextObject("{=6bUSbsKC}Your father worked for a fitiwi, one of the strongmen who keep order in the poorer quarters of the oasis towns. He resolved disputes over land, dice and insults, imposing his authority with the fitiwi's traditional staff.", null), null, 0, 0, -800, 0, 0);
 
             CharacterCreationCategory characterCreationCategory2 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(BattanianParentsOnCondition));
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=GeNKQlHR}Members of the chieftain's hearthguard", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaChieftainsHearthguardOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaChieftainsHearthguardOnApply), new TextObject("{=LpH8SYFL}Your family were the trusted kinfolk of a Battanian chieftain, and sat at his table in his great hall. Your father assisted his chief in running the affairs of the clan and trained with the traditional weapons of the Battanian elite, the two-handed sword or falx and the bow.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=AeBzTj6w}Healers", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Charm }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaHealerOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaHealerOnApply), new TextObject("{=j6py5Rv5}Your parents were healers who gathered herbs and treated the sick. As a living reservoir of Battanian tradition, they were also asked to adjudicate many disputes between the clans.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=tGEStbxb}Tribespeople", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaTribesmanOnApply), new TextObject("{=WchH8bS2}Your family were middle-ranking members of a Battanian clan, who tilled their own land. Your father fought with the kern, the main body of his people's warriors, joining in the screaming charges for which the Battanians were famous.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=BCU6RezA}Smiths", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.TwoHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaSmithOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaSmithOnApply), new TextObject("{=kg9YtrOg}Your family were smiths, a revered profession among the Battanians. They crafted everything from fine filigree jewelry in geometric designs to the well-balanced longswords favored by the Battanian aristocracy.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=7eWmU2mF}Foresters", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Tactics }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaWoodsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaWoodsmanOnApply), new TextObject("{=7jBroUUQ}Your family had little land of their own, so they earned their living from the woods, hunting and trapping. They taught you from an early age that skills like finding game trails and killing an animal with one shot could make the difference between eating and starvation.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=SpJqhEEh}Bards", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaBardOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaBardOnApply), new TextObject("{=aVzcyhhy}Your father was a bard, drifting from chieftain's hall to chieftain's hall making his living singing the praises of one Battanian aristocrat and mocking his enemies, then going to his enemy's hall and doing the reverse. You learned from him that a clever tongue could spare you  from a life toiling in the fields, if you kept your wits about you.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=!}chieftains", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaChieftainsHearthguardOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaChieftainsHearthguardOnApply), new TextObject("{=LpH8SYFL}Your family were the trusted kinfolk of a Battanian chieftain, and sat at his table in his great hall. Your father assisted his chief in running the affairs of the clan and trained with the traditional weapons of the Battanian elite, the two-handed sword or falx and the bow.", null), null, 0, 150, 1000, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=!}healers", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaHealerOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaHealerOnApply), new TextObject("{=j6py5Rv5}Your parents were healers who gathered herbs and treated the sick. As a living reservoir of Battanian tradition, they were also asked to adjudicate many disputes between the clans.", null), null, 50, 0, 0, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=!}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Crafting }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaTribesmanOnApply), new TextObject("{=WchH8bS2}Your family were middle-ranking members of a Battanian clan, who tilled their own land. Your father fought with the kern, the main body of his people's warriors, joining in the screaming charges for which the Battanians were famous.", null), null, 0, -800, 0, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=!}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaSmithOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaSmithOnApply), new TextObject("{=kg9YtrOg}Your family were smiths, a revered profession among the Battanians. They crafted everything from fine filigree jewelry in geometric designs to the well-balanced longswords favored by the Battanian aristocracy.", null), null, 0, 10, 500, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=!}foresters", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Bow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaWoodsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaWoodsmanOnApply), new TextObject("{=7jBroUUQ}Your family had little land of their own, so they earned their living from the woods, hunting and trapping. They taught you from an early age that skills like finding game trails and killing an animal with one shot could make the difference between eating and starvation.", null), null, 0, 0, -980, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=!}bards", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaBardOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaBardOnApply), new TextObject("{=aVzcyhhy}Your father was a bard, drifting from chieftain's hall to chieftain's hall making his living singing the praises of one Battanian aristocrat and mocking his enemies, then going to his enemy's hall and doing the reverse. You learned from him that a clever tongue could spare you  from a life toiling in the fields, if you kept your wits about you.", null), null, 0, 20, -200, 0, 0);
 
             CharacterCreationCategory characterCreationCategory3 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(EmpireParentsOnCondition));
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=InN5ZZt3}A landlord's retainers", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireLandlordsRetainerOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireLandlordsRetainerOnApply), new TextObject("{=ivKl4mV2}Your father was a trusted lieutenant of the local landowning aristocrat. He rode with the lord's cavalry, fighting as an armored lancer.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=651FhzdR}Urban merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireMerchantOnApply), new TextObject("{=FQntPChs}Your family were merchants in one of the main cities of the Empire. They sometimes organized caravans to nearby towns, and discussed issues in the town council.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=sb4gg8Ak}Freeholders", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireFreeholderOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireFreeholderOnApply), new TextObject("{=09z8Q08f}Your family were small farmers with just enough land to feed themselves and make a small profit. People like them were the pillars of the imperial rural economy, as well as the backbone of the levy.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=v48N6h1t}Urban artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Crossbow }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireArtisanOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireArtisanOnApply), new TextObject("{=ueCm5y1C}Your family owned their own workshop in a city, making goods from raw materials brought in from the countryside. Your father played an active if minor role in the town council, and also served in the militia.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=7eWmU2mF}Foresters", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Bow }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireWoodsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireWoodsmanOnApply), new TextObject("{=yRFSzSDZ}Your family lived in a village, but did not own their own land. Instead, your father supplemented paid jobs with long trips in the woods, hunting and trapping, always keeping a wary eye for the lord's game wardens.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=aEke8dSb}Urban vagabonds", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireVagabondOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireVagabondOnApply), new TextObject("{=Jvf6K7TZ}Your family numbered among the many poor migrants living in the slums that grow up outside the walls of imperial cities, making whatever money they could from a variety of odd jobs. Sometimes they did service for one of the Empire's many criminal gangs, and you had an early look at the dark side of life.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=!}aristocrates", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireLandlordsRetainerOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireLandlordsRetainerOnApply), new TextObject("{=ivKl4mV2}Your father was a trusted lieutenant of the local landowning aristocrat. He rode with the lord's cavalry, fighting as an armored lancer.", null), null, 0, 150, 2000, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=!}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireMerchantOnApply), new TextObject("{=FQntPChs}Your family were merchants in one of the main cities of the Empire. They sometimes organized caravans to nearby towns, and discussed issues in the town council.", null), null, 0, 0, 6000, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=!}freeholders", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireFreeholderOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireFreeholderOnApply), new TextObject("{=09z8Q08f}Your family were small farmers with just enough land to feed themselves and make a small profit. People like them were the pillars of the imperial rural economy, as well as the backbone of the levy.", null), null, 0, 0, -600, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=!}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireArtisanOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireArtisanOnApply), new TextObject("{=ueCm5y1C}Your family owned their own workshop in a city, making goods from raw materials brought in from the countryside. Your father played an active if minor role in the town council, and also served in the militia.", null), null, 0, 20, 1000, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=!}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Polearm }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireWoodsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireWoodsmanOnApply), new TextObject("{=yRFSzSDZ}Your family lived in a village, but did not own their own land. Instead, your father supplemented paid jobs with long trips in the woods, hunting and trapping, always keeping a wary eye for the lord's game wardens.", null), null, 0, 40, 500, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=!}vagabonds", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireVagabondOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireVagabondOnApply), new TextObject("{=Jvf6K7TZ}Your family numbered among the many poor migrants living in the slums that grow up outside the walls of imperial cities, making whatever money they could from a variety of odd jobs. Sometimes they did service for one of the Empire's many criminal gangs, and you had an early look at the dark side of life.", null), null, 0, 0, -980, 0, 0);
 
             CharacterCreationCategory characterCreationCategory4 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(KhuzaitParentsOnCondition));
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=FVaRDe2a}A noyan's kinsfolk", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNoyansKinsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNoyansKinsmanOnApply), new TextObject("{=jAs3kDXh}Your family were the trusted kinsfolk of a Khuzait noyan, and shared his meals in the chieftain's yurt. Your father assisted his chief in running the affairs of the clan and fought in the core of armored lancers in the center of the Khuzait battle line.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=TkgLEDRM}Merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitMerchantOnApply), new TextObject("{=qPg3IDiq}Your family came from one of the merchant clans that dominated the cities in eastern Calradia before the Khuzait conquest. They adjusted quickly to their new masters, keeping the caravan routes running and ensuring that the tariff revenues that once went into imperial coffers now flowed to the khanate.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=tGEStbxb}Tribespeople", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Riding }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitTribesmanOnApply), new TextObject("{=URgZ4ai4}Your family were middle-ranking members of one of the Khuzait clans. He had some  herds of his own, but was not rich. When the Khuzait horde was summoned to battle, he fought with the horse archers, shooting and wheeling and wearing down the enemy before the lancers delivered the final punch.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=gQ2tAvCz}Farmers", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitFarmerOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitFarmerOnApply), new TextObject("{=5QSGoRFj}Your family tilled one of the small patches of arable land in the steppes for generations. When the Khuzaits came, they ceased paying taxes to the emperor and providing conscripts for his army, and served the khan instead.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=vfhVveLW}Shamans", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Charm }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitShamanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitShamanOnApply), new TextObject("{=WOKNhaG2}Your family were guardians of the sacred traditions of the Khuzaits, channelling the spirits of the wilderness and of the ancestors. They tended the sick and dispensed wisdom, resolving disputes and providing practical advice.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=Xqba1Obq}Nomads", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Riding }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNomadOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNomadOnApply), new TextObject("{=9aoQYpZs}Your family's clan never pledged its loyalty to the khan and never settled down, preferring to live out in the deep steppe away from his authority. They remain some of the finest trackers and scouts in the grasslands, as the ability to spot an enemy coming and move quickly is often all that protects their herds from their neighbors' predations.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=!}noyans", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNoyansKinsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNoyansKinsmanOnApply), new TextObject("{=jAs3kDXh}Your family were the trusted kinsfolk of a Khuzait noyan, and shared his meals in the chieftain's yurt. Your father assisted his chief in running the affairs of the clan and fought in the core of armored lancers in the center of the Khuzait battle line.", null), null, 0, 150, 1000, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=!}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitMerchantOnApply), new TextObject("{=qPg3IDiq}Your family came from one of the merchant clans that dominated the cities in eastern Calradia before the Khuzait conquest. They adjusted quickly to their new masters, keeping the caravan routes running and ensuring that the tariff revenues that once went into imperial coffers now flowed to the khanate.", null), null, 0, 0, 800, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=!}nomads", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitTribesmanOnApply), new TextObject("{=URgZ4ai4}Your family were middle-ranking members of one of the Khuzait clans. He had some  herds of his own, but was not rich. When the Khuzait horde was summoned to battle, he fought with the horse archers, shooting and wheeling and wearing down the enemy before the lancers delivered the final punch.", null), null, 0, 50, -300, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=!}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitFarmerOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitFarmerOnApply), new TextObject("{=5QSGoRFj}Your family tilled one of the small patches of arable land in the steppes for generations. When the Khuzaits came, they ceased paying taxes to the emperor and providing conscripts for his army, and served the khan instead.", null), null, 0, 20, 400, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=!}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitShamanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitShamanOnApply), new TextObject("{=WOKNhaG2}Your family were guardians of the sacred traditions of the Khuzaits, channelling the spirits of the wilderness and of the ancestors. They tended the sick and dispensed wisdom, resolving disputes and providing practical advice.", null), null, 0, 30, 700, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=!}thugs", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNomadOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNomadOnApply), new TextObject("{=9aoQYpZs}Your family's clan never pledged its loyalty to the khan and never settled down, preferring to live out in the deep steppe away from his authority. They remain some of the finest trackers and scouts in the grasslands, as the ability to spot an enemy coming and move quickly is often all that protects their herds from their neighbors' predations.", null), null, 0, 0, -980, 0, 0);
 
             CharacterCreationCategory characterCreationCategory5 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(SturgianParentsOnCondition));
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=mc78FEbA}A boyar's companions", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.TwoHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaBoyarsCompanionOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaBoyarsCompanionOnApply), new TextObject("{=hob3WVkU}Your father was a member of a boyar's druzhina, the 'companions' that make up his retinue. He sat at his lord's table in the great hall, oversaw the boyar's estates, and stood by his side in the center of the shield wall in battle.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=HqzVBfpl}Urban traders", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Tactics }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaTraderOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaTraderOnApply), new TextObject("{=bjVMtW3W}Your family were merchants who lived in one of Sturgia's great river ports, organizing the shipment of the north's bounty of furs, honey and other goods to faraway lands.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=zrpqSWSh}Free farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaFreemanOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaFreemanOnApply), new TextObject("{=Mcd3ZyKq}Your family had just enough land to feed themselves and make a small profit. People like them were the pillars of the kingdom's economy, as well as the backbone of the levy.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=v48N6h1t}Urban artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaArtisanOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaArtisanOnApply), new TextObject("{=ueCm5y1C}Your family owned their own workshop in a city, making goods from raw materials brought in from the countryside. Your father played an active if minor role in the town council, and also served in the militia.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=YcnK0Thk}Hunters", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Bow }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaHunterOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaHunterOnApply), new TextObject("{=WyZ2UtFF}Your family had no taste for the authority of the boyars. They made their living deep in the woods, slashing and burning fields which they tended for a year or two before moving on. They hunted and trapped fox, hare, ermine, and other fur-bearing animals.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=TPoK3GSj}Vagabonds", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaVagabondOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaVagabondOnApply), new TextObject("{=2SDWhGmQ}Your family numbered among the poor migrants living in the slums that grow up outside the walls of the river cities, making whatever money they could from a variety of odd jobs. Sometimes they did services for one of the region's many criminal gangs.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=!}boyars", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaBoyarsCompanionOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaBoyarsCompanionOnApply), new TextObject("{=hob3WVkU}Your father was a member of a boyar's druzhina, the 'companions' that make up his retinue. He sat at his lord's table in the great hall, oversaw the boyar's estates, and stood by his side in the center of the shield wall in battle.", null), null, 0, 150, 2000, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=!}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaTraderOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaTraderOnApply), new TextObject("{=bjVMtW3W}Your family were merchants who lived in one of Sturgia's great river ports, organizing the shipment of the north's bounty of furs, honey and other goods to faraway lands.", null), null, 0, 0, 2500, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=!}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaFreemanOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaFreemanOnApply), new TextObject("{=Mcd3ZyKq}Your family had just enough land to feed themselves and make a small profit. People like them were the pillars of the kingdom's economy, as well as the backbone of the levy.", null), null, 0, 0, -800, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=!}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaArtisanOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaArtisanOnApply), new TextObject("{=ueCm5y1C}Your family owned their own workshop in a city, making goods from raw materials brought in from the countryside. Your father played an active if minor role in the town council, and also served in the militia.", null), null, 0, 20, 1200, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=!}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaHunterOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaHunterOnApply), new TextObject("{=WyZ2UtFF}Your family had no taste for the authority of the boyars. They made their living deep in the woods, slashing and burning fields which they tended for a year or two before moving on. They hunted and trapped fox, hare, ermine, and other fur-bearing animals.", null), null, 0, 60, 600, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=!}raiders", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaVagabondOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaVagabondOnApply), new TextObject("{=2SDWhGmQ}Your family numbered among the poor migrants living in the slums that grow up outside the walls of the river cities, making whatever money they could from a variety of odd jobs. Sometimes they did services for one of the region's many criminal gangs.", null), null, 0, 40, 1000, 0, 0);
 
             CharacterCreationCategory characterCreationCategory6 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(VlandianParentsOnCondition));
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=2TptWc4m}A baron's retainers", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaBaronsRetainerOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBaronsRetainerOnApply), new TextObject("{=0Suu1Q9q}Your father was a bailiff for a local feudal magnate. He looked after his liege's estates, resolved disputes in the village, and helped train the village levy. He rode with the lord's cavalry, fighting as an armored knight.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=651FhzdR}Urban merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMerchantOnApply), new TextObject("{=qNZFkxJb}Your family were merchants in one of the main cities of the kingdom. They organized caravans to nearby towns and were active in the local merchant's guild.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=RDfXuVxT}Yeomen", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Crossbow }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaYeomanOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaYeomanOnApply), new TextObject("{=BLZ4mdhb}Your family were small farmers with just enough land to feed themselves and make a small profit. People like them were the pillars of the kingdom's economy, as well as the backbone of the levy.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=p2KIhGbE}Urban blacksmith", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.TwoHanded }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaBlacksmithOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBlacksmithOnApply), new TextObject("{=btsMpRcA}Your family owned a smithy in a city. Your father played an active if minor role in the town council, and also served in the militia.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=YcnK0Thk}Hunters", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Crossbow }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaHunterOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaHunterOnApply), new TextObject("{=yRFSzSDZ}Your family lived in a village, but did not own their own land. Instead, your father supplemented paid jobs with long trips in the woods, hunting and trapping, always keeping a wary eye for the lord's game wardens.", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=ipQP6aVi}Mercenaries", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Crossbow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMercenaryOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMercenaryOnApply), new TextObject("{=yYhX6JQC}Your father joined one of Vlandia's many mercenary companies, composed of men who got such a taste for war in their lord's service that they never took well to peace. Their crossbowmen were much valued across Calradia. Your mother was a camp follower, taking you along in the wake of bloody campaigns.", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=!}barons", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaBaronsRetainerOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBaronsRetainerOnApply), new TextObject("{=0Suu1Q9q}Your father was a bailiff for a local feudal magnate. He looked after his liege's estates, resolved disputes in the village, and helped train the village levy. He rode with the lord's cavalry, fighting as an armored knight.", null), null, 0, 150, 3000, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=!}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMerchantOnApply), new TextObject("{=qNZFkxJb}Your family were merchants in one of the main cities of the kingdom. They organized caravans to nearby towns and were active in the local merchant's guild.", null), null, 0, 20, 5000, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=!}yeomen", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaYeomanOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaYeomanOnApply), new TextObject("{=BLZ4mdhb}Your family were small farmers with just enough land to feed themselves and make a small profit. People like them were the pillars of the kingdom's economy, as well as the backbone of the levy.", null), null, 0, 0, -800, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=!}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaBlacksmithOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBlacksmithOnApply), new TextObject("{=btsMpRcA}Your family owned a smithy in a city. Your father played an active if minor role in the town council, and also served in the militia.", null), null, 0, 30, 500, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=!}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaHunterOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaHunterOnApply), new TextObject("{=yRFSzSDZ}Your family lived in a village, but did not own their own land. Instead, your father supplemented paid jobs with long trips in the woods, hunting and trapping, always keeping a wary eye for the lord's game wardens.", null), null, 0, 20, 200, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=!}mercenaries", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Crossbow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMercenaryOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMercenaryOnApply), new TextObject("{=yYhX6JQC}Your father joined one of Vlandia's many mercenary companies, composed of men who got such a taste for war in their lord's service that they never took well to peace. Their crossbowmen were much valued across Calradia. Your mother was a camp follower, taking you along in the wake of bloody campaigns.", null), null, 0, 40, 600, 0, 0);
 
             characterCreation.AddNewMenu(characterCreationMenu);
         }
@@ -127,7 +128,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         new protected void AseraiBedouinOnConsequence(CharacterCreation characterCreation)
         {
-            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Herder, "", "", true, true);
+            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Artisan, "", "", true, true);
         }
         new protected void AseraiBackAlleyThugOnConsequence(CharacterCreation characterCreation)
         {
@@ -179,7 +180,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         new protected void EmpireWoodsmanOnConsequence(CharacterCreation characterCreation)
         {
-            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Hunter, "", "", true, true);
+            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Mercenary, "", "", true, true);
         }
         new protected void EmpireVagabondOnConsequence(CharacterCreation characterCreation)
         {
@@ -276,45 +277,35 @@ namespace wipo.patches.CharacterCreationPatch
 
         protected void AddEducationMenuPatch(CharacterCreation characterCreation)
         {
-            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Education", null), new TextObject("{=!}Your parents insisted that you receive an education in...", null), new CharacterCreationOnInit(this.EducationOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
+            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Education", null), new TextObject("{=!}Your parents wanted you to...", null), new CharacterCreationOnInit(this.EducationOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceHerderOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHerderOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Crafting }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceSmithyOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceSmithyOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Engineering }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceRepairmanOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceRepairmanOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Scouting }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceGathererOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceGathererOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Tactics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceHunterOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHunterOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(RuralAdolescenceOnCondition), new CharacterCreationOnSelect(RuralAdolescenceHelperOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHelperOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Crossbow, DefaultSkills.Tactics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(UrbanAdolescenceOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceWatcherOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceWatcherOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(UrbanAdolescenceOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceGangerOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceGangerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Crafting }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(UrbanAdolescenceOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceDockerOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(UrbanPoorAdolescenceOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceMarketerOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceMarketerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Engineering, DefaultSkills.Leadership }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, new CharacterCreationOnCondition(UrbanPoorAdolescenceOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceTutorOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Steward }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(UrbanPoorAdolescenceOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}become a faris", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(AseraiRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}enter the hearthguard", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(BattaniaRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}become a cataphract", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(EmpireRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}enter a khan's guard", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(KhuzaitRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}join a druzhina", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}become a knight", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}lead armies", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Leadership, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}be part of the court", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Roguery, DefaultSkills.Tactics }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}become a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceHerderOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHerderOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}learn a trade", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceSmithyOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceSmithyOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}become a scholar", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Engineering, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceRepairmanOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceRepairmanOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}be a {?PLAYER.GENDER}woman{?}man{\\?} of faith", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward, DefaultSkills.Trade }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceGathererOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceGathererOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}tend to the fields", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Medicine, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceHunterOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHunterOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}learn how to defend yourself", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}know how to trick others", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Charm, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonerOnCondition), new CharacterCreationOnSelect(RuralAdolescenceHelperOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHelperOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreation.AddNewMenu(characterCreationMenu);
         }
-        new protected bool RuralType()
+
+        protected bool ParentsCommonerOnCondition()
         {
-            return this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Farmer || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Hunter || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Bard || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Herder || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Vagabond || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Healer || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Artisan;
+            return this._familyOccupationType != SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        new protected bool RichParents()
+
+        protected bool ParentsRetainerOnCondition()
         {
-            return this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer || this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Merchant;
-        }
-        new protected bool RuralAdolescenceOnCondition()
-        {
-            return this.RuralType();
-        }
-        new protected bool UrbanAdolescenceOnCondition()
-        {
-            return !this.RuralType();
-        }
-        new protected bool UrbanRichAdolescenceOnCondition()
-        {
-            return !this.RuralType() && this.RichParents();
-        }
-        new protected bool UrbanPoorAdolescenceOnCondition()
-        {
-            return !this.RuralType() && !this.RichParents();
+            return this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
 
         new protected void RuralAdolescenceHerderOnConsequence(CharacterCreation characterCreation)
@@ -577,7 +568,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiFarisOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -586,7 +577,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiCaravanerOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -595,7 +586,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -604,7 +595,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiCraftmanOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -613,7 +604,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiFarmerOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -622,7 +613,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiSlaveWarriorOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -631,7 +622,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiMountedArcherOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -640,7 +631,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiArcherOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -649,7 +640,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthAseraiHashashinOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -668,7 +659,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattaniaFiannaOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -677,7 +668,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattaniaDruidOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -686,7 +677,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBataniaMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -695,7 +686,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattaniaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -704,7 +695,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattanniaForesterOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -713,7 +704,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattaniaKernOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -722,7 +713,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattaniaFalxOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -731,7 +722,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattaniaScoutOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -740,7 +731,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthBattaniaThugOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -759,7 +750,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireCommanderOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -768,7 +759,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireEngineerOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -777,7 +768,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -786,7 +777,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireCraftmanOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -795,7 +786,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireFarmerOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -804,7 +795,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireLegionaryOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -813,7 +804,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireArcherOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -822,7 +813,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireCavalryOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -831,7 +822,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthEmpireHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -859,7 +850,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitKhansGuardOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -868,7 +859,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitNomadOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -877,7 +868,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -886,7 +877,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitCraftmanOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -895,7 +886,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitFarmerOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -904,7 +895,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitCavalryOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -913,7 +904,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -922,7 +913,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitInfantryOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -931,7 +922,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthKhuzaitThugOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -950,7 +941,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaDruzhinaOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -959,7 +950,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaUNIQUEROUTEOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -968,7 +959,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -977,7 +968,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -986,7 +977,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaFarmerOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -995,7 +986,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1004,7 +995,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaShockTroopOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1013,7 +1004,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaArcherOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1022,7 +1013,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthSturgiaRaiderOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1041,7 +1032,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaKnightOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1050,7 +1041,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaChamberlainOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1059,7 +1050,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1068,7 +1059,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaGuildOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1077,7 +1068,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaSerfOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1086,7 +1077,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1095,7 +1086,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaLightCavalryOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1104,7 +1095,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiaCrossbowmanOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
@@ -1113,7 +1104,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void YouthVlandiHighwaymanOnConsequence(CharacterCreation characterCreation)
         {
-            base.SelectedTitleType = 10;
+            base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>
             {
