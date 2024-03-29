@@ -9,7 +9,9 @@ using TaleWorlds.Localization;
 
 namespace wipo.patches.CharacterCreationPatch
 {
-
+    //this github does not contain the needed XML for the starting equipement, at least for now.
+    //feel free to use it as a base for your mod, but while it is functionnal, it also is far from being done atm, a LOT of polishing has to be done.
+    //If you have any idea for improvement please do share it, I am quite lacking in the idea department tbh
     [HarmonyPatch(typeof(SandboxCharacterCreationContent), "OnInitialized")]
     public class CharacterCreationRedone : SandboxCharacterCreationContent
     {
@@ -31,12 +33,10 @@ namespace wipo.patches.CharacterCreationPatch
             AddAgeSelectionMenuPatch(characterCreation);
         }
 
-        //first menu : family you were born in, divided per culture in submenus. I haven't been able to redo the same structure in other menu (haven't tried much I admit), so I replaced the submenus with a culture specific condition in each option
+        //first menu : family you were born in, divided per culture in submenus. I haven't been able to redo the same structure in other menu (haven't tried much I admit), so I replaced the submenus structure with a culture specific condition in each option instead
         protected void AddParentsMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Family", null), new TextObject("{=!}You were born into a family of..", null), new CharacterCreationOnInit(this.ParentsOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
-
-            CharacterCreationCategory characterCreationCategory1 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(AseraiParentsOnCondition));
 
             //AddCategoryOption can change :
             // in which skill you level, how many focus point you put in and how many level you gain in it, for up to three skill. Haven't tried more but it would most likely require an edit of the function that displays what you gain.
@@ -48,6 +48,7 @@ namespace wipo.patches.CharacterCreationPatch
             // the last ones are : the traits to level in a list, by how much, then comes gained renown, gained gold, free & unassigned focus point and attribute point
             // I tried to give negative values to some of these like gold, renown or trait level but it doesn't seem to have any effect. so unless some other patching is done, no starting indebted, with the cruel trait, and most likely any other debuff
             // to patch : CharacterCreationContentBase.ApplySkillAndAttributeEffects to have debuffs possible, most likely will do later
+            CharacterCreationCategory characterCreationCategory1 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(AseraiParentsOnCondition));
             characterCreationCategory1.AddCategoryOption(new TextObject("{=!}rais", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiTribesmanOnApply), new TextObject("{=!}", null), null, 0, 150, 3000, 0, 0);
             characterCreationCategory1.AddCategoryOption(new TextObject("{=!}warrior-slaves", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiWariorSlaveOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiWariorSlaveOnApply), new TextObject("{=!}", null), null, 0, 20, -600, 0, 0);
             characterCreationCategory1.AddCategoryOption(new TextObject("{=!}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiMerchantOnApply), new TextObject("{=!}", null), null, 0, 0, 4000, 0, 0);
@@ -289,7 +290,7 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
-
+        // I changed the adolescence menu into a menu that specifies the education the parent gave to the player
         protected void AddEducationMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Education", null), new TextObject("{=!}Your parents wanted you to...", null), new CharacterCreationOnInit(this.EducationOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
@@ -322,13 +323,13 @@ namespace wipo.patches.CharacterCreationPatch
         {
             return this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected bool PlayerIsFemaleOnConditions()
+        protected bool PlayerIsFemaleOnConditions() //WIP, so far no idea of how to implement it
         {
             return true;
         }
 
 
-        //these just change the displayed equipment and animation
+        //these just change the displayed equipment and animation, will be changed to better match the above choices
         new protected void RuralAdolescenceHerderOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_streets"});
@@ -399,7 +400,7 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
-        //this one will be completely reworked, looking into what to put instead
+        //this one will be completely reworked as it is still vanilla and very unsatisfying, looking into what to put instead, thinking of having the player chose the characterés favorite saying
         protected void AddChildhoodMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}", null), new TextObject("{=!}", null), new CharacterCreationOnInit(this.ChildhoodOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
@@ -449,7 +450,8 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
-        // here we choose the starting equipment alongside the start in life. as I said earlier I used culture specific conditions to have them unique jobs when I could think of them
+        // here we choose the starting equipment alongside the start in life. as I said earlier I used culture specific conditions to have culture specific jobs when I could think of them
+        // structure is basically noble troop, culture unique job, merchant, craftman, farmer, type of troop made according to my troop mod (https://www.nexusmods.com/mountandblade2bannerlord/mods/4932, which is why some skills/names might be odd ) and then criminals
         protected void AddYouthMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Early Adulthood", null), new TextObject("{=!}You started your life as..", null), new CharacterCreationOnInit(this.YouthOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
@@ -501,7 +503,7 @@ namespace wipo.patches.CharacterCreationPatch
 
             //Sturgia
             characterCreationCategory.AddCategoryOption(new TextObject("{=!}a member of a druzhina", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Throwing, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaDruzhinaOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthOtherOutridersOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!}culture unique route", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Scouting, DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaUNIQUEROUTEOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthHearthGuardOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!}PLACECHOLDER, CULTURE SPECIFIC JOB TO BE THOUGHT OF", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Scouting, DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaUNIQUEROUTEOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthHearthGuardOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=!}a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Steward, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthCavalryOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=!}a craftman", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaCraftmanOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthOtherGarrisonOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=!}a peasant", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Steward, DefaultSkills.Medicine }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaFarmerOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthGarrisonOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);

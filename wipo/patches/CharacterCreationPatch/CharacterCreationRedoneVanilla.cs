@@ -8,7 +8,10 @@ using TaleWorlds.Localization;
 
 namespace wipo.patches.CharacterCreationPatch
 {
-
+    /// <summary>
+    /// THIS FILES ISN'T USED? IT IS KEPT IN CASE I DO SOMETHING STUPID AND NEED TO START FROM THE GROUND UP
+    /// number of time it happened : 1
+    /// </summary>
     [HarmonyPatch(typeof(SandboxCharacterCreationContent), "OnInitialized")]
     public class CharacterCreationRedoneVanilla : SandboxCharacterCreationContent
     {
