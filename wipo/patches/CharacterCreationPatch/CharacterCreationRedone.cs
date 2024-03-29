@@ -13,6 +13,7 @@ namespace wipo.patches.CharacterCreationPatch
     [HarmonyPatch(typeof(SandboxCharacterCreationContent), "OnInitialized")]
     public class CharacterCreationRedone : SandboxCharacterCreationContent
     {
+        //patches the function that create the menus and replaces it to mine, which inits my menus
         [HarmonyPrefix]
         static bool prefix(ref CharacterCreationRedone __instance, CharacterCreation characterCreation)
         {
@@ -123,7 +124,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        //sets the parents job, can be used as a condition
+        //sets the parents job, can be used as a condition. I have yet to rewrite these
         new protected void AseraiTribesmanOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
