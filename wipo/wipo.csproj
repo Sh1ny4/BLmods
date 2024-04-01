@@ -66,6 +66,7 @@
     <Compile Include="patches\BanditsTweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\BanditsTweaks\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
+    <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
     <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Leveling\DefaultAttributeInitializePatch.cs" />
     <Compile Include="patches\Leveling\SkillLimitPatch.cs" />
