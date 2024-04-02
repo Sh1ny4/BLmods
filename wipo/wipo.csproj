@@ -37,6 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\wipo code\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="TaleWorlds.CampaignSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
@@ -70,8 +71,6 @@
     <Compile Include="patches\BanditsTweaks\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
-    <Compile Include="patches\EliteInCastle\AiHourlyTickPatch.cs" />
-    <Compile Include="patches\EliteInCastle\FindSettlementsToVisitWithDistancesPatch.cs" />
     <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Leveling\DefaultAttributeInitializePatch.cs" />
     <Compile Include="patches\Leveling\SkillLimitPatch.cs" />
