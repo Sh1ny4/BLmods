@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterCreationContent;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
-using TaleWorlds.CampaignSystem.Conversation.Tags;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -297,23 +296,23 @@ namespace wipo.patches.CharacterCreationPatch
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Received education", null), new TextObject("{=!}Your parents wanted you to...", null), new CharacterCreationOnInit(this.EducationOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Faris}become a faris", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(AseraiRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Hearthguard}enter the hearthguard", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(BattaniaRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Cataphract}become a cataphract", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(EmpireRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_KhanGuard}enter a khan's guard", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(KhuzaitRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Druzhina}join a druzhina", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Knight}become a knight", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Commander}lead armies", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Leadership, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Court}be part of the court", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Roguery, DefaultSkills.Tactics }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Faris}become a faris", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(AseraiRetainerOnCondition), new CharacterCreationOnSelect(EdNobleTroopOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Hearthguard}enter the hearthguard", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(BattaniaRetainerOnCondition), new CharacterCreationOnSelect(EdNobleTroopOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Cataphract}become a cataphract", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(EmpireRetainerOnCondition), new CharacterCreationOnSelect(EdNobleTroopOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_KhanGuard}enter a khan's guard", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(KhuzaitRetainerOnCondition), new CharacterCreationOnSelect(EdNobleTroopOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Druzhina}join a druzhina", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaRetainerOnCondition), new CharacterCreationOnSelect(EdNobleTroopOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Knight}become a knight", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(EdNobleTroopOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Commander}lead armies", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Leadership, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(EdLeadTroopsOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_Court}be part of the court", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Roguery, DefaultSkills.Tactics }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(EdCourtLifeOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_trade}become a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceHerderOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHerderOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_crafting}learn a trade", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceSmithyOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceSmithyOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_scholar}become a scholar", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Engineering, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceRepairmanOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceRepairmanOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_religious}be a {?PLAYER.GENDER}woman{?}man{\\?} of faith", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward, DefaultSkills.Trade }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceGathererOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceGathererOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_farmer}tend to the fields", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Medicine, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(RuralAdolescenceHunterOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHunterOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_lady}become a lady in waiting", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonersFemaleOnConditions), new CharacterCreationOnSelect(RuralAdolescenceHerderOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHerderOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_defense}learn how to defend yourself", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonersMaleOnConditions), new CharacterCreationOnSelect(UrbanAdolescenceHorserOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_trickery}know how to trick others", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Charm, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonerOnCondition), new CharacterCreationOnSelect(RuralAdolescenceHelperOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHelperOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_trade}become a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(EdMerchantOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHerderOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_crafting}learn a trade", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EdArtisanOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceSmithyOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_scholar}become a scholar", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Engineering, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EdScholarOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceRepairmanOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_religious}be a {?PLAYER.GENDER}woman{?}man{\\?} of faith", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward, DefaultSkills.Trade }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EdReligiousOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceGathererOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_farmer}tend to the fields", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Medicine, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EdFarmerOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHunterOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_lady}become a lady in waiting", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonersFemaleOnConditions), new CharacterCreationOnSelect(EdLadyOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHerderOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_defense}learn how to defend yourself", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonersMaleOnConditions), new CharacterCreationOnSelect(EdDefenseOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.UrbanAdolescenceDockerOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Education_Choice_trickery}know how to trick others", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Charm, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonerOnCondition), new CharacterCreationOnSelect(EdTrickeryOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.RuralAdolescenceHelperOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
@@ -336,66 +335,60 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        //these just change the displayed equipment and animation, will be changed to better match the above choices
-        new protected void RuralAdolescenceHerderOnConsequence(CharacterCreation characterCreation)
+         protected void EdNobleTroopOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_streets"});
-            this.RefreshPropsAndClothing(characterCreation, false, "carry_bostaff_rogue1", true, "");
-        }
-        new protected void RuralAdolescenceSmithyOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_militia"});
-            this.RefreshPropsAndClothing(characterCreation, false, "peasant_hammer_1_t1", true, "");
-        }
-        new protected void RuralAdolescenceRepairmanOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_grit"});
-            this.RefreshPropsAndClothing(characterCreation, false, "carry_hammer", true, "");
-        }
-        new protected void RuralAdolescenceGathererOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers"});
-            this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_basket_a", true, "");
-        }
-        new protected void RuralAdolescenceHunterOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_sharp"});
-            this.RefreshPropsAndClothing(characterCreation, false, "composite_bow", true, "");
-        }
-        new protected void RuralAdolescenceHelperOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers_2"});
-            this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_fabric_c", true, "");
-        }
-        new protected void UrbanAdolescenceWatcherOnConsequence(CharacterCreation characterCreation)
-        {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_fox"});
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_decisive" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        new protected void UrbanAdolescenceMarketerOnConsequence(CharacterCreation characterCreation)
+        protected void EdLeadTroopsOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_manners"});
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_leader" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        new protected void UrbanAdolescenceGangerOnConsequence(CharacterCreation characterCreation)
+        protected void EdCourtLifeOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_athlete"});
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_manners" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        new protected void UrbanAdolescenceDockerOnConsequence(CharacterCreation characterCreation)
+        protected void EdMerchantOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers"});
-            this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_basket_a", true, "");
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_peddlers" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        new protected void UrbanAdolescenceHorserOnConsequence(CharacterCreation characterCreation)
+        protected void EdArtisanOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_peddlers_2"});
-            this.RefreshPropsAndClothing(characterCreation, false, "_to_carry_bd_fabric_c", true, "");
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_apprentice" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        new protected void UrbanAdolescenceTutorOnConsequence(CharacterCreation characterCreation)
+        protected void EdScholarOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_book"});
-            this.RefreshPropsAndClothing(characterCreation, false, "character_creation_notebook", false, "");
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_schooled" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
+        }
+        protected void EdReligiousOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_closed_tutor" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
+        }
+        protected void EdFarmerOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string> { "anim_childhood_peddlers" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
+        }
+        protected void EdLadyOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_manners" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
+        }
+        protected void EdDefenseOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string> { "anim_childhood_ready" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
+        }
+        protected void EdTrickeryOnConsequence(CharacterCreation characterCreation)
+        {
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_streets" });
+            this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
 
 
@@ -414,39 +407,39 @@ namespace wipo.patches.CharacterCreationPatch
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Idioms", null), new TextObject("{=!}Growing up, you were inculcated that...", null), new CharacterCreationOnInit(this.ChildhoodOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
 
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_noble}Noblesse oblige", null), new MBList<SkillObject> { DefaultSkills.Leadership, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodYourLeadershipSkillsOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodLeadingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor}, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_means}The end justifies the means", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodYourBrawnOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodAthleticsOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_audacious}Luck smiles to the audacious", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodAttentionToDetailOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMemoryOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Calculating, DefaultTraits.Valor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_give}Better to give than to receive", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Medicine }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodAptitudeForNumbersOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMathOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Mercy }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_conquer}To conquer without risk is to triumph without glory", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Leadership }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodWayWithPeopleOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMannersOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_rough}Men with weapons never starve", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SandboxCharacterCreationContent.ChildhoodSkillsWithHorsesOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodAffinityWithAnimalsOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_noble}Noblesse oblige", null), new MBList<SkillObject> { DefaultSkills.Leadership, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomNoblesseOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodLeadingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor}, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_means}The end justifies the means", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomMeansOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodAthleticsOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_audacious}Luck smiles to the audacious", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomAudaciousOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMemoryOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Calculating, DefaultTraits.Valor }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_give}Better to give than to receive", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Medicine }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomGivingOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMathOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Mercy }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_conquer}To conquer without risk is to triumph without glory", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Leadership }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomConquerOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodGoodMannersOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=!CCR_Idiom_choice_rough}Men with weapons never starve", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomStarveOnConsequence), new CharacterCreationApplyFinalEffects(SandboxCharacterCreationContent.ChildhoodAffinityWithAnimalsOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
-        new protected static void ChildhoodYourLeadershipSkillsOnConsequence(CharacterCreation characterCreation)
+        protected static void IdiomNoblesseOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_leader"});
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_honor" });
         }
-        new protected static void ChildhoodYourBrawnOnConsequence(CharacterCreation characterCreation)
+        protected static void IdiomMeansOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_athlete"});
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tactician" });
         }
-        new protected static void ChildhoodAttentionToDetailOnConsequence(CharacterCreation characterCreation)
+        protected static void IdiomAudaciousOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_memory"});
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_sharp" });
         }
-        new protected static void ChildhoodAptitudeForNumbersOnConsequence(CharacterCreation characterCreation)
+        protected static void IdiomGivingOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_numbers"});
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_appearances" });
         }
-        new protected static void ChildhoodWayWithPeopleOnConsequence(CharacterCreation characterCreation)
+        protected static void IdiomConquerOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_manners"});
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_leader_2" });
         }
-        new protected static void ChildhoodSkillsWithHorsesOnConsequence(CharacterCreation characterCreation)
+        protected static void IdiomStarveOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_animals"});
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_grit" });
         }
 
 
@@ -937,8 +930,6 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
-
-
         // here is where I give the player traits. As said earlier I can not give them a negative value yet, will have to wait
         protected void AddAdulthoodMenuPatch(CharacterCreation characterCreation)
         {
@@ -1032,7 +1023,7 @@ namespace wipo.patches.CharacterCreationPatch
         {
             characterCreation.ClearFaceGenPrefab();
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(20f, "act_childhood_schooled"));
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_focus"});
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_genius" });
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Minor;
             this.SetHeroAge(16f);
