@@ -2,7 +2,7 @@
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameMenus;
 
-namespace wipo.patches
+namespace wipo.patches.EliteInCastle
 {
     internal class CastleRecruitMenu : CampaignBehaviorBase
     {

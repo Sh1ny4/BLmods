@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace wipo.patches
+namespace wipo.patches.EliteInCastle
 {
 
     [HarmonyPatch(typeof(RecruitmentCampaignBehavior), "UpdateVolunteersOfNotablesInSettlement")]
@@ -101,7 +101,7 @@ namespace wipo.patches
                                     hero.VolunteerTypes[i] = basicVolunteer;
                                     flag = true;
                                 }
-                                else if (characterObject.UpgradeTargets.Length != 0 && characterObject.Tier < Campaign.Current.Models.VolunteerModel.MaxVolunteerTier)
+                                else if (characterObject.UpgradeTargets.Length != 0 && characterObject.Tier < 5)
                                 {
                                     float num = MathF.Log(hero.Power / (float)characterObject.Tier, 2f) * 0.01f;
                                     if (MBRandom.RandomFloat < num)

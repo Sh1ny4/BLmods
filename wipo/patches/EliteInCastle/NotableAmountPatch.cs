@@ -3,7 +3,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Settlements;
 
-namespace wipo.patches
+namespace wipo.patches.EliteInCastle
 {
 
     [HarmonyPatch(typeof(DefaultNotableSpawnModel), nameof(DefaultNotableSpawnModel.GetTargetNotableCountForSettlement))]

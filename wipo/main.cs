@@ -18,7 +18,7 @@ namespace wipo
             base.InitializeGameStarter(game, starterObject);
             if (starterObject is CampaignGameStarter starter)
             {
-                starter.AddBehavior(new patches.CastleRecruitMenu());
+                starter.AddBehavior(new patches.EliteInCastle.CastleRecruitMenu());
             }
         }
     }

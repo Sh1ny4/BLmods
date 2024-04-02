@@ -2,9 +2,8 @@
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 
-namespace wipo.patches
+namespace wipo.patches.EliteInCastle
 {
-
     [HarmonyPatch(typeof(DefaultVolunteerModel), nameof(DefaultVolunteerModel.GetBasicVolunteer))]
     public class SpawnTypePatch
     {

@@ -70,6 +70,8 @@
     <Compile Include="patches\BanditsTweaks\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
+    <Compile Include="patches\EliteInCastle\AiHourlyTickPatch.cs" />
+    <Compile Include="patches\EliteInCastle\FindSettlementsToVisitWithDistancesPatch.cs" />
     <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Leveling\DefaultAttributeInitializePatch.cs" />
     <Compile Include="patches\Leveling\SkillLimitPatch.cs" />

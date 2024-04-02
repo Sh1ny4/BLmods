@@ -3,7 +3,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
 
-namespace wipo.patches
+namespace wipo.patches.EliteInCastle
 {
 
     [HarmonyPatch(typeof(NotablesCampaignBehavior), nameof(NotablesCampaignBehavior.OnNewGameCreated))]
