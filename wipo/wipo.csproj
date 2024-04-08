@@ -90,7 +90,9 @@
     <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnTypePatch.cs" />
+    <Compile Include="patches\Tweaks\CanCreateArmyPatch.cs" />
     <Compile Include="patches\Tweaks\DisorganizedTweak.cs" />
+    <Compile Include="patches\Tweaks\GetParticipantArmourPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
     <Compile Include="patches\Tweaks\UIsearchGetterPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
