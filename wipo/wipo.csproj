@@ -75,21 +75,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.cs" />
-    <Compile Include="patches\BanditsTweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\BanditsTweaks\BanditsAroundHideoutsPatch.cs" />
-    <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
+    <Compile Include="patches\BanditsTweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
-    <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
-    <Compile Include="patches\Leveling\SkillLimitPatch.cs" />
+    <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
+    <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedoneVanilla.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
-    <Compile Include="patches\CostPatch\WagePatch.cs" />
     <Compile Include="patches\CostPatch\RecruitmentCostPatch.cs" />
+    <Compile Include="patches\CostPatch\WagePatch.cs" />
     <Compile Include="patches\CostPatch\XpUpgradeCostPatch.cs" />
     <Compile Include="patches\EliteInCastle\CastleRecruitMenu.cs" />
     <Compile Include="patches\EliteInCastle\NotableAmountPatch.cs" />
     <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnTypePatch.cs" />
+    <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
+    <Compile Include="patches\Leveling\SkillLimitPatch.cs" />
     <Compile Include="patches\Tweaks\CanCreateArmyPatch.cs" />
     <Compile Include="patches\Tweaks\DisorganizedTweak.cs" />
     <Compile Include="patches\Tweaks\GetParticipantArmourPatch.cs" />
