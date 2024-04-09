@@ -91,7 +91,6 @@
     <Compile Include="patches\EliteInCastle\SpawnTypePatch.cs" />
     <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Leveling\SkillLimitPatch.cs" />
-    <Compile Include="patches\Tweaks\CanCreateArmyPatch.cs" />
     <Compile Include="patches\Tweaks\DisorganizedTweak.cs" />
     <Compile Include="patches\Tweaks\GetParticipantArmourPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
