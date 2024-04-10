@@ -93,8 +93,8 @@
     <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnTypePatch.cs" />
-    <Compile Include="patches\Leveling\CalculateLearningRatePatch.cs" />
-    <Compile Include="patches\Leveling\SkillLimitPatch.cs" />
+    <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
+    <Compile Include="patches\Tweaks\SkillLimitPatch.cs" />
     <Compile Include="patches\Tweaks\DisorganizedTweak.cs" />
     <Compile Include="patches\Tweaks\GetParticipantArmourPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />

@@ -6,7 +6,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace wipo.patches
+namespace wipo.patches.Tweaks
 {
     [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), "CalculateLearningRate", new Type[] {typeof(int),typeof(int),typeof(int),typeof(int),typeof(TextObject),typeof(bool)})]
     internal class CalculateLearningRatePatch

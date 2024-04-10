@@ -2,7 +2,7 @@
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 
-namespace wipo.patches
+namespace wipo.patches.Tweaks
 {
     [HarmonyPatch(typeof(DefaultPartyImpairmentModel), nameof(DefaultPartyImpairmentModel.CanGetDisorganized))]
     internal class DisorganizedTweak

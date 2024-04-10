@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace wipo.patches
+namespace wipo.patches.CostPatch
 {
     [HarmonyPatch(typeof(DefaultPartyWageModel), nameof(DefaultPartyWageModel.GetTroopRecruitmentCost))]
     public class RecruitmentCostPatch

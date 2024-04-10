@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem.GameComponents;
 
-namespace wipo.patches
+namespace wipo.patches.Tweaks
 {
     [HarmonyPatch(typeof(DefaultSettlementLoyaltyModel), nameof(DefaultSettlementLoyaltyModel.SettlementOwnerDifferentCultureLoyaltyEffect), MethodType.Getter)]
     internal class LoyaltyPatch
