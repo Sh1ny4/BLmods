@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem.GameComponents;
 
-namespace wipo.patches
+namespace wipo.patches.Tweaks
 {
     [HarmonyPatch(typeof(DefaultBanditDensityModel), "NumberOfMaximumBanditPartiesAroundEachHideout", MethodType.Getter)]
     internal class BanditsAroundHideoutsPatch

@@ -79,8 +79,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.cs" />
-    <Compile Include="patches\BanditsTweaks\BanditsAroundHideoutsPatch.cs" />
-    <Compile Include="patches\BanditsTweaks\MaximumAmountLootersPatch.cs" />
+    <Compile Include="patches\Tweaks\BanditsAroundHideoutsPatch.cs" />
+    <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
