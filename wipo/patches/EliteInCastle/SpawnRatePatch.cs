@@ -93,7 +93,7 @@ namespace wipo.patches.EliteInCastle
                         CharacterObject basicVolunteer = Campaign.Current.Models.VolunteerModel.GetBasicVolunteer(hero);
                         for (int i = 0; i < 6; i++)
                         {
-                            if (MBRandom.RandomFloat < 0.2)
+                            if (MBRandom.RandomFloat < 0.3)
                             {
                                 CharacterObject characterObject = hero.VolunteerTypes[i];
                                 if (characterObject == null)

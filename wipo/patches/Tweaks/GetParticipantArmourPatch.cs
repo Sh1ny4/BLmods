@@ -17,6 +17,7 @@ namespace wipo.patches.Tweaks
             if (CampaignMission.Current != null && CampaignMission.Current.Mode != MissionMode.Tournament && Settlement.CurrentSettlement != null)
             {
                 __result = (Game.Current.ObjectManager.GetObject<CharacterObject>("gear_practice_dummy_" + Settlement.CurrentSettlement.MapFaction.Culture.StringId) ?? Game.Current.ObjectManager.GetObject<CharacterObject>("gear_practice_dummy_empire")).RandomBattleEquipment;
+                return false;
             }
             __result = participant.RandomBattleEquipment;
             if (CampaignMission.Current.Mode == MissionMode.Tournament)

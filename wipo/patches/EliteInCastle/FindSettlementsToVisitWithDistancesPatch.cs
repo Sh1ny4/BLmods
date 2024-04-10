@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors;
-using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.CampaignSystem.Party;
-using TaleWorlds.Core;
-using TaleWorlds.Library;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem.ComponentInterfaces;
 using TaleWorlds.CampaignSystem.Map;
@@ -54,6 +50,7 @@ namespace wipo.patches.EliteInCastle
                         }
                     }
                     __result = sortedList;
+                    return false;
                 }
             }
             LocatableSearchData<Settlement> locatableSearchData2 = Settlement.StartFindingLocatablesAroundPosition(mobileParty.Position2D, 50f);
