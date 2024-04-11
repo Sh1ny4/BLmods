@@ -79,10 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.cs" />
-    <Compile Include="patches\Tweaks\BanditsAroundHideoutsPatch.cs" />
-    <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
+    <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedoneVanilla.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
     <Compile Include="patches\CostPatch\RecruitmentCostPatch.cs" />
     <Compile Include="patches\CostPatch\WagePatch.cs" />
@@ -93,11 +92,13 @@
     <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnTypePatch.cs" />
-    <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
+    <Compile Include="patches\Tweaks\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningLimitPatch.cs" />
+    <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Tweaks\CanGetDisorganizedPatch.cs" />
     <Compile Include="patches\Tweaks\GetParticipantArmourPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
+    <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\Tweaks\UIsearchGetterPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
