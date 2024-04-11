@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.Party;
 namespace wipo.patches.Tweaks
 {
     [HarmonyPatch(typeof(DefaultPartyImpairmentModel), nameof(DefaultPartyImpairmentModel.CanGetDisorganized))]
-    internal class DisorganizedTweak
+    internal class CanGetDisorganizedPatch
     {
         [HarmonyPostfix]
         protected static void Postfix(ref bool __result, PartyBase party)

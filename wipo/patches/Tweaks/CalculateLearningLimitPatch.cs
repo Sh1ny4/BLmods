@@ -6,7 +6,7 @@ using TaleWorlds.Localization;
 namespace wipo.patches.Tweaks
 {
     [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), "CalculateLearningLimit")]
-    internal class SkillLimitPatch
+    internal class CalculateLearningLimitPatch
     {
         [HarmonyPostfix]
         static void Postfix(ref ExplainedNumber __result, int attributeValue, int focusValue, TextObject attributeName, bool includeDescriptions = false)

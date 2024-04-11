@@ -1,10 +1,4 @@
-﻿using System;
-using HarmonyLib;
-using TaleWorlds;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.CharacterCreationContent;
-using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.CampaignSystem.ViewModelCollection;
+﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Inventory;
 
 namespace wipo.patches.Tweaks

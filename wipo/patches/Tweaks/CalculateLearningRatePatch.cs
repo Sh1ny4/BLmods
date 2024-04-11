@@ -2,7 +2,6 @@
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
-using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
@@ -14,7 +13,7 @@ namespace wipo.patches.Tweaks
         public static bool Prefix(ref ExplainedNumber __result, ref DefaultCharacterDevelopmentModel __instance, int attributeValue, int focusValue, int skillValue, int characterLevel, TextObject attributeName, bool includeDescriptions = false)
         {
             ExplainedNumber explainedNumber = new ExplainedNumber(1f, true, null);
-            explainedNumber.AddFactor((float)attributeValue, attributeName);
+            explainedNumber.AddFactor((float)(attributeValue/2), attributeName);
             int num = MathF.Round(__instance.CalculateLearningLimit(attributeValue, focusValue, null, false).ResultNumber);
             if (skillValue >= num-attributeValue)
             {
