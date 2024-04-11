@@ -46,7 +46,8 @@ namespace wipo.patches.CostPatch
             if (character.IsRanged)
             {
                 num = (int)((float)num * 1.1f);
-            }/*
+            }
+            /*
             if (character.Occupation == Occupation.Mercenary)
             {
                 num = (int)((float)num * 0.8f);

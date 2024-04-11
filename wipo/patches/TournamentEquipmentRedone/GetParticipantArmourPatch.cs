@@ -25,7 +25,7 @@ namespace wipo.patches.TournamentEquipmentRedone
             }
             return false;
 
-            // The weapon loadout still is changed in the "tournament_template_<culture>_<amount>_participant_set_vX" NPC, but now the armour can be changed by having a  "tournament_<culture>" NPC
+            // The weapon loadout still is changed by the "tournament_template_<culture>_<amount>_participant_set_vX" NPC, but now the armour can be changed by having an NPC with the ID "tournament_<culture>"
         }
     }
 }

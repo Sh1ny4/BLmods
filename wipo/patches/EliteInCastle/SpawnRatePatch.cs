@@ -83,6 +83,7 @@ namespace wipo.patches.EliteInCastle
                     }
                 }
             }
+            // very dirty edit to have the castles produce troop, rate is a fix 0.3, will try to do it depending on the prosperity later
             if (settlement.IsCastle)
             {
                 foreach (Hero hero in settlement.Notables)

@@ -9,6 +9,7 @@ namespace wipo.patches.Tweaks
         [HarmonyPrefix]
         static bool Prefix(ref bool __result)
         {
+            //always enable the search bar in inventoiry
             __result = true;
             return false;
         }
