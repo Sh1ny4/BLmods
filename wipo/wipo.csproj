@@ -95,7 +95,7 @@
     <Compile Include="patches\Tweaks\CalculateLearningLimitPatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Tweaks\CanGetDisorganizedPatch.cs" />
-    <Compile Include="patches\Tweaks\GetParticipantArmourPatch.cs" />
+    <Compile Include="patches\TournamentEquipmentRedone\GetParticipantArmourPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
     <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\Tweaks\UIsearchGetterPatch.cs" />
