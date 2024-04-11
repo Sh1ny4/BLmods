@@ -81,7 +81,6 @@
     <Compile Include="main.cs" />
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
-    <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedoneVanilla.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
     <Compile Include="patches\CostPatch\RecruitmentCostPatch.cs" />
     <Compile Include="patches\CostPatch\WagePatch.cs" />
