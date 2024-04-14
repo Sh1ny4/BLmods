@@ -21,7 +21,7 @@ namespace wipo.patches.EliteInCastle
             // town can vhave a custom troop , basic troop name has to be town_recruit_<culture ID>, default to regular basic troop if no corresponding NPC can be found
             else if(sellerHero.CurrentSettlement.IsTown)
             {
-                string text = string.Concat(new object[] { "town_recruit_", sellerHero.Culture.StringId });
+                string text = string.Concat(new object[] {sellerHero.Culture.StringId, "_town_recruit" });
                 __result = (Game.Current.ObjectManager.GetObject<CharacterObject>(text) ?? sellerHero.Culture.BasicTroop);
                 return false;
             }
