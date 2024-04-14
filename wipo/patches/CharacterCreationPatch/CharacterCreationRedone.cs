@@ -558,7 +558,7 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
-
+        Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
 
         // the way the starting gears are chosen is in the sanbdbox > sandbox_equipment_sets xml , and it work this way : 
         // player_char_creation_<the culture you chose>_<the TitleType you put in the consequences below>_<the gender, m or f>, it's done in RefreshPlayerAppearance
@@ -577,6 +577,8 @@ namespace wipo.patches.CharacterCreationPatch
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
+            Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
+            ChangeKingdomAction.ApplyByJoinToKingdom(Hero.MainHero.Clan, ruler.Clan.Kingdom, false);
         }
         protected void YouthAseraiCaravanerOnConsequence(CharacterCreation characterCreation)
         {
@@ -640,7 +642,10 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});}
+            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
+            Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
+            ChangeKingdomAction.ApplyByJoinToKingdom(Hero.MainHero.Clan, ruler.Clan.Kingdom, false);
+        }
         protected void YouthBattaniaDruidOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
@@ -774,6 +779,8 @@ namespace wipo.patches.CharacterCreationPatch
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
+            Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
+            ChangeKingdomAction.ApplyByJoinToKingdom(Hero.MainHero.Clan, ruler.Clan.Kingdom, false);
         }
         protected void YouthKhuzaitNomadOnConsequence(CharacterCreation characterCreation)
         {
@@ -838,6 +845,8 @@ namespace wipo.patches.CharacterCreationPatch
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
+            Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
+            ChangeKingdomAction.ApplyByJoinToKingdom(Hero.MainHero.Clan, ruler.Clan.Kingdom, false);
         }
         protected void YouthSturgiaUNIQUEROUTEOnConsequence(CharacterCreation characterCreation)
         {
@@ -902,6 +911,8 @@ namespace wipo.patches.CharacterCreationPatch
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
+            Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
+            ChangeKingdomAction.ApplyByJoinToKingdom(Hero.MainHero.Clan, ruler.Clan.Kingdom, false);
         }
         protected void YouthVlandiaChamberlainOnConsequence(CharacterCreation characterCreation)
         {
