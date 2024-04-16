@@ -90,7 +90,7 @@
     <Compile Include="patches\EliteInCastle\NotableAmountPatch.cs" />
     <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
-    <Compile Include="patches\EliteInCastle\SpawnTypePatch.cs" />
+    <Compile Include="patches\EliteInCastle\GetBasicVolunteerPatch.cs" />
     <Compile Include="patches\Tweaks\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningLimitPatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
