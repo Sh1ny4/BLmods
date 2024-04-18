@@ -18,14 +18,13 @@ namespace wipo.patches.EliteInCastle
                 __result = sellerHero.Culture.EliteBasicTroop;
                 return false;
             }
-            // town can vhave a custom troop , basic troop name has to be town_recruit_<culture ID>, default to regular basic troop if no corresponding NPC can be found
-            else if(sellerHero.CurrentSettlement.IsTown)
+            // town can vhave a custom troop , basic troop name has to be <culture ID>_town_recruit, default to regular basic troop if no corresponding NPC can be found
+            else if (sellerHero.CurrentSettlement.IsTown)
             {
                 string text = string.Concat(new object[] {sellerHero.Culture.StringId, "_town_recruit" });
                 __result = (Game.Current.ObjectManager.GetObject<CharacterObject>(text) ?? sellerHero.Culture.BasicTroop);
                 return false;
             }
-            string text2 = string.Concat(new object[] { sellerHero.Culture.StringId, "_village_recruit" });
             __result = sellerHero.Culture.BasicTroop;
             return false;
         }

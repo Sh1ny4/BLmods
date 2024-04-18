@@ -106,33 +106,13 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
-        new protected bool EmpireParentsOnCondition()
-        {
-            return base.GetSelectedCulture().StringId == "empire";
-        }
-        new protected bool VlandianParentsOnCondition()
-        {
-            return base.GetSelectedCulture().StringId == "vlandia";
-        }
-        new protected bool SturgianParentsOnCondition()
-        {
-            return base.GetSelectedCulture().StringId == "sturgia";
-        }
+
+
+        //sets the parents job, can be used as a condition. I have yet to rewrite these
         new protected bool AseraiParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "aserai";
         }
-        new protected bool BattanianParentsOnCondition()
-        {
-            return base.GetSelectedCulture().StringId == "battania";
-        }
-        new protected bool KhuzaitParentsOnCondition()
-        {
-            return base.GetSelectedCulture().StringId == "khuzait";
-        }
-
-
-        //sets the parents job, can be used as a condition. I have yet to rewrite these
         new protected void AseraiTribesmanOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
@@ -159,6 +139,10 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
+        new protected bool BattanianParentsOnCondition()
+        {
+            return base.GetSelectedCulture().StringId == "battania";
+        }
         new protected void BattaniaChieftainsHearthguardOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
@@ -185,6 +169,10 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
+        new protected bool EmpireParentsOnCondition()
+        {
+            return base.GetSelectedCulture().StringId == "empire";
+        }
         new protected void EmpireLandlordsRetainerOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
@@ -211,6 +199,10 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
+        new protected bool KhuzaitParentsOnCondition()
+        {
+            return base.GetSelectedCulture().StringId == "khuzait";
+        }
         new protected void KhuzaitNoyansKinsmanOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
@@ -237,6 +229,10 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
+        new protected bool SturgianParentsOnCondition()
+        {
+            return base.GetSelectedCulture().StringId == "sturgia";
+        }
         new protected void SturgiaBoyarsCompanionOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
@@ -263,6 +259,10 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
+        new protected bool VlandianParentsOnCondition()
+        {
+            return base.GetSelectedCulture().StringId == "vlandia";
+        }
         new protected void VlandiaBaronsRetainerOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
