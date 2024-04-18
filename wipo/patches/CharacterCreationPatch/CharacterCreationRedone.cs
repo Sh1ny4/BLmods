@@ -1,9 +1,12 @@
 ﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CharacterCreationContent;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements;
 using TaleWorlds.Core;
@@ -535,7 +538,7 @@ namespace wipo.patches.CharacterCreationPatch
 
             //Sturgia
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Sdruzhina}a member of a druzhina", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Throwing, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaDruzhinaOnConsequence), new CharacterCreationApplyFinalEffects(NobleOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_fur_hunter}fur hunter", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Scouting, DefaultSkills.Trade }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaUNIQUEROUTEOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_fur_hunter}fur hunter", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Scouting, DefaultSkills.Trade }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaHunterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Smerchant}a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Steward, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaMerchantOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Scraftman}a craftman", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaCraftmanOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Speasant}a peasant", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Steward, DefaultSkills.Medicine }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaFarmerOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
@@ -564,7 +567,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
         protected void BanditOnApply(CharacterCreation characterCreation)
         {
-            foreach (Kingdom kingdom in Campaign.Current.Kingdoms)
+            foreach (Kingdom kingdom in Kingdom.All)
             {
                 ChangeCrimeRatingAction.Apply(kingdom.MapFaction, 50, false);
             }
@@ -573,6 +576,10 @@ namespace wipo.patches.CharacterCreationPatch
         {
             Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
             ChangeKingdomAction.ApplyByJoinToKingdom(Hero.MainHero.Clan, ruler.Clan.Kingdom, false);
+            CharacterObject wanderer = (from character in CharacterObject.All where character.Occupation == Occupation.Wanderer && character.Culture == Hero.MainHero.Culture select character).GetRandomElementInefficiently();
+            Hero companion = HeroCreator.CreateSpecialHero(wanderer);
+            AddCompanionAction.Apply(Clan.PlayerClan, companion);
+            AddHeroToPartyAction.Apply(companion, Hero.MainHero.PartyBelongedTo);
         }
 
 
@@ -856,7 +863,7 @@ namespace wipo.patches.CharacterCreationPatch
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tough" });
         }
-        protected void YouthSturgiaUNIQUEROUTEOnConsequence(CharacterCreation characterCreation)
+        protected void YouthSturgiaHunterOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
