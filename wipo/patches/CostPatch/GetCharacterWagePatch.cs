@@ -6,7 +6,7 @@ namespace wipo.patches.CostPatch
 {
 
     [HarmonyPatch(typeof(DefaultPartyWageModel), nameof(DefaultPartyWageModel.GetCharacterWage))]
-    public class WagePatch
+    public class GetCharacterWagePatch
     {
         [HarmonyPostfix]
         static void Postfix(ref int __result, CharacterObject character)
