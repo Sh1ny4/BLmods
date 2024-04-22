@@ -20,7 +20,7 @@ namespace wipo.patches.TournamentEquipmentRedone
             __result = participant.RandomBattleEquipment;
             if (CampaignMission.Current.Mode == MissionMode.Tournament)
             {
-                string text = string.Concat(new object[] { "tournament_", Settlement.CurrentSettlement.MapFaction.Culture.StringId });
+                string text = string.Concat(new object[] { "tournament_", Settlement.CurrentSettlement.Culture.StringId });
                 __result = (Game.Current.ObjectManager.GetObject<CharacterObject>(text) ?? Game.Current.ObjectManager.GetObject<CharacterObject>("gear_practice_dummy_empire")).RandomBattleEquipment;
             }
             return false;

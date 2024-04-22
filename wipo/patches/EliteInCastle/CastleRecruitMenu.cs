@@ -9,20 +9,12 @@ namespace wipo.patches.EliteInCastle
         public override void RegisterEvents()
         {
             /*CampaignEvents.SettlementEntered.AddNonSerializedListener(this, AddGameMenus);*/
-            CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, AddGameMenus);
+            CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, new Action<CampaignGameStarter>(this.AddGameMenus));
         }
 
         private void AddGameMenus(CampaignGameStarter campaignGameSystemStarter)
         {
-            campaignGameSystemStarter.AddGameMenuOption("castle",
-                "recruit_volunteers",
-                "{=E31IJyqs}Recruit troops",
-                new GameMenuOption.OnConditionDelegate(game_menu_recruit_castle_volunteers_on_condition),
-                new GameMenuOption.OnConsequenceDelegate(game_menu_recruit_castle_volunteers_on_consequence),
-                false, 
-                4, 
-                false, 
-                null);
+            campaignGameSystemStarter.AddGameMenuOption("castle", "recruit_volunteers", "{=E31IJyqs}Recruit troops", new GameMenuOption.OnConditionDelegate(game_menu_recruit_castle_volunteers_on_condition), new GameMenuOption.OnConsequenceDelegate(game_menu_recruit_castle_volunteers_on_consequence), false, 4, false,null);
         }
 
         private static void game_menu_recruit_castle_volunteers_on_consequence(MenuCallbackArgs args)

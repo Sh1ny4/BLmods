@@ -51,10 +51,7 @@ namespace wipo.patches.CharacterCreationPatch
             // the consequences of the choice, that's where you can change the equipement (more on that later), the animation. You might be able to change some other things like joining a faction in it but I have yet to try it.
             //      You can also have some conditions in it to avoid creating dozens of new menu entries for the same idea, can be useful when creating the starting equipement for example (being a soldier coming from a noble family means better equipment than when being commoner, can heavily reduce the workload )
             // Onapply, have yet to play with it but depending on the step you're in it either does nothing (like in my education menu) or everything (like in the age menu), be carefull with this one
-            // the last ones are : the traits to level in a list, by how much, then comes gained renown, gained gold, free & unassigned focus point and attribute point
-            // I tried to give negative values to some of these like gold, renown or trait level but it doesn't seem to have any effect. so unless some other patching is done, no starting indebted, with the cruel trait, and most likely any other debuff
-            // to patch : CharacterCreationContentBase.ApplySkillAndAttributeEffects to have debuffs possible, most likely will do later
-            // succesfuly managed to remove gold after patching, haven't tried other options
+            // the last ones are : the traits to level in a list, by how much, then comes gained renown, gained gold, free & unassigned focus point and attribute point.
             CharacterCreationCategory characterCreationCategory1 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(AseraiParentsOnCondition));
             characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_ARais}rais", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiTribesmanOnApply), new TextObject("{=!}", null), null, 0, 150, 3000, 0, 0);
             characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AMamluks}mamluks", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiWariorSlaveOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiWariorSlaveOnApply), new TextObject("{=!}", null), null, 0, 20, -600, 0, 0);
@@ -202,7 +199,7 @@ namespace wipo.patches.CharacterCreationPatch
         new protected bool KhuzaitParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "khuzait";
-        }
+        } 
         new protected void KhuzaitNoyansKinsmanOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
