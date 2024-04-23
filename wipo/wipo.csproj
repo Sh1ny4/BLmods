@@ -83,6 +83,7 @@
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
     <Compile Include="patches\CostPatch\AddMercenaryIncomePatch.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
+    <Compile Include="patches\EliteInCastle\GetEffectiveDailyExperience.cs" />
     <Compile Include="patches\CostPatch\RecruitmentCostPatch.cs" />
     <Compile Include="patches\CostPatch\GetCharacterWagePatch.cs" />
     <Compile Include="patches\CostPatch\XpUpgradeCostPatch.cs" />
@@ -93,7 +94,7 @@
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
     <Compile Include="patches\EliteInCastle\GetBasicVolunteerPatch.cs" />
     <Compile Include="patches\Tweaks\BanditsAroundHideoutsPatch.cs" />
-    <Compile Include="patches\Tweaks\CalculateBaseMemberSizePatch.cs" />
+    <Compile Include="patches\CostPatch\CalculateBaseMemberSizePatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningLimitPatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Tweaks\CanGetDisorganizedPatch.cs" />
