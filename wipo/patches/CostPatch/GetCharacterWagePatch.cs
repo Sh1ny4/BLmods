@@ -41,21 +41,12 @@ namespace wipo.patches.CostPatch
             }
             if (character.IsMounted)
             {
-                num = (int)((float)num * 1.4f);
+                num = (int)((float)num * 1.3f);
             }
             if (character.IsRanged)
             {
                 num = (int)((float)num * 1.1f);
             }
-            /*
-            if (character.Occupation == Occupation.Mercenary)
-            {
-                num = (int)((float)num * 0.8f);
-            }
-            if (character.Occupation == Occupation.Bandit)
-            {
-                num = (int)((float)num * 1.4f);
-            }*/
             __result = num;
         }
     }
