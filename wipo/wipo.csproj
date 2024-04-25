@@ -86,7 +86,7 @@
     <Compile Include="patches\EliteInCastle\GetEffectiveDailyExperience.cs" />
     <Compile Include="patches\CostPatch\RecruitmentCostPatch.cs" />
     <Compile Include="patches\CostPatch\GetCharacterWagePatch.cs" />
-    <Compile Include="patches\CostPatch\XpUpgradeCostPatch.cs" />
+    <Compile Include="patches\CostPatch\GetXpCostForUpgradePatch.cs" />
     <Compile Include="patches\EliteInCastle\AiVisitSettlementBehaviorPatch.cs" />
     <Compile Include="patches\EliteInCastle\CastleRecruitMenu.cs" />
     <Compile Include="patches\EliteInCastle\NotableAmountPatch.cs" />

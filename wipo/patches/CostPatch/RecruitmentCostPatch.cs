@@ -50,17 +50,6 @@ namespace wipo.patches.CostPatch
             {
                 num = 1500;
             }
-            if (troop.Equipment.Horse.Item != null && !withoutItemCost)
-            {
-                if (troop.Level < 26)
-                {
-                    num += 150;
-                }
-                else
-                {
-                    num += 500;
-                }
-            }
             bool flag = troop.Occupation == Occupation.Mercenary || troop.Occupation == Occupation.Gangster || troop.Occupation == Occupation.CaravanGuard;
             if (flag)
             {

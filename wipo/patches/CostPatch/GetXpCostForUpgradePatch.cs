@@ -6,7 +6,7 @@ using TaleWorlds.CampaignSystem.Party;
 namespace wipo.patches.CostPatch
 {
     [HarmonyPatch(typeof(DefaultPartyTroopUpgradeModel), nameof(DefaultPartyTroopUpgradeModel.GetXpCostForUpgrade))]
-    public class XpUpgradeCostPatch
+    public class GetXpCostForUpgradePatch
     {
         [HarmonyPostfix]
         static void Postfix(ref int __result, PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)
