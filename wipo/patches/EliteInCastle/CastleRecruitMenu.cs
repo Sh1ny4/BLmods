@@ -1,18 +1,18 @@
 ﻿using System;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.CampaignSystem.GameMenus;
 
 namespace wipo.patches.EliteInCastle
 {
-    internal class CastleRecruitMenu : CampaignBehaviorBase
+    internal class CastleRecruitMenu : PlayerTownVisitCampaignBehavior
     {
         public override void RegisterEvents()
         {
-            /*CampaignEvents.SettlementEntered.AddNonSerializedListener(this, AddGameMenus);*/
-            CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, new Action<CampaignGameStarter>(this.AddGameMenus));
+            CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, new Action<CampaignGameStarter>(this.AddCastleRecruitMenus));
         }
 
-        private void AddGameMenus(CampaignGameStarter campaignGameSystemStarter)
+        private void AddCastleRecruitMenus(CampaignGameStarter campaignGameSystemStarter)
         {
             campaignGameSystemStarter.AddGameMenuOption("castle", "recruit_volunteers", "{=E31IJyqs}Recruit troops", new GameMenuOption.OnConditionDelegate(game_menu_recruit_castle_volunteers_on_condition), new GameMenuOption.OnConsequenceDelegate(game_menu_recruit_castle_volunteers_on_consequence), false, 4, false,null);
         }

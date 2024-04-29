@@ -20,7 +20,7 @@ namespace wipo.patches.EliteInCastle
             }
             if (mobileParty.IsGarrison && currentSettlement.IsTown && !currentSettlement.IsCastle)
             {
-                __result.Add((float)5, null, null);
+                __result.Add((float)10, null, null);
             }
         }
     }
