@@ -16,7 +16,7 @@ namespace wipo.patches.EliteInCastle
             Settlement currentSettlement = mobileParty.CurrentSettlement;
             if (mobileParty.IsGarrison && currentSettlement.IsCastle)
             {
-                    __result.Add((float)20, null, null);
+                __result.Add((float)20, null, null);
             }
             if (mobileParty.IsGarrison && currentSettlement.IsTown && !currentSettlement.IsCastle)
             {

@@ -37,7 +37,7 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
         //first menu : family you were born in, divided per culture in submenus. I haven't been able to redo the same structure in other menu (haven't tried much I admit), so I replaced the submenus structure with a culture specific condition in each option instead
-        protected void AddParentsMenuPatch(CharacterCreation characterCreation)
+        public void AddParentsMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Family", null), new TextObject("{=!}Your were born into a family of..", null), new CharacterCreationOnInit(this.ParentsOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
 
@@ -50,234 +50,234 @@ namespace wipo.patches.CharacterCreationPatch
             // Onapply, have yet to play with it but depending on the step you're in it either does nothing (like in my education menu) or everything (like in the age menu), be carefull with this one
             // the last ones are : the traits to level in a list, by how much, then comes gained renown, gained gold, free & unassigned focus point and attribute point.
             CharacterCreationCategory characterCreationCategory1 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(AseraiParentsOnCondition));
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_ARais}rais", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiTribesmanOnApply), new TextObject("{=!}", null), null, 0, 150, 3000, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AMamluks}mamluks", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiWariorSlaveOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiWariorSlaveOnApply), new TextObject("{=!}", null), null, 0, 20, -600, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AMerchant}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiMerchantOnApply), new TextObject("{=!}", null), null, 0, 0, 4000, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AFarmers}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiOasisFarmerOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiOasisFarmerOnApply), new TextObject("{=!}", null), null, 0, 0, -900, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AArtisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiBedouinOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBedouinOnApply), new TextObject("{=!}", null), null, 0, 10, 800, 0, 0);
-            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AThugs}thugs", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiBackAlleyThugOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBackAlleyThugOnApply), new TextObject("{=!}", null), null, 0, 0, -800, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_ARais}rais", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiRaisOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiTribesmanOnApply), new TextObject("{=!}", null), null, 0, 150, 3000, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AMamluks}mamluks", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Throwing }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiMamluksOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiWariorSlaveOnApply), new TextObject("{=!}", null), null, 0, 20, -600, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AMerchant}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiMerchantsOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiMerchantOnApply), new TextObject("{=!}", null), null, 0, 0, 4000, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AFarmers}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiFarmersOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiOasisFarmerOnApply), new TextObject("{=!}", null), null, 0, 0, -900, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AArtisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiArtisansOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBedouinOnApply), new TextObject("{=!}", null), null, 0, 10, 800, 0, 0);
+            characterCreationCategory1.AddCategoryOption(new TextObject("{=CCR_Family_Choice_AThugs}thugs", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(AseraiThugOnConsequence), new CharacterCreationApplyFinalEffects(this.AseraiBackAlleyThugOnApply), new TextObject("{=!}", null), null, 0, 0, -800, 0, 0);
 
             CharacterCreationCategory characterCreationCategory2 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(BattanianParentsOnCondition));
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bchieftains}chieftains", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaChieftainsHearthguardOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaChieftainsHearthguardOnApply), new TextObject("{=!}", null), null, 0, 150, 1000, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bhealers}healers", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaHealerOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaHealerOnApply), new TextObject("{=!}", null), null, 50, 0, 0, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bfarmers}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Crafting }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaTribesmanOnApply), new TextObject("{=!}", null), null, 0, -800, 0, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaSmithOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaSmithOnApply), new TextObject("{=!}", null), null, 0, 10, 500, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bforesters}foresters", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Bow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaWoodsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaWoodsmanOnApply), new TextObject("{=!}", null), null, 0, 0, -980, 0, 0);
-            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bbards}bards", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaBardOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaBardOnApply), new TextObject("{=!}", null), null, 0, 20, -200, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bchieftains}chieftains", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaChieftainsOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaChieftainsHearthguardOnApply), new TextObject("{=!}", null), null, 0, 150, 1000, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bhealers}healers", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaHealersOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaHealerOnApply), new TextObject("{=!}", null), null, 50, 0, 0, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bfarmers}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Crafting }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaFarmersOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaTribesmanOnApply), new TextObject("{=!}", null), null, 0, -800, 0, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaArtisansOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaSmithOnApply), new TextObject("{=!}", null), null, 0, 10, 500, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bforesters}foresters", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Bow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaForesterOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaWoodsmanOnApply), new TextObject("{=!}", null), null, 0, 0, -980, 0, 0);
+            characterCreationCategory2.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Bbards}bards", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(BattaniaBardsOnConsequence), new CharacterCreationApplyFinalEffects(this.BattaniaBardOnApply), new TextObject("{=!}", null), null, 0, 20, -200, 0, 0);
 
             CharacterCreationCategory characterCreationCategory3 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(EmpireParentsOnCondition));
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Earistocrates}aristocrates", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireLandlordsRetainerOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireLandlordsRetainerOnApply), new TextObject("{=!}", null), null, 0, 150, 2000, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Emerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireMerchantOnApply), new TextObject("{=!}", null), null, 0, 0, 6000, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Efreeholders}freeholders", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireFreeholderOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireFreeholderOnApply), new TextObject("{=!}", null), null, 0, 0, -600, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Eartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireArtisanOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireArtisanOnApply), new TextObject("{=!}", null), null, 0, 20, 1000, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Esoldiers}soldiers", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Polearm }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireWoodsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireWoodsmanOnApply), new TextObject("{=!}", null), null, 0, 40, 500, 0, 0);
-            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Evagabonds}vagabonds", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireVagabondOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireVagabondOnApply), new TextObject("{=!}", null), null, 0, 0, -980, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Earistocrates}aristocrates", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireAristocratesOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireLandlordsRetainerOnApply), new TextObject("{=!}", null), null, 0, 150, 2000, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Emerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireMerchantsOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireMerchantOnApply), new TextObject("{=!}", null), null, 0, 0, 6000, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Efreeholders}freeholders", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireFreeholdersOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireFreeholderOnApply), new TextObject("{=!}", null), null, 0, 0, -600, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Eartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireArtisansOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireArtisanOnApply), new TextObject("{=!}", null), null, 0, 20, 1000, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Esoldiers}soldiers", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Polearm }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireSoldiersOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireWoodsmanOnApply), new TextObject("{=!}", null), null, 0, 40, 500, 0, 0);
+            characterCreationCategory3.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Evagabonds}vagabonds", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(EmpireVagabondsOnConsequence), new CharacterCreationApplyFinalEffects(this.EmpireVagabondOnApply), new TextObject("{=!}", null), null, 0, 0, -980, 0, 0);
 
             CharacterCreationCategory characterCreationCategory4 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(KhuzaitParentsOnCondition));
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Knoyans}noyans", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNoyansKinsmanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNoyansKinsmanOnApply), new TextObject("{=!}", null), null, 0, 150, 1000, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kmerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitMerchantOnApply), new TextObject("{=!}", null), null, 0, 0, 800, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Knomads}nomads", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitTribesmanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitTribesmanOnApply), new TextObject("{=!}", null), null, 0, 50, -300, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitFarmerOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitFarmerOnApply), new TextObject("{=!}", null), null, 0, 20, 400, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kwarriors}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitShamanOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitShamanOnApply), new TextObject("{=!}", null), null, 0, 30, 700, 0, 0);
-            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kthugs}thugs", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNomadOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNomadOnApply), new TextObject("{=!}", null), null, 0, 0, -980, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Knoyans}noyans", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNoyansOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNoyansKinsmanOnApply), new TextObject("{=!}", null), null, 0, 150, 1000, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Knomads}nomads", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitNomadsOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitTribesmanOnApply), new TextObject("{=!}", null), null, 0, 50, -300, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kmerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitMerchantsOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitMerchantOnApply), new TextObject("{=!}", null), null, 0, 0, 800, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitFarmersOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitFarmerOnApply), new TextObject("{=!}", null), null, 0, 20, 400, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kwarriors}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitWarriorsOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitShamanOnApply), new TextObject("{=!}", null), null, 0, 30, 700, 0, 0);
+            characterCreationCategory4.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Kthugs}thugs", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(KhuzaitThugsOnConsequence), new CharacterCreationApplyFinalEffects(this.KhuzaitNomadOnApply), new TextObject("{=!}", null), null, 0, 0, -980, 0, 0);
 
             CharacterCreationCategory characterCreationCategory5 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(SturgianParentsOnCondition));
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sboyars}boyars", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaBoyarsCompanionOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaBoyarsCompanionOnApply), new TextObject("{=!}", null), null, 0, 150, 2000, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Smerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaTraderOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaTraderOnApply), new TextObject("{=!}", null), null, 0, 0, 2500, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sfarmers}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaFreemanOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaFreemanOnApply), new TextObject("{=!}", null), null, 0, 0, -800, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaArtisanOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaArtisanOnApply), new TextObject("{=!}", null), null, 0, 20, 1200, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Swarriors}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaHunterOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaHunterOnApply), new TextObject("{=!}", null), null, 0, 60, 600, 0, 0);
-            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sraiders}raiders", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaVagabondOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaVagabondOnApply), new TextObject("{=!}", null), null, 0, 40, 1000, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sboyars}boyars", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaBoyarsOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaBoyarsCompanionOnApply), new TextObject("{=!}", null), null, 0, 150, 2000, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Smerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaMerchantsOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaTraderOnApply), new TextObject("{=!}", null), null, 0, 0, 2500, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sfarmers}farmers", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaFarmersOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaFreemanOnApply), new TextObject("{=!}", null), null, 0, 0, -800, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaArtisansOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaArtisanOnApply), new TextObject("{=!}", null), null, 0, 20, 1200, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Swarriors}warriors", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaWarriorsOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaHunterOnApply), new TextObject("{=!}", null), null, 0, 60, 600, 0, 0);
+            characterCreationCategory5.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Sraiders}raiders", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing }, DefaultCharacterAttributes.Control, 1, 30, 2, null, new CharacterCreationOnSelect(SturgiaRaiderOnConsequence), new CharacterCreationApplyFinalEffects(this.SturgiaVagabondOnApply), new TextObject("{=!}", null), null, 0, 40, 1000, 0, 0);
 
             CharacterCreationCategory characterCreationCategory6 = characterCreationMenu.AddMenuCategory(new CharacterCreationOnCondition(VlandianParentsOnCondition));
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vbarons}barons", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaBaronsRetainerOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBaronsRetainerOnApply), new TextObject("{=!}", null), null, 0, 150, 3000, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vmerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMerchantOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMerchantOnApply), new TextObject("{=!}", null), null, 0, 20, 5000, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vyeomens}yeomen", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaYeomanOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaYeomanOnApply), new TextObject("{=!}", null), null, 0, 0, -800, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaBlacksmithOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBlacksmithOnApply), new TextObject("{=!}", null), null, 0, 30, 500, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vsoldiers}soldiers", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaHunterOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaHunterOnApply), new TextObject("{=!}", null), null, 0, 20, 200, 0, 0);
-            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vmercenaries}mercenaries", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Crossbow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMercenaryOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMercenaryOnApply), new TextObject("{=!}.", null), null, 0, 40, 600, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vbarons}barons", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Polearm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaBaronsOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBaronsRetainerOnApply), new TextObject("{=!}", null), null, 0, 150, 3000, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vmerchants}merchants", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMerchantsOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMerchantOnApply), new TextObject("{=!}", null), null, 0, 20, 5000, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vyeomens}yeomen", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaYeomensOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaYeomanOnApply), new TextObject("{=!}", null), null, 0, 0, -800, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vartisans}artisans", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaArtisansOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaBlacksmithOnApply), new TextObject("{=!}", null), null, 0, 30, 500, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vsoldiers}soldiers", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaSoldiersOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaHunterOnApply), new TextObject("{=!}", null), null, 0, 20, 200, 0, 0);
+            characterCreationCategory6.AddCategoryOption(new TextObject("{=CCR_Family_Choice_Vmercenaries}mercenaries", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Crossbow }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(VlandiaMercenariesOnConsequence), new CharacterCreationApplyFinalEffects(this.VlandiaMercenaryOnApply), new TextObject("{=!}.", null), null, 0, 40, 600, 0, 0);
 
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
 
 
-        //sets the parents job, can be used as a condition. I have yet to rewrite these
-        new protected bool AseraiParentsOnCondition()
+        //sets the parents job, I use hunter as warrior
+        new public bool AseraiParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "aserai";
         }
-        new protected void AseraiTribesmanOnConsequence(CharacterCreation characterCreation)
+        public void AseraiRaisOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
         }
-        new protected void AseraiWariorSlaveOnConsequence(CharacterCreation characterCreation)
+        public void AseraiMamluksOnConsequence(CharacterCreation characterCreation)
         {
-            this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Mercenary, "", "", true, true);
+            this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Hunter, "", "", true, true);
         }
-        new protected void AseraiMerchantOnConsequence(CharacterCreation characterCreation)
+        public void AseraiMerchantsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 3, SandboxCharacterCreationContent.OccupationTypes.Merchant, "", "", true, true);
         }
-        new protected void AseraiOasisFarmerOnConsequence(CharacterCreation characterCreation)
+        public void AseraiFarmersOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 4, SandboxCharacterCreationContent.OccupationTypes.Farmer, "", "", true, true);
         }
-        new protected void AseraiBedouinOnConsequence(CharacterCreation characterCreation)
+        public void AseraiArtisansOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Artisan, "", "", true, true);
         }
-        new protected void AseraiBackAlleyThugOnConsequence(CharacterCreation characterCreation)
+        public void AseraiThugOnConsequence(CharacterCreation characterCreation)
         {
-            this.SetParentAndOccupationType(characterCreation, 6, SandboxCharacterCreationContent.OccupationTypes.Artisan, "", "", true, true);
+            this.SetParentAndOccupationType(characterCreation, 6, SandboxCharacterCreationContent.OccupationTypes.Vagabond, "", "", true, true);
         }
 
 
-        new protected bool BattanianParentsOnCondition()
+        new public bool BattanianParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "battania";
         }
-        new protected void BattaniaChieftainsHearthguardOnConsequence(CharacterCreation characterCreation)
+        public void BattaniaChieftainsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
         }
-        new protected void BattaniaHealerOnConsequence(CharacterCreation characterCreation)
+        public void BattaniaHealersOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Healer, "", "", true, true);
         }
-        new protected void BattaniaTribesmanOnConsequence(CharacterCreation characterCreation)
+        public void BattaniaFarmersOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 3, SandboxCharacterCreationContent.OccupationTypes.Farmer, "", "", true, true);
         }
-        new protected void BattaniaSmithOnConsequence(CharacterCreation characterCreation)
+        public void BattaniaArtisansOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 4, SandboxCharacterCreationContent.OccupationTypes.Artisan, "", "", true, true);
         }
-        new protected void BattaniaWoodsmanOnConsequence(CharacterCreation characterCreation)
+        public void BattaniaForesterOnConsequence(CharacterCreation characterCreation)
         {
-            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Hunter, "", "", true, true);
+            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Vagabond, "", "", true, true);
         }
-        new protected void BattaniaBardOnConsequence(CharacterCreation characterCreation)
+        public void BattaniaBardsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 6, SandboxCharacterCreationContent.OccupationTypes.Bard, "", "", true, true);
         }
 
 
-        new protected bool EmpireParentsOnCondition()
+        new public bool EmpireParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "empire";
         }
-        new protected void EmpireLandlordsRetainerOnConsequence(CharacterCreation characterCreation)
+        public void EmpireAristocratesOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
         }
-        new protected void EmpireMerchantOnConsequence(CharacterCreation characterCreation)
+        public void EmpireMerchantsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Merchant, "", "", true, true);
         }
-        new protected void EmpireFreeholderOnConsequence(CharacterCreation characterCreation)
+        public void EmpireFreeholdersOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 3, SandboxCharacterCreationContent.OccupationTypes.Farmer, "", "", true, true);
         }
-        new protected void EmpireArtisanOnConsequence(CharacterCreation characterCreation)
+        public void EmpireArtisansOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 4, SandboxCharacterCreationContent.OccupationTypes.Artisan, "", "", true, true);
         }
-        new protected void EmpireWoodsmanOnConsequence(CharacterCreation characterCreation)
+        public void EmpireSoldiersOnConsequence(CharacterCreation characterCreation)
         {
-            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Mercenary, "", "", true, true);
+            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Hunter, "", "", true, true);
         }
-        new protected void EmpireVagabondOnConsequence(CharacterCreation characterCreation)
+        public void EmpireVagabondsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 6, SandboxCharacterCreationContent.OccupationTypes.Vagabond, "", "", true, true);
         }
 
 
-        new protected bool KhuzaitParentsOnCondition()
+        new public bool KhuzaitParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "khuzait";
         } 
-        new protected void KhuzaitNoyansKinsmanOnConsequence(CharacterCreation characterCreation)
+        public void KhuzaitNoyansOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
         }
-        new protected void KhuzaitMerchantOnConsequence(CharacterCreation characterCreation)
-        {
-            this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Merchant, "", "", true, true);
-        }
-        new protected void KhuzaitTribesmanOnConsequence(CharacterCreation characterCreation)
-        {
-            this.SetParentAndOccupationType(characterCreation, 3, SandboxCharacterCreationContent.OccupationTypes.Herder, "", "", true, true);
-        }
-        new protected void KhuzaitFarmerOnConsequence(CharacterCreation characterCreation)
-        {
-            this.SetParentAndOccupationType(characterCreation, 4, SandboxCharacterCreationContent.OccupationTypes.Farmer, "", "", true, true);
-        }
-        new protected void KhuzaitShamanOnConsequence(CharacterCreation characterCreation)
-        {
-            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Healer, "", "", true, true);
-        }
-        new protected void KhuzaitNomadOnConsequence(CharacterCreation characterCreation)
+        public void KhuzaitNomadsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 6, SandboxCharacterCreationContent.OccupationTypes.Herder, "", "", true, true);
         }
-
-
-        new protected bool SturgianParentsOnCondition()
-        {
-            return base.GetSelectedCulture().StringId == "sturgia";
-        }
-        new protected void SturgiaBoyarsCompanionOnConsequence(CharacterCreation characterCreation)
-        {
-            this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
-        }
-        new protected void SturgiaTraderOnConsequence(CharacterCreation characterCreation)
+        public void KhuzaitMerchantsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Merchant, "", "", true, true);
         }
-        new protected void SturgiaFreemanOnConsequence(CharacterCreation characterCreation)
+        public void KhuzaitWarriorsOnConsequence(CharacterCreation characterCreation)
+        {
+            this.SetParentAndOccupationType(characterCreation, 3, SandboxCharacterCreationContent.OccupationTypes.Hunter, "", "", true, true);
+        }
+        public void KhuzaitFarmersOnConsequence(CharacterCreation characterCreation)
+        {
+            this.SetParentAndOccupationType(characterCreation, 4, SandboxCharacterCreationContent.OccupationTypes.Farmer, "", "", true, true);
+        }
+        public void KhuzaitThugsOnConsequence(CharacterCreation characterCreation)
+        {
+            this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Vagabond, "", "", true, true);
+        }
+
+
+        new public bool SturgianParentsOnCondition()
+        {
+            return base.GetSelectedCulture().StringId == "sturgia";
+        }
+        public void SturgiaBoyarsOnConsequence(CharacterCreation characterCreation)
+        {
+            this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
+        }
+        public void SturgiaMerchantsOnConsequence(CharacterCreation characterCreation)
+        {
+            this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Merchant, "", "", true, true);
+        }
+        public void SturgiaFarmersOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 3, SandboxCharacterCreationContent.OccupationTypes.Farmer, "", "", true, true);
         }
-        new protected void SturgiaArtisanOnConsequence(CharacterCreation characterCreation)
+        public void SturgiaArtisansOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 4, SandboxCharacterCreationContent.OccupationTypes.Artisan, "", "", true, true);
         }
-        new protected void SturgiaHunterOnConsequence(CharacterCreation characterCreation)
+        public void SturgiaWarriorsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Hunter, "", "", true, true);
         }
-        new protected void SturgiaVagabondOnConsequence(CharacterCreation characterCreation)
+        public void SturgiaRaiderOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 6, SandboxCharacterCreationContent.OccupationTypes.Vagabond, "", "", true, true);
         }
 
 
-        new protected bool VlandianParentsOnCondition()
+        new public bool VlandianParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "vlandia";
         }
-        new protected void VlandiaBaronsRetainerOnConsequence(CharacterCreation characterCreation)
+        public void VlandiaBaronsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
         }
-        new protected void VlandiaMerchantOnConsequence(CharacterCreation characterCreation)
+        public void VlandiaMerchantsOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 2, SandboxCharacterCreationContent.OccupationTypes.Merchant, "", "", true, true);
         }
-        new protected void VlandiaYeomanOnConsequence(CharacterCreation characterCreation)
+        public void VlandiaYeomensOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 3, SandboxCharacterCreationContent.OccupationTypes.Farmer, "", "", true, true);
         }
-        new protected void VlandiaBlacksmithOnConsequence(CharacterCreation characterCreation)
+        public void VlandiaArtisansOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 4, SandboxCharacterCreationContent.OccupationTypes.Artisan, "", "", true, true);
         }
-        new protected void VlandiaHunterOnConsequence(CharacterCreation characterCreation)
+        public void VlandiaSoldiersOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 5, SandboxCharacterCreationContent.OccupationTypes.Hunter, "", "", true, true);
         }
-        new protected void VlandiaMercenaryOnConsequence(CharacterCreation characterCreation)
+        public void VlandiaMercenariesOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 6, SandboxCharacterCreationContent.OccupationTypes.Mercenary, "", "", true, true);
         }
@@ -292,7 +292,7 @@ namespace wipo.patches.CharacterCreationPatch
 
 
         // I changed the adolescence menu into a menu that specifies the education the parent gave to the player
-        protected void AddEducationMenuPatch(CharacterCreation characterCreation)
+        public void AddEducationMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Received education", null), new TextObject("{=!}Your parents wanted you to...", null), new CharacterCreationOnInit(this.EducationOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
@@ -308,7 +308,7 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_trade}become a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(EdMerchantOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_crafting}learn a trade", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EdArtisanOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_scholar}become a scholar", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Engineering, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EdScholarOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_religious}be a {?PLAYER.GENDER}woman{?}man{\\?} of faith", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward, DefaultSkills.Trade }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EdReligiousOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_religious}be a {?PLAYER.GENDER}lady{?}man{\\?} of faith", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward, DefaultSkills.Trade }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EdReligiousOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_farmer}tend to the fields", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Medicine, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EdFarmerOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_lady}become a lady in waiting", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonersFemaleOnConditions), new CharacterCreationOnSelect(EdLadyOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_defense}learn how to defend yourself", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonersMaleOnConditions), new CharacterCreationOnSelect(EdDefenseOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
@@ -316,76 +316,84 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
-        protected bool ParentsCommonerOnCondition()
+        public bool ParentsCommonerOnCondition()
         {
             return this._familyOccupationType != SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
 
-        protected bool ParentsRetainerOnCondition()
+        public bool ParentsRetainerOnCondition()
         {
             return this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected bool ParentsCommonersFemaleOnConditions() 
+        public bool ParentsCommonersFemaleOnConditions() 
         {
             return (Hero.MainHero.IsFemale && this._familyOccupationType != SandboxCharacterCreationContent.OccupationTypes.Retainer);
         }
-        protected bool ParentsCommonersMaleOnConditions()
+        public bool ParentsCommonersMaleOnConditions()
         {
             return (!Hero.MainHero.IsFemale && this._familyOccupationType != SandboxCharacterCreationContent.OccupationTypes.Retainer);
         }
+        public bool ParentsRetainerFemaleOnConditions()
+        {
+            return (Hero.MainHero.IsFemale && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer);
+        }
+        public bool ParentsRetainerMaleOnConditions()
+        {
+            return (!Hero.MainHero.IsFemale && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer);
+        }
 
 
-         protected void EdNobleTroopOnConsequence(CharacterCreation characterCreation)
+        public void EdNobleTroopOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_decisive" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdLeadTroopsOnConsequence(CharacterCreation characterCreation)
+        public void EdLeadTroopsOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_leader" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdCourtLifeOnConsequence(CharacterCreation characterCreation)
+        public void EdCourtLifeOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_manners" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdMerchantOnConsequence(CharacterCreation characterCreation)
+        public void EdMerchantOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_peddlers" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdArtisanOnConsequence(CharacterCreation characterCreation)
+        public void EdArtisanOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_apprentice" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdScholarOnConsequence(CharacterCreation characterCreation)
+        public void EdScholarOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_schooled" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdReligiousOnConsequence(CharacterCreation characterCreation)
+        public void EdReligiousOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_closed_tutor" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdFarmerOnConsequence(CharacterCreation characterCreation)
+        public void EdFarmerOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string> { "anim_childhood_peddlers" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_peddlers" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdLadyOnConsequence(CharacterCreation characterCreation)
+        public void EdLadyOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_manners" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdDefenseOnConsequence(CharacterCreation characterCreation)
+        public void EdDefenseOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string> { "anim_childhood_ready" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
         }
-        protected void EdTrickeryOnConsequence(CharacterCreation characterCreation)
+        public void EdTrickeryOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_streets" });
             this.RefreshPropsAndClothing(characterCreation, false, "", true, "");
@@ -402,72 +410,72 @@ namespace wipo.patches.CharacterCreationPatch
 
         //this one is subject to change, I went for the idiom as it was in a game I played, but tbh I consider removing it altogether a good option
         // I kept it because it seems to me that having 5 steps is nice, to get 5 focus points
-        protected void AddChildhoodMenuPatch(CharacterCreation characterCreation)
+        public void AddChildhoodMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Idioms", null), new TextObject("{=!}Growing up, you were inculcated the saying...", null), new CharacterCreationOnInit(this.ChildhoodOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
             // noble fighter
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(AseraiRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor}, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(BattaniaRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(EmpireRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Riding }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(KhuzaitRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(AseraiRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(BattaniaRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(EmpireRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Riding }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(KhuzaitRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             // commoner fighter
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_healthy}A healthy mind in a healthy body.", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Medicine }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomHealthyBodyOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Honor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_prevention}Prevention is better than cure.", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomPreventionOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_wellbegun}Well begun is half done.", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Engineering }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomWellBegunOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Calculating, DefaultTraits.Valor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_bold}Fortune favors the bold.", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomBoldOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Mercy }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_forwarned}Forewarned is forearmed.", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Tactics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomForwarnedOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_healthy}A healthy mind in a healthy body.", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Medicine }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomHealthyBodyOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_prevention}Prevention is better than cure.", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomPreventionOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_wellbegun}Well begun is half done.", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Engineering }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomWellBegunOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_bold}Fortune favors the bold.", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomBoldOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_forwarned}Forewarned is forearmed.", null), new MBList<SkillObject> { DefaultSkills.Scouting, DefaultSkills.Tactics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomForwarnedOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_invention}Necessity is the mother of invention.", null), new MBList<SkillObject> { DefaultSkills.Engineering, DefaultSkills.Trade }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomInventionOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_armed}Men with weapons never starve", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomArmedOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_conquer}To conquer without risk is to triumph without glory.", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Leadership }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomRiskOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Valor }, 1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_means}The end justifies the means.", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomMeansOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_armed}Men with weapons never starve.", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomArmedOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_conquer}To conquer without risk is to triumph without glory.", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Leadership }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomRiskOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_means}The end justifies the means.", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomMeansOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
 
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
-        protected static void IdiomFighterOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomFighterOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_honor" });
         }
-        protected static void IdiomHealthyBodyOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomHealthyBodyOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tactician" });
         }
-        protected static void IdiomPreventionOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomPreventionOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_sharp" });
         }
-        protected static void IdiomWellBegunOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomWellBegunOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_appearances" });
         }
-        protected static void IdiomBoldOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomBoldOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_leader_2" });
         }
-        protected static void IdiomForwarnedOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomForwarnedOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_grit" });
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
         }
-        protected static void IdiomInventionOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomInventionOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_grit" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_schooled" });
         }
-        protected static void IdiomArmedOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomArmedOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_grit" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_fierce" });
         }
-        protected static void IdiomRiskOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomRiskOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_grit" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_confident_tutor" });
         }
-        protected static void IdiomMeansOnConsequence(CharacterCreation characterCreation)
+        public static void IdiomMeansOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_grit" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_fox" });
         }
 
 
@@ -481,7 +489,7 @@ namespace wipo.patches.CharacterCreationPatch
 
         // here we choose the starting equipment alongside the start in life. as I said earlier I used culture specific conditions to have culture specific jobs when I could think of them
         // structure is basically noble troop, culture unique job, merchant, craftman, farmer, type of troop made according to my troop mod (https://www.nexusmods.com/mountandblade2bannerlord/mods/4932 , which is why some skills/names might be odd) and then criminals
-        protected void AddYouthMenuPatch(CharacterCreation characterCreation)
+        public void AddYouthMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Start in life", null), new TextObject("{=!}You started your life as..", null), new CharacterCreationOnInit(this.YouthOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
             CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory(null);
@@ -539,7 +547,7 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Sinfantry}part of the infantry", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics, DefaultSkills.Polearm }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaInfantryOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Sshocktroop}shock troop", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Throwing, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaShockTroopOnConsequence), new CharacterCreationApplyFinalEffects(this.YouthInfantryOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Sarcher}bowman", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Bow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaArcherOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Ssearaider}a sea raider", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Roguery, DefaultSkills.Scouting }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaBanditOnConsequence), new CharacterCreationApplyFinalEffects(BanditOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Ssearaider}a raider", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Roguery, DefaultSkills.Scouting }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(SturgiaOnCondition), new CharacterCreationOnSelect(YouthSturgiaBanditOnConsequence), new CharacterCreationApplyFinalEffects(BanditOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
 
             //Vlandia
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Vknight}a knight", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(YouthVlandiaKnightOnConsequence), new CharacterCreationApplyFinalEffects(NobleOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
@@ -556,17 +564,17 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        protected void NothingOnApply(CharacterCreation characterCreation)
+        public void NothingOnApply(CharacterCreation characterCreation)
         {
         }
-        protected void BanditOnApply(CharacterCreation characterCreation)
+        public void BanditOnApply(CharacterCreation characterCreation)
         {
             foreach (Kingdom kingdom in Kingdom.All)
             {
                 ChangeCrimeRatingAction.Apply(kingdom.MapFaction, 50, false);
             }
         }
-        protected void NobleOnApply(CharacterCreation characterCreation)
+        public void NobleOnApply(CharacterCreation characterCreation)
         {
             Hero ruler = Hero.FindAll(hero => hero.Culture == Hero.MainHero.Culture && hero.IsAlive && hero.IsFactionLeader && !hero.MapFaction.IsMinorFaction).GetRandomElementInefficiently();
             ChangeKingdomAction.ApplyByJoinToKingdom(Hero.MainHero.Clan, ruler.Clan.Kingdom, false);
@@ -581,63 +589,63 @@ namespace wipo.patches.CharacterCreationPatch
         // player_char_creation_<the culture you chose>_<the TitleType you put in the consequences below>_<the gender, m or f>, it's done in RefreshPlayerAppearance
         // so far I have ten for the empire and it doesn't seem to be too much, I think you can go crazy and have dozens of it
         // I haven't been able to remove gold to have an equipement cost something to the player in the AddCategoryOption so either it will have to wait until I patch it or it has to be done in the consequences
-        protected bool AseraiOnCondition()
+        public bool AseraiOnCondition()
         {
             return base.GetSelectedCulture().StringId == "aserai";
         }
-        protected bool AseraiRetainerOnCondition()
+        public bool AseraiRetainerOnCondition()
         {
             return base.GetSelectedCulture().StringId == "aserai" && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected void YouthAseraiFarisOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiFarisOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_hardened" });
         }
-        protected void YouthAseraiCaravanerOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiCaravanerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_leader" });
         }
-        protected void YouthAseraiMerchantOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
         }
-        protected void YouthAseraiCraftmanOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
         }
-        protected void YouthAseraiFarmerOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
         }
-        protected void YouthAseraiSlaveWarriorOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiSlaveWarriorOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tough" });
         }
-        protected void YouthAseraiMountedArcherOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiMountedArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthAseraiArcherOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthAseraiBanditOnConsequence(CharacterCreation characterCreation)
+        public void YouthAseraiBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
@@ -645,63 +653,63 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        protected bool BattaniaOnCondition()
+        public bool BattaniaOnCondition()
         {
             return base.GetSelectedCulture().StringId == "battania";
         }
-        protected bool BattaniaRetainerOnCondition()
+        public bool BattaniaRetainerOnCondition()
         {
             return base.GetSelectedCulture().StringId == "battania" && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected void YouthBattaniaFiannaOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattaniaFiannaOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_sharp" });
         }
-        protected void YouthBattaniaDruidOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattaniaDruidOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_schooled" });
         }
-        protected void YouthBataniaMerchantOnConsequence(CharacterCreation characterCreation)
+        public void YouthBataniaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
         }
-        protected void YouthBattaniaCraftmanOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattaniaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
         }
-        protected void YouthBattanniaForesterOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattanniaForesterOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthBattaniaFalxOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattaniaFalxOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_fierce" });
         }
-        protected void YouthBattaniaScoutOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattaniaScoutOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "anim_childhood_spotting" });
+            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
         }
-        protected void YouthBattaniaKernOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattaniaKernOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_throw" });
         }
-        protected void YouthBattaniaBanditOnConsequence(CharacterCreation characterCreation)
+        public void YouthBattaniaBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
@@ -709,69 +717,69 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        protected bool EmpireOnCondition()
+        public bool EmpireOnCondition()
         {
             return base.GetSelectedCulture().StringId == "empire";
         }
-        protected bool EmpireRetainerOnCondition()
+        public bool EmpireRetainerOnCondition()
         {
             return base.GetSelectedCulture().StringId == "empire" && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected void YouthEmpireCommanderOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireCommanderOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tactician" });
         }
-        protected void YouthEmpireEngineerOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireEngineerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_apprentice" });
         }
-        protected void YouthEmpireMerchantOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
         }
-        protected void YouthEmpireCraftmanOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
         }
-        protected void YouthEmpireFarmerOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
         }
-        protected void YouthEmpireLegionaryOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireLegionaryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_defend" });
         }
-        protected void YouthEmpireArcherOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthEmpireCavalryOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
         }
-        protected void YouthEmpireHorseArcherOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthEmpireBanditOnConsequence(CharacterCreation characterCreation)
+        public void YouthEmpireBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 10;
             this.RefreshPlayerAppearance(characterCreation);
@@ -779,63 +787,63 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        protected bool KhuzaitOnCondition()
+        public bool KhuzaitOnCondition()
         {
             return base.GetSelectedCulture().StringId == "khuzait";
         }
-        protected bool KhuzaitRetainerOnCondition()
+        public bool KhuzaitRetainerOnCondition()
         {
             return base.GetSelectedCulture().StringId == "khuzait" && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected void YouthKhuzaitKhansGuardOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitKhansGuardOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tough" });
         }
-        protected void YouthKhuzaitNomadOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitNomadOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
         }
-        protected void YouthKhuzaitMerchantOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
         }
-        protected void YouthKhuzaitCraftmanOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
         }
-        protected void YouthKhuzaitFarmerOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
         }
-        protected void YouthKhuzaitCavalryOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_polearm" });
         }
-        protected void YouthKhuzaitHorseArcherOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthKhuzaitInfantryOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthKhuzaitBanditOnConsequence(CharacterCreation characterCreation)
+        public void YouthKhuzaitBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
@@ -843,63 +851,63 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        protected bool SturgiaOnCondition()
+        public bool SturgiaOnCondition()
         {
             return base.GetSelectedCulture().StringId == "sturgia";
         }
-        protected bool SturgiaRetainerOnCondition()
+        public bool SturgiaRetainerOnCondition()
         {
             return base.GetSelectedCulture().StringId == "sturgia" && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected void YouthSturgiaDruzhinaOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaDruzhinaOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tough" });
         }
-        protected void YouthSturgiaHunterOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaHunterOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
-        protected void YouthSturgiaMerchantOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
         }
-        protected void YouthSturgiaCraftmanOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
         }
-        protected void YouthSturgiaFarmerOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
         }
-        protected void YouthSturgiaInfantryOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_defend" });
         }
-        protected void YouthSturgiaShockTroopOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaShockTroopOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_fierce" });
         }
-        protected void YouthSturgiaArcherOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
         }
-        protected void YouthSturgiaBanditOnConsequence(CharacterCreation characterCreation)
+        public void YouthSturgiaBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
@@ -907,63 +915,63 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        protected bool VlandiaOnCondition()
+        public bool VlandiaOnCondition()
         {
             return base.GetSelectedCulture().StringId == "vlandia";
         }
-        protected bool VlandiaRetainerOnCondition()
+        public bool VlandiaRetainerOnCondition()
         {
             return base.GetSelectedCulture().StringId == "vlandia" && this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        protected void YouthVlandiaKnightOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaKnightOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_honor" });
         }
-        protected void YouthVlandiaChamberlainOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaChamberlainOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_schooled" });
         }
-        protected void YouthVlandiaMerchantOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
         }
-        protected void YouthVlandiaGuildOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaGuildOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_apprentice" });
         }
-        protected void YouthVlandiaSerfOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaSerfOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
         }
-        protected void YouthVlandiaInfantryOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_defend" });
         }
-        protected void YouthVlandiaLightCavalryOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaLightCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
         }
-        protected void YouthVlandiaCrossbowmanOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiaCrossbowmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
         }
-        protected void YouthVlandiBanditOnConsequence(CharacterCreation characterCreation)
+        public void YouthVlandiBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
@@ -980,7 +988,7 @@ namespace wipo.patches.CharacterCreationPatch
 
 
         // here is where I give the player traits. As said earlier I can not give them a negative value yet, will have to wait
-        protected void AddAdulthoodMenuPatch(CharacterCreation characterCreation)
+        public void AddAdulthoodMenuPatch(CharacterCreation characterCreation)
         {
             MBTextManager.SetTextVariable("EXP_VALUE", 30);
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Reason for Adventuring", null), new TextObject("{=!}You started adventuring...", null), new CharacterCreationOnInit(this.AccomplishmentOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
@@ -1001,43 +1009,43 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
-        protected void ReasonDiscoverTheWorldOnConsequence(CharacterCreation characterCreation)
+        public void ReasonDiscoverTheWorldOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_explorer" });
         }
-        protected void ReasonTakeRevengeOnConsequence(CharacterCreation characterCreation)
+        public void ReasonTakeRevengeOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_hardened" });
         }
-        protected void ReasonForcedOutOnConsequence(CharacterCreation characterCreation)
+        public void ReasonForcedOutOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_streets" });
         }
-        protected void ReasonSearchForMoneyOnConsequence(CharacterCreation characterCreation)
+        public void ReasonSearchForMoneyOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_numbers" });
         }
-        protected void ReasonBecomeNobleOnConsequence(CharacterCreation characterCreation)
+        public void ReasonBecomeNobleOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_decisive" });
         }
-        protected void ReasonMarkHistorydOnConsequence(CharacterCreation characterCreation)
+        public void ReasonMarkHistorydOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_leader_2" });
         }
-        protected void ReasonLossLovedOneOnConsequence(CharacterCreation characterCreation)
+        public void ReasonLossLovedOneOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_vibrant" });
         }
-        protected void ReasonPracticeTradeOnConsequence(CharacterCreation characterCreation)
+        public void ReasonPracticeTradeOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_apprentice" });
         }
-        protected void ReasonHelpOthersOnConsequence(CharacterCreation characterCreation)
+        public void ReasonHelpOthersOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_schooled" });
         }
-        protected void ReasonProveFightingSkillOnConsequence(CharacterCreation characterCreation)
+        public void ReasonProveFightingSkillOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_fierce" });
         }
@@ -1053,7 +1061,7 @@ namespace wipo.patches.CharacterCreationPatch
 
         // Here I added the 16 yo option to have an early start, and changed the 20 yo option to 21, to avoid the horrendous babyface we have at 20. You can add more option by adding them to SandboxAgeOptions and copy/pasting the OnConsequence/OnApply
         // I don't have any idea of what it could bring but you can also add some conditions to these, like someone living in the slums doesn't live long or some culture refuse adolescent to roam free I guess
-        protected void AddAgeSelectionMenuPatch(CharacterCreation characterCreation)
+        public void AddAgeSelectionMenuPatch(CharacterCreation characterCreation)
         {
             MBTextManager.SetTextVariable("EXP_VALUE", 30);
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=HDFEAYDk}Starting Age", null), new TextObject("{=VlOGrGSn}Your character started off on the adventuring path at the age of...", null), new CharacterCreationOnInit(this.StartingAgeOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
@@ -1068,82 +1076,82 @@ namespace wipo.patches.CharacterCreationPatch
         }
 
 
-        protected void StartingAgeMinorOnConsequence(CharacterCreation characterCreation)
+        public void StartingAgeMinorOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ClearFaceGenPrefab();
-            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(20f, "act_childhood_schooled"));
+            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.Minor, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_genius" });
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Minor;
             this.SetHeroAge(16f);
         }
-        protected void StartingAgeMinorOnApply(CharacterCreation characterCreation)
+        public void StartingAgeMinorOnApply(CharacterCreation characterCreation)
         {
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Minor;
         }
 
 
-        new protected void StartingAgeYoungOnConsequence(CharacterCreation characterCreation)
+        new public void StartingAgeYoungOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ClearFaceGenPrefab();
-            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(21f, "act_childhood_schooled"));
+            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.YoungAdult, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_focus"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.YoungAdult;
             this.SetHeroAge(21f);
         }
-        new protected void StartingAgeYoungOnApply(CharacterCreation characterCreation)
+        new public void StartingAgeYoungOnApply(CharacterCreation characterCreation)
         {
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.YoungAdult;
         }
 
 
-        new protected void StartingAgeAdultOnConsequence(CharacterCreation characterCreation)
+        new public void StartingAgeAdultOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ClearFaceGenPrefab();
-            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(30f, "act_childhood_schooled"));
+            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.Adult, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_ready"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Adult;
             this.SetHeroAge(30f);
         }
-        new protected void StartingAgeAdultOnApply(CharacterCreation characterCreation)
+        new public void StartingAgeAdultOnApply(CharacterCreation characterCreation)
         {
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Adult;
         }
 
 
-        new protected void StartingAgeMiddleAgedOnConsequence(CharacterCreation characterCreation)
+        new public void StartingAgeMiddleAgedOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ClearFaceGenPrefab();
-            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(40f, "act_childhood_schooled"));
+            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.MiddleAged, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_sharp"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.MiddleAged;
             this.SetHeroAge(40f);
         }
-        new protected void StartingAgeMiddleAgedOnApply(CharacterCreation characterCreation)
+        new public void StartingAgeMiddleAgedOnApply(CharacterCreation characterCreation)
         {
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.MiddleAged;
         }
 
 
-        new protected void StartingAgeElderlyOnConsequence(CharacterCreation characterCreation)
+        new public void StartingAgeElderlyOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ClearFaceGenPrefab();
-            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge(50f, "act_childhood_schooled"));
+            characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.Elder, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_tough"});
             this.RefreshPlayerAppearance(characterCreation);
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Elder;
             this.SetHeroAge(50f);
         }
-        new protected void StartingAgeElderlyOnApply(CharacterCreation characterCreation)
+        new public void StartingAgeElderlyOnApply(CharacterCreation characterCreation)
         {
             this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Elder;
         }
 
 
-        new protected enum SandboxAgeOptions
+        new public enum SandboxAgeOptions
         {
             Minor = 16,
             YoungAdult = 21,
