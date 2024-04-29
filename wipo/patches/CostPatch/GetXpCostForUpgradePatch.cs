@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
@@ -11,44 +12,9 @@ namespace wipo.patches.CostPatch
         [HarmonyPostfix]
         static void Postfix(ref int __result, PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)
         {
-            int tier = upgradeTarget.Tier;
-            int num = 0;
-            for (int i = characterObject.Tier + 1; i <= tier; i++)
-            {
-                if (i <= 1)
-                {
-                    num += 100;
-                }
-                else if (i == 2)
-                {
-                    num += 200;
-                }
-                else if (i == 3)
-                {
-                    num += 400;
-                }
-                else if (i == 4)
-                {
-                    num += 800;
-                }
-                else if (i == 5)
-                {
-                    num += 1600;
-                }
-                else if (i == 6)
-                {
-                    num += 2400;
-                }
-                else if (i == 7)
-                {
-                    num += 3600;
-                }
-                else
-                {
-                    int num2 = upgradeTarget.Level + 4;
-                    num += (int)(1.333f * (float)num2 * (float)num2);
-                }
-            }
+            int curtier = characterObject.Tier;
+            int targtier = upgradeTarget.Tier;
+            int num = 100 * curtier * (int)Math.Pow(2, 1 + targtier - curtier);
             if (upgradeTarget.Occupation == Occupation.Mercenary) 
             {
                 num = (int)((float)num * 0.8f);

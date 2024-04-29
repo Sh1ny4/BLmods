@@ -18,10 +18,7 @@ namespace wipo.patches.CostPatch
             int num = 0;
             foreach(MobileParty party in MobileParty.All)
             {
-                if(party.LeaderHero.Clan == hero.Clan)
-                {
-                    num += (int)party.PartySizeRatio*10;
-                }
+                if(party.LeaderHero == hero) { num += (int)party.PartySizeRatio*10; }
             }
             __result = num;
             return false;
