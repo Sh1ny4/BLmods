@@ -7,7 +7,7 @@ namespace wipo.patches.Tweaks
     internal class MaximumAmountLootersPatch
     {
         [HarmonyPostfix]
-        protected static void Postfix(ref int __result)
+        static void Postfix(ref int __result)
         {
             __result = 100;
         }

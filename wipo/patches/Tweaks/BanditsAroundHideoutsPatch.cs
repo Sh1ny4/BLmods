@@ -7,7 +7,7 @@ namespace wipo.patches.Tweaks
     internal class BanditsAroundHideoutsPatch
     {
         [HarmonyPostfix]
-        protected static void Postfix(ref int __result)
+        static void Postfix(ref int __result)
         {
             __result = 5;
         }

@@ -8,7 +8,7 @@ namespace wipo.patches.Tweaks
     internal class CanGetDisorganizedPatch
     {
         [HarmonyPostfix]
-        protected static void Postfix(ref bool __result, PartyBase party)
+        static void Postfix(ref bool __result, PartyBase party)
         {
             __result = (party.IsActive && party.IsMobile && party.MobileParty.MemberRoster.TotalManCount >= 50);
         }

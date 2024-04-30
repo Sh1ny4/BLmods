@@ -35,6 +35,7 @@ namespace wipo.patches.CostPatch
             }
             return false;
         }
+
         private static readonly TextObject _mercenaryStr = new TextObject("{=qcaaJLhx}Mercenary Contract", null);
     }
 }

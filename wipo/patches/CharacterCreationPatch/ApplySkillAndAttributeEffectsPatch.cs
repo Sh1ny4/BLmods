@@ -15,34 +15,34 @@ namespace wipo.patches.CharacterCreationPatch
         static bool Prefix(List<SkillObject> skills, int focusToAdd, int skillLevelToAdd, CharacterAttribute attribute, int attributeLevelToAdd, List<TraitObject> traits = null, int traitLevelToAdd = 0, int renownToAdd = 0, int goldToAdd = 0, int unspentFocusPoints = 0, int unspentAttributePoints = 0)
         {
             
-                foreach (SkillObject skill in skills)
+            foreach (SkillObject skill in skills)
+            {
+                Hero.MainHero.HeroDeveloper.AddFocus(skill, focusToAdd, false);
+                if (Hero.MainHero.GetSkillValue(skill) == 1)
                 {
-                    Hero.MainHero.HeroDeveloper.AddFocus(skill, focusToAdd, false);
-                    if (Hero.MainHero.GetSkillValue(skill) == 1)
-                    {
-                        Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, skillLevelToAdd - 1, false);
-                    }
-                    else
-                    {
-                        Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, skillLevelToAdd, false);
-                    }
+                    Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, skillLevelToAdd - 1, false);
                 }
-                Hero.MainHero.HeroDeveloper.UnspentFocusPoints += unspentFocusPoints;
-                Hero.MainHero.HeroDeveloper.UnspentAttributePoints += unspentAttributePoints;
-                if (attribute != null)
+                else
                 {
-                    Hero.MainHero.HeroDeveloper.AddAttribute(attribute, attributeLevelToAdd, false);
+                    Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, skillLevelToAdd, false);
                 }
-                if (traits != null && traits.Count > 0)
+            }
+            Hero.MainHero.HeroDeveloper.UnspentFocusPoints += unspentFocusPoints;
+            Hero.MainHero.HeroDeveloper.UnspentAttributePoints += unspentAttributePoints;
+            if (attribute != null)
+            {
+                Hero.MainHero.HeroDeveloper.AddAttribute(attribute, attributeLevelToAdd, false);
+            }
+            if (traits != null && traits.Count > 0)
+            {
+                foreach (TraitObject trait in traits)
                 {
-                    foreach (TraitObject trait in traits)
-                    {
-                        Hero.MainHero.SetTraitLevel(trait, Hero.MainHero.GetTraitLevel(trait) + traitLevelToAdd);
-                    }
+                    Hero.MainHero.SetTraitLevel(trait, Hero.MainHero.GetTraitLevel(trait) + traitLevelToAdd);
                 }
-                GainRenownAction.Apply(Hero.MainHero, (float)renownToAdd, true);
-                GiveGoldAction.ApplyBetweenCharacters(null, Hero.MainHero, goldToAdd, true);
-                Hero.MainHero.HeroDeveloper.SetInitialLevel(1);
+            }
+            GainRenownAction.Apply(Hero.MainHero, (float)renownToAdd, true);
+            GiveGoldAction.ApplyBetweenCharacters(null, Hero.MainHero, goldToAdd, true);
+            Hero.MainHero.HeroDeveloper.SetInitialLevel(1);
             return false;
         }
 

@@ -7,7 +7,7 @@ namespace wipo.patches.Tweaks
     internal class LoyaltyPatch
     {
         [HarmonyPostfix]
-        protected static void Postfix(ref float __result)
+        static void Postfix(ref float __result)
         {
             __result = -1f;
         }
