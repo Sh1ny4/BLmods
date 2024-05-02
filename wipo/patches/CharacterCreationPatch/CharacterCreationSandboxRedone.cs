@@ -6,6 +6,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CharacterCreationContent;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.CampaignSystem.Extensions;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -16,11 +17,11 @@ namespace wipo.patches.CharacterCreationPatch
     //feel free to use it as a base for your mod, but while it is functionnal, it also is far from being done atm, a LOT of polishing has to be done.
     //If you have any idea for improvement please do share it, I am quite lacking in the idea department tbh
     [HarmonyPatch(typeof(SandboxCharacterCreationContent), "OnInitialized")]
-    public class CharacterCreationRedone : SandboxCharacterCreationContent
+    public class CharacterCreationSandboxRedone : SandboxCharacterCreationContent
     {
         //patches the function that create the menus and replaces it to mine, which inits my menus
         [HarmonyPrefix]
-        static bool Prefix(ref CharacterCreationRedone __instance, CharacterCreation characterCreation)
+        static bool Prefix(ref CharacterCreationSandboxRedone __instance, CharacterCreation characterCreation)
         {
             __instance.AddMenus(characterCreation);
             return false;
@@ -196,7 +197,7 @@ namespace wipo.patches.CharacterCreationPatch
         new public bool KhuzaitParentsOnCondition()
         {
             return base.GetSelectedCulture().StringId == "khuzait";
-        } 
+        }
         public void KhuzaitNoyansOnConsequence(CharacterCreation characterCreation)
         {
             this.SetParentAndOccupationType(characterCreation, 1, SandboxCharacterCreationContent.OccupationTypes.Retainer, "", "", true, true);
@@ -304,7 +305,7 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_Knight}become a knight", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Athletics, DefaultSkills.Riding }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(EdNobleTroopOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_Commander}lead armies", null), new MBList<SkillObject> { DefaultSkills.Tactics, DefaultSkills.Leadership, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(EdLeadTroopsOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_Court}be part of the court", null), new MBList<SkillObject> { DefaultSkills.Charm, DefaultSkills.Roguery, DefaultSkills.Tactics }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsRetainerOnCondition), new CharacterCreationOnSelect(EdCourtLifeOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            
+
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_trade}become a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Charm, DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(EdMerchantOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_crafting}learn a trade", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Endurance, 1, 30, 2, null, new CharacterCreationOnSelect(EdArtisanOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Education_Choice_scholar}become a scholar", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Engineering, DefaultSkills.Tactics }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(EdScholarOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
@@ -325,7 +326,7 @@ namespace wipo.patches.CharacterCreationPatch
         {
             return this._familyOccupationType == SandboxCharacterCreationContent.OccupationTypes.Retainer;
         }
-        public bool ParentsCommonersFemaleOnConditions() 
+        public bool ParentsCommonersFemaleOnConditions()
         {
             return (Hero.MainHero.IsFemale && this._familyOccupationType != SandboxCharacterCreationContent.OccupationTypes.Retainer);
         }
@@ -423,7 +424,7 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(VlandiaRetainerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             // commoner fighter
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_fighter}Better to be a warrior in a garden than a gardener in a war.", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(ParentsCommonerOnCondition), new CharacterCreationOnSelect(IdiomFighterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            
+
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_healthy}A healthy mind in a healthy body.", null), new MBList<SkillObject> { DefaultSkills.Athletics, DefaultSkills.Medicine }, DefaultCharacterAttributes.Social, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomHealthyBodyOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_prevention}Prevention is better than cure.", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Steward }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomPreventionOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Idiom_choice_wellbegun}Well begun is half done.", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Engineering }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, null, new CharacterCreationOnSelect(IdiomWellBegunOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
@@ -439,27 +440,27 @@ namespace wipo.patches.CharacterCreationPatch
 
         public static void IdiomFighterOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_honor" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_honor" });
         }
         public static void IdiomHealthyBodyOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tactician" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_tactician" });
         }
         public static void IdiomPreventionOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_sharp" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_sharp" });
         }
         public static void IdiomWellBegunOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_appearances" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_appearances" });
         }
         public static void IdiomBoldOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_leader_2" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_leader_2" });
         }
         public static void IdiomForwarnedOnConsequence(CharacterCreation characterCreation)
         {
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_spotting" });
         }
         public static void IdiomInventionOnConsequence(CharacterCreation characterCreation)
         {
@@ -507,8 +508,8 @@ namespace wipo.patches.CharacterCreationPatch
             //Battania
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bfian}a member of a fianna", null), new MBList<SkillObject> { DefaultSkills.TwoHanded, DefaultSkills.Bow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(BattaniaRetainerOnCondition), new CharacterCreationOnSelect(YouthBattaniaFiannaOnConsequence), new CharacterCreationApplyFinalEffects(NobleOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bdruid}a druid", null), new MBList<SkillObject> { DefaultSkills.Medicine, DefaultSkills.Scouting, DefaultSkills.Steward }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBattaniaDruidOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bmerchant}a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Steward,DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBataniaMerchantOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bcraftman}a craftman", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade,DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBattaniaCraftmanOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bmerchant}a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Steward, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBataniaMerchantOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bcraftman}a craftman", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBattaniaCraftmanOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bforester}a forester", null), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Scouting, DefaultSkills.Roguery }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBattanniaForesterOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bwildling}wildling", null), new MBList<SkillObject> { DefaultSkills.Throwing, DefaultSkills.TwoHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBattaniaFalxOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bscout}scout", null), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Throwing, DefaultSkills.Polearm }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBattaniaScoutOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
@@ -516,7 +517,7 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Bforestbandit}a forest bandit", null), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Throwing, DefaultSkills.OneHanded }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(BattaniaOnCondition), new CharacterCreationOnSelect(YouthBattaniaBanditOnConsequence), new CharacterCreationApplyFinalEffects(BanditOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
 
             //Empire
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Ecommander}a centurion", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Tactics,DefaultSkills.Leadership }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, new CharacterCreationOnCondition(EmpireRetainerOnCondition), new CharacterCreationOnSelect(YouthEmpireCommanderOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Ecommander}a centurion", null), new MBList<SkillObject> { DefaultSkills.Steward, DefaultSkills.Tactics, DefaultSkills.Leadership }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, new CharacterCreationOnCondition(EmpireRetainerOnCondition), new CharacterCreationOnSelect(YouthEmpireCommanderOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Eengineer}an engineer's apprentice", null), new MBList<SkillObject> { DefaultSkills.Engineering, DefaultSkills.Steward, DefaultSkills.Crafting }, DefaultCharacterAttributes.Intelligence, 1, 30, 2, new CharacterCreationOnCondition(EmpireOnCondition), new CharacterCreationOnSelect(YouthEmpireEngineerOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Emerchant}a merchant", null), new MBList<SkillObject> { DefaultSkills.Trade, DefaultSkills.Steward, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, new CharacterCreationOnCondition(EmpireOnCondition), new CharacterCreationOnSelect(YouthEmpireMerchantOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Ecraftman}a craftman", null), new MBList<SkillObject> { DefaultSkills.Crafting, DefaultSkills.Trade, DefaultSkills.Athletics }, DefaultCharacterAttributes.Endurance, 1, 30, 2, new CharacterCreationOnCondition(EmpireOnCondition), new CharacterCreationOnSelect(YouthEmpireCraftmanOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
@@ -559,7 +560,7 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Vcavalry}light cavalry", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Polearm, DefaultSkills.Riding }, DefaultCharacterAttributes.Vigor, 1, 30, 2, new CharacterCreationOnCondition(VlandiaOnCondition), new CharacterCreationOnSelect(YouthVlandiaLightCavalryOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Vcrossbowman}levied crossbowman", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Crossbow, DefaultSkills.Athletics }, DefaultCharacterAttributes.Control, 1, 30, 2, new CharacterCreationOnCondition(VlandiaOnCondition), new CharacterCreationOnSelect(YouthVlandiaCrossbowmanOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Start_Choice_Vbandit}a highwayman", null), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Scouting, DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 30, 2, new CharacterCreationOnCondition(VlandiaOnCondition), new CharacterCreationOnSelect(YouthVlandiBanditOnConsequence), new CharacterCreationApplyFinalEffects(BanditOnApply), new TextObject("{=!}", null), null, 0, 0, 0, 0, 0);
-            
+
             characterCreation.AddNewMenu(characterCreationMenu);
         }
 
@@ -601,55 +602,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_hardened" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_hardened" });
         }
         public void YouthAseraiCaravanerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_leader" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_leader" });
         }
         public void YouthAseraiMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_numbers" });
         }
         public void YouthAseraiCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_artisan" });
         }
         public void YouthAseraiFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_animals" });
         }
         public void YouthAseraiSlaveWarriorOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tough" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_tough" });
         }
         public void YouthAseraiMountedArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthAseraiArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthAseraiBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_roguery" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_roguery" });
         }
 
 
@@ -665,43 +666,43 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_sharp" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_sharp" });
         }
         public void YouthBattaniaDruidOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_schooled" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_schooled" });
         }
         public void YouthBataniaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_numbers" });
         }
         public void YouthBattaniaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_artisan" });
         }
         public void YouthBattanniaForesterOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthBattaniaFalxOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_fierce" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_fierce" });
         }
         public void YouthBattaniaScoutOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_spotting" });
         }
         public void YouthBattaniaKernOnConsequence(CharacterCreation characterCreation)
         {
@@ -713,7 +714,7 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_roguery" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_roguery" });
         }
 
 
@@ -729,61 +730,61 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tactician" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_tactician" });
         }
         public void YouthEmpireEngineerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_apprentice" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_apprentice" });
         }
         public void YouthEmpireMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_numbers" });
         }
         public void YouthEmpireCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_artisan" });
         }
         public void YouthEmpireFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_animals" });
         }
         public void YouthEmpireLegionaryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_defend" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_defend" });
         }
         public void YouthEmpireArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthEmpireCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_spotting" });
         }
         public void YouthEmpireHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthEmpireBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 10;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_roguery" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_roguery" });
         }
 
 
@@ -799,55 +800,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tough" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_tough" });
         }
         public void YouthKhuzaitNomadOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_spotting" });
         }
         public void YouthKhuzaitMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_numbers" });
         }
         public void YouthKhuzaitCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_artisan" });
         }
         public void YouthKhuzaitFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_animals" });
         }
         public void YouthKhuzaitCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_polearm" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_polearm" });
         }
         public void YouthKhuzaitHorseArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthKhuzaitInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthKhuzaitBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_roguery" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_roguery" });
         }
 
 
@@ -863,55 +864,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_tough" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_tough" });
         }
         public void YouthSturgiaHunterOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_decisive" });
         }
         public void YouthSturgiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_numbers" });
         }
         public void YouthSturgiaCraftmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_artisan" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_artisan" });
         }
         public void YouthSturgiaFarmerOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_animals" });
         }
         public void YouthSturgiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_defend" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_defend" });
         }
         public void YouthSturgiaShockTroopOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_fierce" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_fierce" });
         }
         public void YouthSturgiaArcherOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_ready_bow" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_ready_bow" });
         }
         public void YouthSturgiaBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_roguery" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_roguery" });
         }
 
 
@@ -927,55 +928,55 @@ namespace wipo.patches.CharacterCreationPatch
         {
             base.SelectedTitleType = 1;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_honor" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_honor" });
         }
         public void YouthVlandiaChamberlainOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 2;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_schooled" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_schooled" });
         }
         public void YouthVlandiaMerchantOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 3;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_numbers" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_numbers" });
         }
         public void YouthVlandiaGuildOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 4;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_apprentice" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_apprentice" });
         }
         public void YouthVlandiaSerfOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 5;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_animals" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_animals" });
         }
         public void YouthVlandiaInfantryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 6;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_defend" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_defend" });
         }
         public void YouthVlandiaLightCavalryOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 7;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_spotting" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_spotting" });
         }
         public void YouthVlandiaCrossbowmanOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 8;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_decisive"});
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_decisive" });
         }
         public void YouthVlandiBanditOnConsequence(CharacterCreation characterCreation)
         {
             base.SelectedTitleType = 9;
             this.RefreshPlayerAppearance(characterCreation);
-            characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_roguery" });
+            characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_roguery" });
         }
 
 
@@ -997,9 +998,9 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_travel}to discover the world", null), new MBList<SkillObject> { DefaultSkills.Scouting }, DefaultCharacterAttributes.Endurance, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonDiscoverTheWorldOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_travel}The temptation of travel was to much for you, as you always dreamt of seeing the world.", null), null, 1, 20, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_revenge}to take revenge", null), new MBList<SkillObject> { DefaultSkills.Tactics }, DefaultCharacterAttributes.Vigor, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonTakeRevengeOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_revenge}After being wronged, you felt the need for revenge. With that goal in mind, you wandered throughout Calradia to get reparations", null), new MBList<TraitObject> { DefaultTraits.Mercy }, -1, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_forced_out}after being forced out", null), new MBList<SkillObject> { DefaultSkills.Roguery }, DefaultCharacterAttributes.Cunning, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonForcedOutOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_forced_out}After one last disagreement with you, your parents forced you out. With nowhere to go, adventuring was all you could do", null), new MBList<TraitObject> { DefaultTraits.Honor }, -1, 0, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_money}in search of money", null), new MBList<SkillObject> { DefaultSkills.Trade}, DefaultCharacterAttributes.Cunning, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonSearchForMoneyOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_money}You always wanted to make riches, and it was obvious for you that staying at home would never allow you do it.", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_money}in search of money", null), new MBList<SkillObject> { DefaultSkills.Trade }, DefaultCharacterAttributes.Cunning, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonSearchForMoneyOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_money}You always wanted to make riches, and it was obvious for you that staying at home would never allow you do it.", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_power}to become one of the powerful", null), new MBList<SkillObject> { DefaultSkills.Leadership }, DefaultCharacterAttributes.Cunning, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonBecomeNobleOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_power}Seeing how those in power had many advantages, you joined on an adventure to join them, or even replace them.", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 10, 0, 0, 0);
-            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_history}to mark history", null), new MBList<SkillObject> { DefaultSkills.Charm  }, DefaultCharacterAttributes.Social, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonMarkHistorydOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_history}With all the wars in Calradia, there are many way one could carve {?PLAYER.GENDER}her{?}his{\\?} name in history.", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
+            characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_history}to mark history", null), new MBList<SkillObject> { DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonMarkHistorydOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_history}With all the wars in Calradia, there are many way one could carve {?PLAYER.GENDER}her{?}his{\\?} name in history.", null), new MBList<TraitObject> { DefaultTraits.Valor, DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_loss}after the loss of a loved one", null), new MBList<SkillObject> { DefaultSkills.Steward }, DefaultCharacterAttributes.Social, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonLossLovedOneOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_loss}After losing some close to you, you left to see if you could fill that hole", null), new MBList<TraitObject> { DefaultTraits.Mercy }, 1, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_crafting}to practice your trade", null), new MBList<SkillObject> { DefaultSkills.Crafting }, DefaultCharacterAttributes.Endurance, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonPracticeTradeOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_crafting}Your craftmanship has been an important part of your life, but your skill wasn't enough. You thus decided to embark on a journey to improve at it.", null), new MBList<TraitObject> { DefaultTraits.Calculating }, 1, 0, 0, 0, 0);
             characterCreationCategory.AddCategoryOption(new TextObject("{=CCR_Reason_helping}to help those in need", null), new MBList<SkillObject> { DefaultSkills.Medicine }, DefaultCharacterAttributes.Intelligence, 1, 50, 2, null, new CharacterCreationOnSelect(ReasonHelpOthersOnConsequence), new CharacterCreationApplyFinalEffects(NothingOnApply), new TextObject("{=CCR_Reason_desc_helping}Having been taught in medicine, you decide to set out and help those in need, as with the wars many have suffered.", null), new MBList<TraitObject> { DefaultTraits.Mercy }, 2, 0, 0, 0, 0);
@@ -1074,20 +1075,45 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreationCategory.AddCategoryOption(new TextObject("{=!}50", null), new MBList<SkillObject>(), null, 0, 0, 0, null, new CharacterCreationOnSelect(StartingAgeElderlyOnConsequence), new CharacterCreationApplyFinalEffects(StartingAgeElderlyOnApply), new TextObject("{=ePD5Afvy}While you are past your prime, there is still enough time to go on that last big adventure for you. And you have all the experience you need to overcome anything!", null), null, 0, 0, 0, 8, 4);
             characterCreation.AddNewMenu(characterCreationMenu);
         }
-
-
         public void StartingAgeMinorOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ClearFaceGenPrefab();
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.Minor, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{ "act_childhood_genius" });
             this.RefreshPlayerAppearance(characterCreation);
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Minor;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.Minor;
             this.SetHeroAge(16f);
         }
         public void StartingAgeMinorOnApply(CharacterCreation characterCreation)
         {
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Minor;
+            List<SkillObject> skilllist = new List<SkillObject> {
+                DefaultSkills.OneHanded,
+                DefaultSkills.TwoHanded,
+                DefaultSkills.Polearm,
+                DefaultSkills.Bow,
+                DefaultSkills.Crossbow,
+                DefaultSkills.Throwing,
+                DefaultSkills.Athletics,
+                DefaultSkills.Riding,
+                DefaultSkills.Crafting,
+                DefaultSkills.Scouting,
+                DefaultSkills.Tactics,
+                DefaultSkills.Roguery,
+                DefaultSkills.Charm,
+                DefaultSkills.Leadership,
+                DefaultSkills.Trade,
+                DefaultSkills.Steward,
+                DefaultSkills.Medicine,
+                DefaultSkills.Engineering };
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.Minor;
+            foreach (SkillObject skill in skilllist)
+            {
+                int currlevel = Hero.MainHero.GetSkillValue(skill);
+                if (currlevel >= 1)
+                {
+                    Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, (int)( - currlevel * 0.4), false);
+                }
+            }
         }
 
 
@@ -1097,12 +1123,12 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.YoungAdult, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_focus"});
             this.RefreshPlayerAppearance(characterCreation);
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.YoungAdult;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.YoungAdult;
             this.SetHeroAge(21f);
         }
         new public void StartingAgeYoungOnApply(CharacterCreation characterCreation)
         {
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.YoungAdult;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.YoungAdult;
         }
 
 
@@ -1112,12 +1138,40 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.Adult, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_ready"});
             this.RefreshPlayerAppearance(characterCreation);
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Adult;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.Adult;
             this.SetHeroAge(30f);
         }
         new public void StartingAgeAdultOnApply(CharacterCreation characterCreation)
         {
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Adult;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.Adult;
+
+            List<SkillObject> skilllist = new List<SkillObject> {
+                DefaultSkills.OneHanded,
+                DefaultSkills.TwoHanded,
+                DefaultSkills.Polearm,
+                DefaultSkills.Bow,
+                DefaultSkills.Crossbow,
+                DefaultSkills.Throwing,
+                DefaultSkills.Athletics,
+                DefaultSkills.Riding,
+                DefaultSkills.Crafting,
+                DefaultSkills.Scouting,
+                DefaultSkills.Tactics,
+                DefaultSkills.Roguery,
+                DefaultSkills.Charm,
+                DefaultSkills.Leadership,
+                DefaultSkills.Trade,
+                DefaultSkills.Steward,
+                DefaultSkills.Medicine,
+                DefaultSkills.Engineering };
+            foreach (SkillObject skill in skilllist)
+            {
+                int currlevel = Hero.MainHero.GetSkillValue(skill);
+                if (currlevel >= 1)
+                {
+                    Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, (int)(currlevel * 0.2), false);
+                }
+            }
         }
 
 
@@ -1127,12 +1181,39 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.MiddleAged, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_sharp"});
             this.RefreshPlayerAppearance(characterCreation);
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.MiddleAged;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.MiddleAged;
             this.SetHeroAge(40f);
         }
         new public void StartingAgeMiddleAgedOnApply(CharacterCreation characterCreation)
         {
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.MiddleAged;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.MiddleAged;
+            List<SkillObject> skilllist = new List<SkillObject> {
+                DefaultSkills.OneHanded,
+                DefaultSkills.TwoHanded,
+                DefaultSkills.Polearm,
+                DefaultSkills.Bow,
+                DefaultSkills.Crossbow,
+                DefaultSkills.Throwing,
+                DefaultSkills.Athletics,
+                DefaultSkills.Riding,
+                DefaultSkills.Crafting,
+                DefaultSkills.Scouting,
+                DefaultSkills.Tactics,
+                DefaultSkills.Roguery,
+                DefaultSkills.Charm,
+                DefaultSkills.Leadership,
+                DefaultSkills.Trade,
+                DefaultSkills.Steward,
+                DefaultSkills.Medicine,
+                DefaultSkills.Engineering };
+            foreach (SkillObject skill in skilllist)
+            {
+                int currlevel = Hero.MainHero.GetSkillValue(skill);
+                if (currlevel >= 1)
+                {
+                    Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, (int)(currlevel * 0.6), false);
+                }
+            }
         }
 
 
@@ -1142,12 +1223,39 @@ namespace wipo.patches.CharacterCreationPatch
             characterCreation.ChangeFaceGenChars(SandboxCharacterCreationContent.ChangePlayerFaceWithAge((float)SandboxAgeOptions.Elder, "act_childhood_schooled"));
             characterCreation.ChangeCharsAnimation(new List<string>{"act_childhood_tough"});
             this.RefreshPlayerAppearance(characterCreation);
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Elder;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.Elder;
             this.SetHeroAge(50f);
         }
         new public void StartingAgeElderlyOnApply(CharacterCreation characterCreation)
         {
-            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationRedone.SandboxAgeOptions.Elder;
+            this._startingAge = (SandboxCharacterCreationContent.SandboxAgeOptions)CharacterCreationSandboxRedone.SandboxAgeOptions.Elder;
+            List<SkillObject> skilllist = new List<SkillObject> {
+                DefaultSkills.OneHanded,
+                DefaultSkills.TwoHanded,
+                DefaultSkills.Polearm,
+                DefaultSkills.Bow,
+                DefaultSkills.Crossbow,
+                DefaultSkills.Throwing,
+                DefaultSkills.Athletics,
+                DefaultSkills.Riding,
+                DefaultSkills.Crafting,
+                DefaultSkills.Scouting,
+                DefaultSkills.Tactics,
+                DefaultSkills.Roguery,
+                DefaultSkills.Charm,
+                DefaultSkills.Leadership,
+                DefaultSkills.Trade,
+                DefaultSkills.Steward,
+                DefaultSkills.Medicine,
+                DefaultSkills.Engineering };
+            foreach (SkillObject skill in skilllist)
+            {
+                int currlevel = Hero.MainHero.GetSkillValue(skill);
+                if (currlevel >= 1 && currlevel*2 <= 200)
+                {
+                    Hero.MainHero.HeroDeveloper.ChangeSkillLevel(skill, (int)(currlevel), false);
+                }
+            }
         }
 
 

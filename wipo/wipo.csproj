@@ -37,6 +37,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\wipo\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="StoryMode">
+      <HintPath>..\..\..\..\..\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="TaleWorlds.CampaignSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -80,7 +83,9 @@
   <ItemGroup>
     <Compile Include="main.cs" />
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
-    <Compile Include="patches\CharacterCreationPatch\CharacterCreationRedone.cs" />
+    <Compile Include="patches\CharacterCreationPatch\CharacterCreationStoryModeRedone.cs" />
+    <Compile Include="patches\CharacterCreationPatch\CharacterCreationSandboxRedone.cs" />
+    <Compile Include="patches\CharacterCreationPatch\YouthOnInitPatch.cs" />
     <Compile Include="patches\CostPatch\AddMercenaryIncomePatch.cs" />
     <Compile Include="patches\CostPatch\CalculateBaseMemberSizePatch.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
