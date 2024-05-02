@@ -34,7 +34,7 @@ namespace wipo.patches.CharacterCreationPatch
             AddChildhoodMenuPatch(characterCreation);
             AddYouthMenuPatch(characterCreation);
             AddAdulthoodMenuPatch(characterCreation);
-            this.AddEscapeMenu(characterCreation);
+            AddEscapeMenuPatch(characterCreation);
         }
 
         //first menu : family you were born in, divided per culture in submenus. I haven't been able to redo the same structure in other menu (haven't tried much I admit), so I replaced the submenus structure with a culture specific condition in each option instead
@@ -1067,6 +1067,22 @@ namespace wipo.patches.CharacterCreationPatch
         public void ReasonProveFightingSkillOnConsequence(CharacterCreation characterCreation)
         {
             characterCreation.ChangeCharsAnimation(new List<string> { "act_childhood_fierce" });
+        }
+
+
+
+
+        public void AddEscapeMenuPatch(CharacterCreation characterCreation)
+        {
+            MBTextManager.SetTextVariable("EXP_VALUE", SkillLevelToAdd);
+            CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=peNBA0WW}Story Background"), new TextObject("{=jg3T5AyE}Like many families in Calradia, your life was upended by war. Your home was ravaged by the passage of army after army. Eventually, you sold your property and set off with your father, mother, brother, and your two younger siblings to a new town you'd heard was safer. But you did not make it. Along the way, the inn at which you were staying was attacked by raiders. Your parents were slain and your two youngest siblings seized, but you and your brother survived because..."), EscapeOnInit);
+            CharacterCreationCategory characterCreationCategory = characterCreationMenu.AddMenuCategory();
+            characterCreationCategory.AddCategoryOption(new TextObject("{=6vCHovVH}you subdued a raider."), new MBList<SkillObject> { DefaultSkills.OneHanded, DefaultSkills.Athletics }, DefaultCharacterAttributes.Vigor, 1, 30, 2, null, EscapeSubdueRaiderOnConsequence, EscapeSubdueRaiderOnApply, new TextObject("{=CvBoRaFv}You were able to grab a knife in the confusion of the attack. You stabbed a raider blocking your way."));
+            characterCreationCategory.AddCategoryOption(new TextObject("{=2XhW49TX}you drove them off with arrows."), new MBList<SkillObject> { DefaultSkills.Bow, DefaultSkills.Tactics }, DefaultCharacterAttributes.Control, 1, 30, 2, null, EscapeDrawArrowsOnConsequence, EscapeDrawArrowsOnApply, new TextObject("{=ccf67J3J}You grabbed a bow and sent a few arrows the raiders' way. They took cover, giving you the opportunity to flee with your brother."));
+            characterCreationCategory.AddCategoryOption(new TextObject("{=gOI8lKcl}you rode off on a fast horse."), new MBList<SkillObject> { DefaultSkills.Riding, DefaultSkills.Scouting }, DefaultCharacterAttributes.Endurance, 2, 30, 2, null, EscapeFastHorseOnConsequence, EscapeFastHorseOnApply, new TextObject("{=cepWNzEA}Jumping on the two remaining horses in the inn's burning stable, you and your brother broke out of the encircling raiders and rode off."));
+            characterCreationCategory.AddCategoryOption(new TextObject("{=EdUppdLZ}you tricked the raiders."), new MBList<SkillObject> { DefaultSkills.Roguery, DefaultSkills.Tactics }, DefaultCharacterAttributes.Cunning, 1, 30, 2, null, EscapeRoadOffWithBrotherOnConsequence, EscapeRoadOffWithBrotherOnApply, new TextObject("{=ZqOvtLBM}In the confusion of the attack you shouted that someone had found treasure in the back room. You then made your way out of the undefended entrance with your brother."));
+            characterCreationCategory.AddCategoryOption(new TextObject("{=qhAhPWdp}you organized the travelers to break out."), new MBList<SkillObject> { DefaultSkills.Leadership, DefaultSkills.Charm }, DefaultCharacterAttributes.Social, 1, 30, 2, null, EscapeOrganizeTravellersOnConsequence, EscapeOrganizeTravellersOnApply, new TextObject("{=Lmfi0cYk}You encouraged the few travellers in the inn to break out in a coordinated fashion. Raiders killed or captured most but you and your brother were able to escape."));
+            characterCreation.AddNewMenu(characterCreationMenu);
         }
     }
 }

@@ -85,6 +85,29 @@
     <Compile Include="patches\CharacterCreationPatch\ApplySkillAndAttributeEffectsPatch.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationStoryModeRedone.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationSandboxRedone.cs" />
+    <Compile Include="patches\CostPatch\AddMercenaryIncomePatch.cs" />
+    <Compile Include="patches\CostPatch\CalculateBaseMemberSizePatch.cs" />
+    <Compile Include="patches\CostPatch\FoodPatch.cs" />
+    <Compile Include="patches\CostPatch\GetCharacterWagePatch.cs" />
+    <Compile Include="patches\CostPatch\GetMercenaryWageAmountPatch.cs" />
+    <Compile Include="patches\CostPatch\GetXpCostForUpgradePatch.cs" />
+    <Compile Include="patches\CostPatch\RecruitmentCostPatch.cs" />
+    <Compile Include="patches\EliteInCastle\AiVisitSettlementBehaviorPatch.cs" />
+    <Compile Include="patches\EliteInCastle\CastleRecruitMenu.cs" />
+    <Compile Include="patches\EliteInCastle\GetBasicVolunteerPatch.cs" />
+    <Compile Include="patches\EliteInCastle\GetEffectiveDailyExperience.cs" />
+    <Compile Include="patches\EliteInCastle\NotableAmountPatch.cs" />
+    <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
+    <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
+    <Compile Include="patches\TournamentEquipmentRedone\GetParticipantArmourPatch.cs" />
+    <Compile Include="patches\Tweaks\BanditsAroundHideoutsPatch.cs" />
+    <Compile Include="patches\Tweaks\CalculateLearningLimitPatch.cs" />
+    <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
+    <Compile Include="patches\Tweaks\CanGetDisorganizedPatch.cs" />
+    <Compile Include="patches\Tweaks\CreateArmyPatch.cs" />
+    <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
+    <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
+    <Compile Include="patches\Tweaks\UIsearchGetterPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
