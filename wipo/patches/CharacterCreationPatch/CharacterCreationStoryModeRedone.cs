@@ -21,7 +21,7 @@ namespace wipo.patches.CharacterCreationPatch
     {
         //patches the function that create the menus and replaces it to mine, which inits my menus
         [HarmonyPrefix]
-        static bool Prefix(ref CharacterCreationSandboxRedone __instance, CharacterCreation characterCreation)
+        static bool Prefix(ref CharacterCreationStoryModeRedone __instance, CharacterCreation characterCreation)
         {
             __instance.AddMenus(characterCreation);
             return false;

@@ -12,7 +12,7 @@ namespace wipo
             base.OnSubModuleLoad();
             new Harmony("wipo.patches").PatchAll();
         }
-
+/*
         protected override void InitializeGameStarter(Game game, IGameStarter starterObject)
         {
             base.InitializeGameStarter(game, starterObject);
@@ -20,6 +20,6 @@ namespace wipo
             {
                 starter.AddBehavior(new patches.EliteInCastle.CastleRecruitMenu());
             }
-        }
+        }*/
     }
 }
