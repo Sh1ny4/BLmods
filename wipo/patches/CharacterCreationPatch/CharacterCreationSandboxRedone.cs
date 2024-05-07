@@ -490,6 +490,10 @@ namespace wipo.patches.CharacterCreationPatch
 
         // here we choose the starting equipment alongside the start in life. as I said earlier I used culture specific conditions to have culture specific jobs when I could think of them
         // structure is basically noble troop, culture unique job, merchant, craftman, farmer, type of troop made according to my troop mod (https://www.nexusmods.com/mountandblade2bannerlord/mods/4932 , which is why some skills/names might be odd) and then criminals
+        // the way the starting gears are chosen is in the sanbdbox > sandbox_equipment_sets xml , and it work this way : 
+        // player_char_creation_<the culture you chose>_<the TitleType you put in the consequences below>_<the gender, m or f>, it's done in RefreshPlayerAppearance
+        // so far I have ten for the empire and it doesn't seem to be too much, I think you can go crazy and have dozens of it
+        // In a less RP view you can have a list of starting loadouts, and have each one of these cost a fixed amount of money, and the player 'buys' them
         public void AddYouthMenuPatch(CharacterCreation characterCreation)
         {
             CharacterCreationMenu characterCreationMenu = new CharacterCreationMenu(new TextObject("{=!}Start in life", null), new TextObject("{=!}You started your life as..", null), new CharacterCreationOnInit(this.YouthOnInit), CharacterCreationMenu.MenuTypes.MultipleChoice);
@@ -585,11 +589,6 @@ namespace wipo.patches.CharacterCreationPatch
             AddHeroToPartyAction.Apply(companion, Hero.MainHero.PartyBelongedTo);
         }
 
-
-        // the way the starting gears are chosen is in the sanbdbox > sandbox_equipment_sets xml , and it work this way : 
-        // player_char_creation_<the culture you chose>_<the TitleType you put in the consequences below>_<the gender, m or f>, it's done in RefreshPlayerAppearance
-        // so far I have ten for the empire and it doesn't seem to be too much, I think you can go crazy and have dozens of it
-        // I haven't been able to remove gold to have an equipement cost something to the player in the AddCategoryOption so either it will have to wait until I patch it or it has to be done in the consequences
         public bool AseraiOnCondition()
         {
             return base.GetSelectedCulture().StringId == "aserai";
@@ -988,7 +987,7 @@ namespace wipo.patches.CharacterCreationPatch
 
 
 
-        // here is where I give the player traits. As said earlier I can not give them a negative value yet, will have to wait
+        // here is where I give the player traits, as well as a goal/reason for RP reasons
         public void AddAdulthoodMenuPatch(CharacterCreation characterCreation)
         {
             MBTextManager.SetTextVariable("EXP_VALUE", 30);
