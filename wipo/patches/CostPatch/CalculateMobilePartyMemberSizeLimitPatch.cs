@@ -1,23 +1,64 @@
-﻿using HarmonyLib;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
 namespace wipo.patches.CostPatch
 {
-    [HarmonyPatch(typeof(DefaultPartySizeLimitModel), "CalculateBaseMemberSize")]
-    internal class CalculateBaseMemberSizePatch : DefaultPartySizeLimitModel
+    [HarmonyPatch(typeof(DefaultPartySizeLimitModel), "CalculateMobilePartyMemberSizeLimit")]
+    internal class CalculateMobilePartyMemberSizeLimitPatch : DefaultPartySizeLimitModel
     {
-        [HarmonyPrefix]
-        static bool Prefix(ref CalculateBaseMemberSizePatch __instance, Hero partyLeader, IFaction partyMapFaction, Clan actualClan, ref ExplainedNumber result)
+        static void Postfix(ref ExplainedNumber __result, ref CalculateMobilePartyMemberSizeLimitPatch __instance, MobileParty party, bool includeDescriptions = false)
+        {
+            ExplainedNumber result = new ExplainedNumber(20f, includeDescriptions, __instance._baseSizeText);
+            if (party.LeaderHero != null && party.LeaderHero.Clan != null && !party.IsCaravan)
+            {
+                __instance.CalculateBaseMemberSize(party.LeaderHero, party.MapFaction, party.ActualClan, ref result);
+                result.Add((float)(party.LeaderHero.GetSkillValue(DefaultSkills.Leadership)), __instance._leadershipText, null);
+            }
+            else if (party.IsCaravan)
+            {
+                if (party.Party.Owner == Hero.MainHero)
+                {
+                    result.Add(10f, __instance._randomSizeBonusTemporary, null);
+                }
+                else
+                {
+                    Hero owner = party.Party.Owner;
+                    if (owner != null && owner.IsNotable)
+                    {
+                        result.Add((float)(10 * ((party.Party.Owner.Power < 100f) ? 1 : ((party.Party.Owner.Power < 200f) ? 2 : 3))), __instance._randomSizeBonusTemporary, null);
+                    }
+                }
+            }
+            else if (party.IsVillager)
+            {
+                result.Add(40f, __instance._randomSizeBonusTemporary, null);
+            }
+            __result = result;
+        }
+
+        public TextObject _leadershipText = new TextObject("{=!}Leadership level", null);
+        public TextObject _randomSizeBonusTemporary = new TextObject("{=hynFV8jC}Extra size bonus (Perk-like Effect)", null);
+        public TextObject _baseSizeText = GameTexts.FindText("str_base_size", null);
+        private readonly TextObject _factionLeaderText = GameTexts.FindText("str_faction_leader_bonus", null);
+        private readonly TextObject _leadershipPerkUltimateLeaderBonusText = GameTexts.FindText("str_leadership_perk_bonus", null);
+
+
+        private void CalculateBaseMemberSize(Hero partyLeader, IFaction partyMapFaction, Clan actualClan, ref ExplainedNumber result)
         {
             if (partyMapFaction != null && partyMapFaction.IsKingdomFaction && partyLeader.MapFaction.Leader == partyLeader)
             {
-                result.Add(40f, __instance._factionLeaderText, null);
+                result.Add(20f, this._factionLeaderText, null);
             }
             if (partyLeader.GetPerkValue(DefaultPerks.OneHanded.Prestige))
             {
@@ -58,7 +99,7 @@ namespace wipo.patches.CostPatch
             if (partyLeader.GetSkillValue(DefaultSkills.Leadership) > Campaign.Current.Models.CharacterDevelopmentModel.MaxSkillRequiredForEpicPerkBonus && partyLeader.GetPerkValue(DefaultPerks.Leadership.UltimateLeader))
             {
                 int num = partyLeader.GetSkillValue(DefaultSkills.Leadership) - Campaign.Current.Models.CharacterDevelopmentModel.MaxSkillRequiredForEpicPerkBonus;
-                result.Add((float)num * DefaultPerks.Leadership.UltimateLeader.PrimaryBonus, __instance._leadershipPerkUltimateLeaderBonusText, null);
+                result.Add((float)num * DefaultPerks.Leadership.UltimateLeader.PrimaryBonus, this._leadershipPerkUltimateLeaderBonusText, null);
             }
             if (actualClan != null)
             {
@@ -87,7 +128,6 @@ namespace wipo.patches.CostPatch
             }
             if (partyLeader.Clan.Leader == partyLeader)
             {
-                result.Add(40f, DefaultPolicies.NobleRetinues.Name, null);
                 if (partyLeader.Clan.Tier >= 5 && partyMapFaction.IsKingdomFaction && ((Kingdom)partyMapFaction).ActivePolicies.Contains(DefaultPolicies.NobleRetinues))
                 {
                     result.Add(40f, DefaultPolicies.NobleRetinues.Name, null);
@@ -96,12 +136,7 @@ namespace wipo.patches.CostPatch
                 {
                     result.Add(60f, DefaultPolicies.RoyalGuard.Name, null);
                 }
-                return false;
             }
-            return false;
         }
-
-        private readonly TextObject _factionLeaderText = GameTexts.FindText("str_faction_leader_bonus", null);
-        private readonly TextObject _leadershipPerkUltimateLeaderBonusText = GameTexts.FindText("str_leadership_perk_bonus", null);
     }
 }

@@ -86,7 +86,7 @@
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationStoryModeRedone.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationSandboxRedone.cs" />
     <Compile Include="patches\CostPatch\AddMercenaryIncomePatch.cs" />
-    <Compile Include="patches\CostPatch\CalculateBaseMemberSizePatch.cs" />
+    <Compile Include="patches\CostPatch\CalculateMobilePartyMemberSizeLimitPatch.cs" />
     <Compile Include="patches\CostPatch\FoodPatch.cs" />
     <Compile Include="patches\CostPatch\GetCharacterWagePatch.cs" />
     <Compile Include="patches\CostPatch\GetMercenaryWageAmountPatch.cs" />
