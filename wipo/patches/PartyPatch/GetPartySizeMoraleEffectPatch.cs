@@ -1,5 +1,6 @@
 ﻿using Helpers;
 using System;
+using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.CampaignSystem.GameComponents;
@@ -12,40 +13,45 @@ using TaleWorlds.Localization;
 
 namespace wipo.patches.PartyPatch
 {
+    [HarmonyPatch(typeof(DefaultPartyMoraleModel), nameof(DefaultPartyMoraleModel.GetEffectivePartyMorale))]
     internal class GetPartySizeMoraleEffectPatch : DefaultPartyMoraleModel
     {
-        public override ExplainedNumber GetEffectivePartyMorale(MobileParty mobileParty, bool includeDescription = false)
+        [HarmonyPostfix]
+        static void Postfix(ref ExplainedNumber __result, ref GetPartySizeMoraleEffectPatch __instance, MobileParty mobileParty, bool includeDescription = false)
         {
             ExplainedNumber result = new ExplainedNumber(50f, includeDescription, null);
-            result.Add(mobileParty.RecentEventsMorale, this._recentEventsText, null);
-            this.GetMoraleEffectsFromSkill(mobileParty, ref result);
+            TextObject _recentEventsText = GameTexts.FindText("str_recent_events", null);
+            TextObject _starvationMoraleText = GameTexts.FindText("str_starvation_morale", null);
+            TextObject _noWageMoraleText = GameTexts.FindText("str_no_wage_morale", null);
+            result.Add(mobileParty.RecentEventsMorale, _recentEventsText, null);
+            __instance.GetMoraleEffectsFromSkill(mobileParty, ref result);
             if (mobileParty.IsMilitia || mobileParty.IsGarrison)
             {
                 if (mobileParty.IsMilitia)
                 {
                     if (mobileParty.HomeSettlement.IsStarving)
                     {
-                        result.Add((float)this.GetStarvationMoralePenalty(mobileParty), this._starvationMoraleText, null);
+                        result.Add((float)__instance.GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
                     }
                 }
                 else if (SettlementHelper.IsGarrisonStarving(mobileParty.CurrentSettlement))
                 {
-                    result.Add((float)this.GetStarvationMoralePenalty(mobileParty), this._starvationMoraleText, null);
+                    result.Add((float)__instance.GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
                 }
             }
             else if (mobileParty.Party.IsStarving)
             {
-                result.Add((float)this.GetStarvationMoralePenalty(mobileParty), this._starvationMoraleText, null);
+                result.Add((float)__instance.GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
             }
             if (mobileParty.HasUnpaidWages > 0f)
             {
-                result.Add(mobileParty.HasUnpaidWages * (float)this.GetNoWageMoralePenalty(mobileParty), this._noWageMoraleText, null);
+                result.Add(mobileParty.HasUnpaidWages * (float)__instance.GetNoWageMoralePenalty(mobileParty), _noWageMoraleText, null);
             }
-            this.GetMoraleEffectsFromPerks(mobileParty, ref result);
-            this.CalculateFoodVarietyMoraleBonus(mobileParty, ref result);
-            this.GetPartySizeMoraleEffect(mobileParty, ref result);
-            this.GetForeignTroopsMoraleEffect(mobileParty, ref result);
-            return result;
+            __instance.GetMoraleEffectsFromPerks(mobileParty, ref result);
+            __instance.CalculateFoodVarietyMoraleBonus(mobileParty, ref result);
+            __instance.GetPartySizeMoraleEffect(mobileParty, ref result);
+            __instance.GetForeignTroopsMoraleEffect(mobileParty, ref result);
+            __result = result;
         }
 
         public void GetMoraleEffectsFromSkill(MobileParty party, ref ExplainedNumber bonus)
@@ -103,12 +109,13 @@ namespace wipo.patches.PartyPatch
 
         public void GetPartySizeMoraleEffect(MobileParty mobileParty, ref ExplainedNumber result)
         {
+            TextObject _partySizeMoraleText = GameTexts.FindText("{=!}Party size", null);
             if (!mobileParty.IsMilitia && !mobileParty.IsVillager)
             {
                 int num = mobileParty.Party.NumberOfAllMembers;
                 if (num > 0)
                 {
-                    result.Add(-1f * num , this._partySizeMoraleText, null);
+                    result.Add(-1f * num , _partySizeMoraleText, null);
                 }
             }
         }
@@ -118,7 +125,7 @@ namespace wipo.patches.PartyPatch
             int num = 0;
             foreach (TroopRosterElement troopRosterElement in party.MemberRoster.GetTroopRoster())
             {
-                if (troopRosterElement.Character.Culture != party.ActualClan.Kingdom.Culture)
+                if (troopRosterElement.Character.Culture != party.MapFaction.Culture)
                 {
                     num ++;
                 }
@@ -138,7 +145,8 @@ namespace wipo.patches.PartyPatch
                 }
                 if (num != 0f)
                 {
-                    result.Add(num, this._foodBonusMoraleText, null);
+                    TextObject _foodBonusMoraleText = GameTexts.FindText("str_food_bonus_morale", null);
+                    result.Add(num, _foodBonusMoraleText, null);
                     if (num > 0f && party.HasPerk(DefaultPerks.Steward.Gourmet, false))
                     {
                         result.Add(num, DefaultPerks.Steward.Gourmet.Name, null);
@@ -168,10 +176,5 @@ namespace wipo.patches.PartyPatch
             return -20f;
         }
         public const float BaseMoraleValue = 50f;
-        public readonly TextObject _recentEventsText = GameTexts.FindText("str_recent_events", null);
-        public readonly TextObject _starvationMoraleText = GameTexts.FindText("str_starvation_morale", null);
-        public readonly TextObject _noWageMoraleText = GameTexts.FindText("str_no_wage_morale", null);
-        public readonly TextObject _foodBonusMoraleText = GameTexts.FindText("str_food_bonus_morale", null);
-        public readonly TextObject _partySizeMoraleText = GameTexts.FindText("str_party_size_morale", null);
     }
 }
