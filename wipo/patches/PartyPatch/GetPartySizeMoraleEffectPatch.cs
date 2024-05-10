@@ -109,13 +109,13 @@ namespace wipo.patches.PartyPatch
 
         public void GetPartySizeMoraleEffect(MobileParty mobileParty, ref ExplainedNumber result)
         {
-            TextObject _partySizeMoraleText = GameTexts.FindText("{=!}Party size", null);
+            TextObject _partySizeMoraleText = new TextObject("Amount of troops");
             if (!mobileParty.IsMilitia && !mobileParty.IsVillager)
             {
                 int num = mobileParty.Party.NumberOfAllMembers;
                 if (num > 0)
                 {
-                    result.Add(-1f * num , _partySizeMoraleText, null);
+                    result.Add(-1f * num, _partySizeMoraleText, null);
                 }
             }
         }
@@ -127,10 +127,11 @@ namespace wipo.patches.PartyPatch
             {
                 if (troopRosterElement.Character.Culture != party.MapFaction.Culture)
                 {
-                    num ++;
+
+                    num += troopRosterElement.Number;
                 }
             }
-            result.Add(-1f * num, new TextObject("Troops from a cultre you're at war with"));
+            result.Add(-1f * num, new TextObject("Troops from a culture you are at war with"));
         }
 
         public void CalculateFoodVarietyMoraleBonus(MobileParty party, ref ExplainedNumber result)
