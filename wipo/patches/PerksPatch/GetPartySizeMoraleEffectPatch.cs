@@ -11,7 +11,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
-namespace wipo.patches.PartyPatch
+namespace wipo.patches.PerksPatch
 {
     [HarmonyPatch(typeof(DefaultPartyMoraleModel), nameof(DefaultPartyMoraleModel.GetEffectivePartyMorale))]
     internal class GetPartySizeMoraleEffectPatch : DefaultPartyMoraleModel
@@ -176,6 +176,5 @@ namespace wipo.patches.PartyPatch
         {
             return -20f;
         }
-        public const float BaseMoraleValue = 50f;
     }
 }

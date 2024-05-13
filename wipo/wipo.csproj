@@ -86,11 +86,11 @@
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationStoryModeRedone.cs" />
     <Compile Include="patches\CharacterCreationPatch\CharacterCreationSandboxRedone.cs" />
     <Compile Include="patches\PartyPatch\AddMercenaryIncomePatch.cs" />
-    <Compile Include="patches\PartyPatch\CalculateMobilePartyMemberSizeLimitPatch.cs" />
+    <Compile Include="patches\PerksPatch\CalculateMobilePartyMemberSizeLimitPatch.cs" />
     <Compile Include="patches\PartyPatch\FoodPatch.cs" />
     <Compile Include="patches\PartyPatch\GetCharacterWagePatch.cs" />
     <Compile Include="patches\PartyPatch\GetMercenaryWageAmountPatch.cs" />
-    <Compile Include="patches\PartyPatch\GetPartySizeMoraleEffectPatch.cs" />
+    <Compile Include="patches\PerksPatch\GetPartySizeMoraleEffectPatch.cs" />
     <Compile Include="patches\PartyPatch\GetXpCostForUpgradePatch.cs" />
     <Compile Include="patches\PartyPatch\RecruitmentCostPatch.cs" />
     <Compile Include="patches\EliteInCastle\AiVisitSettlementBehaviorPatch.cs" />
