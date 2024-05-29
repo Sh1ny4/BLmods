@@ -46,11 +46,11 @@ namespace wipo.patches.PerksPatch
         public TextObject _leadershipText = new TextObject("{=!}Leadership level", null);
         public TextObject _randomSizeBonusTemporary = new TextObject("{=hynFV8jC}Extra size bonus (Perk-like Effect)", null);
         public TextObject _baseSizeText = GameTexts.FindText("str_base_size", null);
-        private readonly TextObject _factionLeaderText = GameTexts.FindText("str_faction_leader_bonus", null);
-        private readonly TextObject _leadershipPerkUltimateLeaderBonusText = GameTexts.FindText("str_leadership_perk_bonus", null);
+        public readonly TextObject _factionLeaderText = GameTexts.FindText("str_faction_leader_bonus", null);
+        public readonly TextObject _leadershipPerkUltimateLeaderBonusText = GameTexts.FindText("str_leadership_perk_bonus", null);
 
 
-        private void CalculateBaseMemberSize(Hero partyLeader, IFaction partyMapFaction, Clan actualClan, ref ExplainedNumber result)
+        public void CalculateBaseMemberSize(Hero partyLeader, IFaction partyMapFaction, Clan actualClan, ref ExplainedNumber result)
         {
             if (partyMapFaction != null && partyMapFaction.IsKingdomFaction && partyLeader.MapFaction.Leader == partyLeader)
             {
