@@ -18,7 +18,7 @@ namespace wipo.patches.CostPatch
     internal class AddMercenaryIncomePatch : DefaultClanFinanceModel
     {
         [HarmonyPrefix]
-        static bool Prefix(ref AddMercenaryIncomePatch __instance, Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals)
+        static bool Prefix(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals)
         {
             if (clan.IsUnderMercenaryService && clan.Leader != null && clan.Kingdom != null)
             {
@@ -36,6 +36,6 @@ namespace wipo.patches.CostPatch
             return false;
         }
 
-        private static readonly TextObject _mercenaryStr = new TextObject("{=qcaaJLhx}Mercenary Contract", null);
+        static readonly TextObject _mercenaryStr = new TextObject("{=qcaaJLhx}Mercenary Contract", null);
     }
 }

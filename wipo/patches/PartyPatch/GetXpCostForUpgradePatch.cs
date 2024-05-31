@@ -3,6 +3,7 @@ using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Library;
 
 namespace wipo.patches.CostPatch
 {
@@ -14,7 +15,7 @@ namespace wipo.patches.CostPatch
         {
             int curtier = characterObject.Tier;
             int targtier = upgradeTarget.Tier;
-            int num = 100 * curtier * (int)Math.Pow(2, 1 + targtier - curtier);
+            int num = 100 * MathF.Max(curtier, 0) * (int)Math.Pow(2, 1 + targtier - curtier);
             if (upgradeTarget.Occupation == Occupation.Mercenary) 
             {
                 num = (int)((float)num * 0.8f);

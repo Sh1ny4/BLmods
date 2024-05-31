@@ -17,44 +17,44 @@ namespace wipo.patches.PerksPatch
     internal class GetPartySizeMoraleEffectPatch : DefaultPartyMoraleModel
     {
         [HarmonyPostfix]
-        static void Postfix(ref ExplainedNumber __result, ref GetPartySizeMoraleEffectPatch __instance, MobileParty mobileParty, bool includeDescription = false)
+        static void Postfix(ref ExplainedNumber __result, ref DefaultPartyMoraleModel __instance, MobileParty mobileParty, bool includeDescription = false)
         {
             ExplainedNumber result = new ExplainedNumber(50f, includeDescription, null);
             TextObject _recentEventsText = GameTexts.FindText("str_recent_events", null);
             TextObject _starvationMoraleText = GameTexts.FindText("str_starvation_morale", null);
             TextObject _noWageMoraleText = GameTexts.FindText("str_no_wage_morale", null);
             result.Add(mobileParty.RecentEventsMorale, _recentEventsText, null);
-            __instance.GetMoraleEffectsFromSkill(mobileParty, ref result);
+            GetMoraleEffectsFromSkill(mobileParty, ref result);
             if (mobileParty.IsMilitia || mobileParty.IsGarrison)
             {
                 if (mobileParty.IsMilitia)
                 {
                     if (mobileParty.HomeSettlement.IsStarving)
                     {
-                        result.Add((float)__instance.GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
+                        result.Add((float)GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
                     }
                 }
                 else if (SettlementHelper.IsGarrisonStarving(mobileParty.CurrentSettlement))
                 {
-                    result.Add((float)__instance.GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
+                    result.Add((float)GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
                 }
             }
             else if (mobileParty.Party.IsStarving)
             {
-                result.Add((float)__instance.GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
+                result.Add((float)GetStarvationMoralePenalty(mobileParty), _starvationMoraleText, null);
             }
             if (mobileParty.HasUnpaidWages > 0f)
             {
-                result.Add(mobileParty.HasUnpaidWages * (float)__instance.GetNoWageMoralePenalty(mobileParty), _noWageMoraleText, null);
+                result.Add(mobileParty.HasUnpaidWages * (float)GetNoWageMoralePenalty(mobileParty), _noWageMoraleText, null);
             }
-            __instance.GetMoraleEffectsFromPerks(mobileParty, ref result);
-            __instance.CalculateFoodVarietyMoraleBonus(mobileParty, ref result);
-            __instance.GetPartySizeMoraleEffect(mobileParty, ref result);
-            __instance.GetForeignTroopsMoraleEffect(mobileParty, ref result);
+            GetMoraleEffectsFromPerks(mobileParty, ref result);
+            CalculateFoodVarietyMoraleBonus(mobileParty, ref result);
+            GetPartySizeMoraleEffect(mobileParty, ref result);
+            GetForeignTroopsMoraleEffect(mobileParty, ref result);
             __result = result;
         }
 
-        public void GetMoraleEffectsFromSkill(MobileParty party, ref ExplainedNumber bonus)
+        static void GetMoraleEffectsFromSkill(MobileParty party, ref ExplainedNumber bonus)
         {
             CharacterObject effectivePartyLeaderForSkill = SkillHelper.GetEffectivePartyLeaderForSkill(party.Party);
             if (effectivePartyLeaderForSkill != null && effectivePartyLeaderForSkill.GetSkillValue(DefaultSkills.Leadership) > 0)
@@ -63,11 +63,11 @@ namespace wipo.patches.PerksPatch
             }
         }
 
-        public void GetMoraleEffectsFromPerks(MobileParty party, ref ExplainedNumber bonus)
+        static void GetMoraleEffectsFromPerks(MobileParty party, ref ExplainedNumber bonus)
         {
             if (party.HasPerk(DefaultPerks.Crossbow.PeasantLeader, false))
             {
-                float num = this.CalculateTroopTierRatio(party);
+                float num = CalculateTroopTierRatio(party);
                 bonus.AddFactor(DefaultPerks.Crossbow.PeasantLeader.PrimaryBonus * num, DefaultPerks.Crossbow.PeasantLeader.Name);
             }
             Settlement currentSettlement = party.CurrentSettlement;
@@ -93,7 +93,7 @@ namespace wipo.patches.PerksPatch
             }
         }
 
-        public float CalculateTroopTierRatio(MobileParty party)
+        static float CalculateTroopTierRatio(MobileParty party)
         {
             int totalManCount = party.MemberRoster.TotalManCount;
             float num = 0f;
@@ -107,7 +107,7 @@ namespace wipo.patches.PerksPatch
             return num / (float)totalManCount;
         }
 
-        public void GetPartySizeMoraleEffect(MobileParty mobileParty, ref ExplainedNumber result)
+        static void GetPartySizeMoraleEffect(MobileParty mobileParty, ref ExplainedNumber result)
         {
             TextObject _partySizeMoraleText = new TextObject("Amount of troops");
             if (!mobileParty.IsMilitia && !mobileParty.IsVillager)
@@ -120,7 +120,7 @@ namespace wipo.patches.PerksPatch
             }
         }
 
-        public void GetForeignTroopsMoraleEffect(MobileParty party, ref ExplainedNumber result)
+        static void GetForeignTroopsMoraleEffect(MobileParty party, ref ExplainedNumber result)
         {
             int num = 0;
             foreach (TroopRosterElement troopRosterElement in party.MemberRoster.GetTroopRoster())
@@ -134,7 +134,7 @@ namespace wipo.patches.PerksPatch
             result.Add(-1f * num, new TextObject("Troops from a culture you are at war with"));
         }
 
-        public void CalculateFoodVarietyMoraleBonus(MobileParty party, ref ExplainedNumber result)
+        static void CalculateFoodVarietyMoraleBonus(MobileParty party, ref ExplainedNumber result)
         {
             if (!party.Party.IsStarving)
             {
@@ -156,25 +156,13 @@ namespace wipo.patches.PerksPatch
             }
         }
 
-        public int GetStarvationMoralePenalty(MobileParty party)
+        static int GetStarvationMoralePenalty(MobileParty party)
         {
             return -30;
         }
-        public int GetNoWageMoralePenalty(MobileParty party)
+        static int GetNoWageMoralePenalty(MobileParty party)
         {
             return -20;
-        }
-        public override float GetStandardBaseMorale(PartyBase party)
-        {
-            return 50f;
-        }
-        public override float GetVictoryMoraleChange(PartyBase party)
-        {
-            return 20f;
-        }
-        public override float GetDefeatMoraleChange(PartyBase party)
-        {
-            return -20f;
         }
     }
 }
