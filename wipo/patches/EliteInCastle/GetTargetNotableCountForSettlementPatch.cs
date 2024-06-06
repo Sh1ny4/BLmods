@@ -7,7 +7,7 @@ namespace wipo.patches.EliteInCastle
 {
 
     [HarmonyPatch(typeof(DefaultNotableSpawnModel), nameof(DefaultNotableSpawnModel.GetTargetNotableCountForSettlement))]
-    public class NotableAmountPatch
+    public class GetTargetNotableCountForSettlementPatch
     {
         [HarmonyPostfix]
         static void Postfix(ref int __result, Settlement settlement, Occupation occupation)

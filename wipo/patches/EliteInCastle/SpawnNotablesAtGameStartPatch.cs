@@ -6,8 +6,8 @@ using TaleWorlds.CampaignSystem.CampaignBehaviors;
 namespace wipo.patches.EliteInCastle
 {
 
-    [HarmonyPatch(typeof(NotablesCampaignBehavior), nameof(NotablesCampaignBehavior.OnNewGameCreated))]
-    public class NotableSpawnPatch
+    [HarmonyPatch(typeof(NotablesCampaignBehavior), "SpawnNotablesAtGameStart")]
+    public class SpawnNotablesAtGameStartPatch
     {
         [HarmonyPostfix]
         static void Postfix()
