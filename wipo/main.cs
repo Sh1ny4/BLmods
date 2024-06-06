@@ -15,10 +15,10 @@ namespace wipo
 
         protected override void InitializeGameStarter(Game game, IGameStarter starterObject)
         {
-            base.InitializeGameStarter(game, starterObject);
-            if (starterObject is CampaignGameStarter starter)
+            if (starterObject is CampaignGameStarter)
             {
-                starter.AddBehavior(new patches.EliteInCastle.CastleRecruitMenu());
+                CampaignGameStarter campaignGameStarter = starterObject as CampaignGameStarter;
+                campaignGameStarter.AddBehavior(new patches.EliteInCastle.CastleRecruitMenu());
             }
         }
     }

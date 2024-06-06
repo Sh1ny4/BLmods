@@ -5,13 +5,13 @@ using TaleWorlds.CampaignSystem.GameMenus;
 
 namespace wipo.patches.EliteInCastle
 {
-    internal class CastleRecruitMenu : PlayerTownVisitCampaignBehavior
+    internal class CastleRecruitMenu : CampaignBehaviorBase
     {
         public override void RegisterEvents()
         {
-            CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, new Action<CampaignGameStarter>(this.AddCastleRecruitMenus));
+            CampaignEvents.OnAfterSessionLaunchedEvent.AddNonSerializedListener(this, new Action<CampaignGameStarter>(this.AddCastleRecruitMenus));
         }
-
+        
         public void AddCastleRecruitMenus(CampaignGameStarter campaignGameSystemStarter)
         {
             campaignGameSystemStarter.AddGameMenuOption("castle", "recruit_volunteers", "{=E31IJyqs}Recruit troops", new GameMenuOption.OnConditionDelegate(game_menu_recruit_castle_volunteers_on_condition), new GameMenuOption.OnConsequenceDelegate(game_menu_recruit_castle_volunteers_on_consequence), false, 4, false,null);

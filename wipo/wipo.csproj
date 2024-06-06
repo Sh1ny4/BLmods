@@ -100,12 +100,14 @@
     <Compile Include="patches\EliteInCastle\NotableAmountPatch.cs" />
     <Compile Include="patches\EliteInCastle\NotableSpawnPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
+    <Compile Include="patches\PerksPatch\InitializeAllPatch.cs" />
     <Compile Include="patches\TournamentEquipmentRedone\GetParticipantArmourPatch.cs" />
     <Compile Include="patches\Tweaks\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningLimitPatch.cs" />
     <Compile Include="patches\Tweaks\CalculateLearningRatePatch.cs" />
     <Compile Include="patches\Tweaks\CanGetDisorganizedPatch.cs" />
     <Compile Include="patches\Tweaks\CreateArmyPatch.cs" />
+    <Compile Include="patches\Tweaks\DefaultBuildingTypesPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
     <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
     <Compile Include="patches\Tweaks\UIsearchGetterPatch.cs" />
