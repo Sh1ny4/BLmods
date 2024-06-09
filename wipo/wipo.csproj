@@ -91,7 +91,7 @@
     <Compile Include="patches\EliteInCastle\GetEffectiveDailyExperience.cs" />
     <Compile Include="patches\EliteInCastle\GetTargetNotableCountForSettlementPatch.cs" />
     <Compile Include="patches\EliteInCastle\SpawnNotablesAtGameStartPatch.cs" />
-    <Compile Include="patches\EliteInCastle\SpawnRatePatch.cs" />
+    <Compile Include="patches\EliteInCastle\UpdateVolunteersOfNotablesInSettlementPatch.cs" />
     <Compile Include="patches\PartyPatch\AddMercenaryIncomePatch.cs" />
     <Compile Include="patches\PartyPatch\FoodPatch.cs" />
     <Compile Include="patches\PartyPatch\GetCharacterWagePatch.cs" />
@@ -110,6 +110,7 @@
     <Compile Include="patches\Tweaks\DefaultBuildingTypesPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
     <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
+    <Compile Include="patches\Tweaks\CalculateDailyConstructionPowerInternalPatch.cs" />
     <Compile Include="patches\Tweaks\UIsearchGetterPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

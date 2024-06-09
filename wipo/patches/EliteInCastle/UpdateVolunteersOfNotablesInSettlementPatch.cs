@@ -9,7 +9,7 @@ namespace wipo.patches.EliteInCastle
 {
 
     [HarmonyPatch(typeof(RecruitmentCampaignBehavior), "UpdateVolunteersOfNotablesInSettlement")]
-    public class SpawnRatePatch
+    public class UpdateVolunteersOfNotablesInSettlementPatch
     {
         [HarmonyPostfix]
         static void Postfix(Settlement settlement)
