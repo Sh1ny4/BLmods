@@ -7,7 +7,7 @@ using TaleWorlds.Localization;
 namespace wipo.patches.TownsBehaviours
 {
     [HarmonyPatch(typeof(DefaultBuildingTypes), "InitializeAll")]
-    internal class DefaultBuildingTypesPatch
+    internal class test
     {
         [HarmonyPrefix]
         static bool Prefix(ref DefaultBuildingTypes __instance)
@@ -41,7 +41,6 @@ namespace wipo.patches.TownsBehaviours
             _buildingDailyTrainMilitia = Create("building_daily_train_militia");
             _buildingDailyFestivalsAndGames = Create("building_festivals_and_games");
             _buildingDailyIrrigation = Create("building_irrigation");
-            _testbuilding = Create("test_building");
             InitializeAll(); 
             return false;
         }
@@ -80,65 +79,36 @@ namespace wipo.patches.TownsBehaviours
             _buildingDailyTrainMilitia.Initialize(new TextObject("{=p1Y3EU5O}Train Militia", null), new TextObject("{=61J1wa6k}Schedule drills for commoners, increasing militia recruitment.", null), new int[3], BuildingLocation.Daily, new Tuple<BuildingEffectEnum, float, float, float>[] { new Tuple<BuildingEffectEnum, float, float, float>(BuildingEffectEnum.MilitiaDaily, 5f, 5f, 5f) }, 0);
             _buildingDailyFestivalsAndGames.Initialize(new TextObject("{=aEmYZadz}Festival and Games", null), new TextObject("{=ovDbQIo9}Organize festivals and games in the settlement, increasing morale.", null), new int[3], BuildingLocation.Daily, new Tuple<BuildingEffectEnum, float, float, float>[] { new Tuple<BuildingEffectEnum, float, float, float>(BuildingEffectEnum.LoyaltyDaily, 3f, 3f, 3f) }, 0);
             _buildingDailyIrrigation.Initialize(new TextObject("{=O4cknzhW}Irrigation", null), new TextObject("{=CU9g49fo}Provide irrigation, increasing growth in bound villages.", null), new int[3], BuildingLocation.Daily, new Tuple<BuildingEffectEnum, float, float, float>[] { new Tuple<BuildingEffectEnum, float, float, float>(BuildingEffectEnum.VillageDevelopmentDaily, 5f, 5f, 5f) }, 0);
-/*
-            _testbuilding.Initialize(new TextObject("test",null), new TextObject("test",null), new int[] { 10, 20, 30 }, BuildingLocation.Settlement, new Tuple<BuildingEffectEnum, float, float, float>[] { new Tuple<BuildingEffectEnum, float, float, float>(BuildingEffectEnum.WallRepairSpeed, 50f, 50f, 50f), new Tuple<BuildingEffectEnum, float, float, float>(BuildingEffectEnum.SiegeEngineSpeed, 30f, 60f, 100f) }, 0);
-*/
         }
+
         static BuildingType _buildingFortifications;
-
         static BuildingType _buildingSettlementGarrisonBarracks;
-
         static BuildingType _buildingSettlementTrainingFields;
-
         static BuildingType _buildingSettlementFairgrounds;
-
         static BuildingType _buildingSettlementMarketplace;
-
         static BuildingType _buildingSettlementAquaducts;
-
         static BuildingType _buildingSettlementForum;
-
         static BuildingType _buildingSettlementGranary;
-
         static BuildingType _buildingSettlementOrchard;
-
         static BuildingType _buildingSettlementMilitiaBarracks;
-
         static BuildingType _buildingSettlementSiegeWorkshop;
-
         static BuildingType _buildingSettlementLimeKilns;
 
         static BuildingType _buildingWall;
-
         static BuildingType _buildingCastleBarracks;
-
         static BuildingType _buildingCastleTrainingFields;
-
         static BuildingType _buildingCastleGranary;
-
         static BuildingType _buildingCastleGardens;
-
         static BuildingType _buildingCastleCastallansOffice;
-
         static BuildingType _buildingCastleWorkshop;
-
         static BuildingType _buildingCastleFairgrounds;
-
         static BuildingType _buildingCastleSiegeWorkshop;
-
         static BuildingType _buildingCastleMilitiaBarracks;
-
         static BuildingType _buildingCastleTollCollector;
 
         static BuildingType _buildingDailyBuildHouse;
-
         static BuildingType _buildingDailyTrainMilitia;
-
         static BuildingType _buildingDailyFestivalsAndGames;
-
         static BuildingType _buildingDailyIrrigation;
-
-
-        static BuildingType _testbuilding;
     }
 }
