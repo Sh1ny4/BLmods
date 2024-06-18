@@ -90,7 +90,7 @@ namespace wipo.patches.TownsBehaviours
             {
                 result.Add(effectOfBuildings, GameTexts.FindText("str_building_bonus", null), null);
             }
-            result.AddFactor(town.Loyalty / 20 , new TextObject("{=!}Town Loyalty", null));
+            result.AddFactor(town.Loyalty / 20 , new TextObject("{=!}Loyalty", null));
             result.LimitMin(10f);
             __result = (int)result.ResultNumber;
             return false;
