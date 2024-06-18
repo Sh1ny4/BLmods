@@ -1,7 +1,6 @@
 ﻿﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
-using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 
 namespace wipo.patches.EliteInCastle

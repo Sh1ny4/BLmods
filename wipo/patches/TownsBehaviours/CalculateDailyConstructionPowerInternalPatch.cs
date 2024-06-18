@@ -11,7 +11,7 @@ using TaleWorlds.Library;
 using HarmonyLib;
 using TaleWorlds.Localization;
 
-namespace wipo.patches.Tweaks
+namespace wipo.patches.TownsBehaviours
 {
     [HarmonyPatch(typeof(DefaultBuildingConstructionModel), "CalculateDailyConstructionPowerInternal")]
     internal class CalculateDailyConstructionPowerInternalPatch : DefaultBuildingConstructionModel

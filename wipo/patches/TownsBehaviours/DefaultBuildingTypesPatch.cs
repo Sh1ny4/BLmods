@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HarmonyLib;
-using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements.Buildings;
 using TaleWorlds.Localization;
 
-namespace wipo.patches.Tweaks
+namespace wipo.patches.TownsBehaviours
 {
     [HarmonyPatch(typeof(DefaultBuildingTypes), "InitializeAll")]
     internal class DefaultBuildingTypesPatch
