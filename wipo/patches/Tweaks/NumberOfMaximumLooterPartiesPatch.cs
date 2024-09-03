@@ -4,7 +4,7 @@ using TaleWorlds.CampaignSystem.GameComponents;
 namespace wipo.patches.Tweaks
 {
     [HarmonyPatch(typeof(DefaultBanditDensityModel), "NumberOfMaximumLooterParties", MethodType.Getter)]
-    internal class MaximumAmountLootersPatch
+    internal class NumberOfMaximumLooterPartiesPatch
     {
         [HarmonyPostfix]
         static void Postfix(ref int __result)

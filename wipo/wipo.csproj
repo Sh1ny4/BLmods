@@ -109,9 +109,9 @@
     <Compile Include="patches\Tweaks\CanGetDisorganizedPatch.cs" />
     <Compile Include="patches\Tweaks\CreateArmyPatch.cs" />
     <Compile Include="patches\Tweaks\LoyaltyPatch.cs" />
-    <Compile Include="patches\Tweaks\MaximumAmountLootersPatch.cs" />
+    <Compile Include="patches\Tweaks\NumberOfMaximumLooterPartiesPatch.cs" />
     <Compile Include="patches\TownsBehaviours\CalculateDailyConstructionPowerInternalPatch.cs" />
-    <Compile Include="patches\Tweaks\UIsearchGetterPatch.cs" />
+    <Compile Include="patches\Tweaks\IsSearchAvailablePatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
