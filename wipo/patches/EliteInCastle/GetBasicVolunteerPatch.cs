@@ -11,7 +11,7 @@ namespace wipo.patches.EliteInCastle
         [HarmonyPrefix]
         static bool Prefix(ref CharacterObject __result, Hero sellerHero)
         {
-            // catsles recruit are elite troops
+            // castles recruit are elite troops
             if (sellerHero.CurrentSettlement.IsCastle)
             {
                 __result = sellerHero.Culture.EliteBasicTroop;
