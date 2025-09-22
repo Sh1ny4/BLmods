@@ -14,15 +14,6 @@ namespace wipo
             new Harmony("wipo.patches").PatchAll();
         }
 
-        protected override void InitializeGameStarter(Game game, IGameStarter starterObject)
-        {
-            if (starterObject is CampaignGameStarter)
-            {
-                CampaignGameStarter campaignGameStarter = starterObject as CampaignGameStarter;
-                campaignGameStarter.AddBehavior(new patches.EliteInCastle.CastleRecruitMenu());
-            }
-        }
-
         public override void OnGameInitializationFinished(Game game)
         {
             if (!(game.GameType is Campaign)) return;
