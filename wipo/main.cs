@@ -1,8 +1,9 @@
 ﻿using HarmonyLib;
-using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
 
 namespace wipo
 {
@@ -18,6 +19,16 @@ namespace wipo
         {
             if (!(game.GameType is Campaign)) return;
             Campaign.Current.CampaignBehaviorManager.RemoveBehavior<BackstoryCampaignBehavior>();
+        }
+        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+        {
+            base.OnGameStart(game, gameStarterObject);
+            bool flag = game.GameType is Campaign;
+            if (flag)
+            {
+                CampaignGameStarter starter = gameStarterObject as CampaignGameStarter;
+                starter.AddModel(new patches.Tweaks.DefaultInformationRestrictionModelPatch());
+            }
         }
     }
 }
