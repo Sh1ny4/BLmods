@@ -1,4 +1,6 @@
-This is where I try out some ideas and stuff, you may be looking for the gits of my published mods :
+A Bannerlord mod where I try out some ideas.
+
+My published mods :
 
 https://github.com/Sh1ny4/CharacterCreationRedone
 
