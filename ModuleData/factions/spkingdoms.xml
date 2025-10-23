@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Kingdoms>
+  <Kingdom id="aserai"
+          owner="Hero.lord_3_1" 
+          banner_key="11.5.5.5000.5000.764.764.1.0.0.463.129.129.500.500.764.764.1.0.0" 
+          primary_banner_color="0xffFCDE90" 
+          secondary_banner_color="0xff000000" 
+          label_color="0xffFCDE90" 
+          color="0xffFCDE90" 
+          color2="0xFF34671E" 
+          alternative_color="0xffFCDE90" 
+          alternative_color2="0xFF34671E" 
+          culture="Culture.aserai" 
+          settlement_banner_mesh="encounter_flag_c" 
+          flag_mesh="info_screen_flags_a" 
+          name="{=aseraifaction}Aserai" 
+          short_name="{=aseraimembers}Aserai" 
+          title="{=UsbwPmYb}Sultanate of the Aserai" 
+          ruler_title="{=5djtBrHj}Sultan" 
+          text="{=qggtvf8Y}The Empire always preferred not to send its legions into the army-devouring wastes of the Nahasa. Instead, it projected its power into this borderland by cultivating client rulers among the clans, who competed in an endless dance of power. Those clans that could secure a hold on the oases won an imperial subsidy to protect passing caravans and grew rich. Those who could not were pushed into the desert, left to raise goats and raid caravans until they could plot a comeback. Today, with the waning of the empire, the Aserai have agreed to form a confederacy under a sultan chosen from richest of the clans, the Banu Hulyan. But everyone knows that the dance has only temporarily been stopped, and at the right moment it will begin again.">
+          <relationships>
+            <relationship kingdom="Kingdom.empire_s" value="-1" isAtWar="true" />
+          </relationships>
+  </Kingdom>
+  <Kingdom id="battania"
+          owner="Hero.lord_5_1" 
+          banner_key="11.2.2.4000.4000.764.764.1.0.0.460.40.40.500.500.764.764.1.0.0" 
+          primary_banner_color="0xff284E19" 
+          secondary_banner_color="0xff000000" 
+          label_color="0xff284E19" 
+          color="0xff284E19" 
+          color2="0xffffffff" 
+          alternative_color="0xff284E19" 
+          alternative_color2="0xffffffff" 
+          culture="Culture.battania" 
+          settlement_banner_mesh="encounter_flag_e" 
+          flag_mesh="info_screen_flags_b" 
+          name="{=0B27RrYJ}Battania" 
+          short_name="{=bgjiFSHZ}Battanians" 
+          title="{=qaDIU0XC}High Kingdom of the Battanians" 
+          ruler_title="{=afvM7XpQ}High King" 
+          text="{=ZjaaAoxd}From time immemorial there has been a High King of Battania, crowned with great ceremony on the sacred hill of Dunthanach. Ask any Battanian chieftain, however, whose ”kingdom” he lives in, and he will look around at his hall and his fields and his pastures, his flocks and his retainers, and answer ”Mine, of course.” Only lately, following the example of the Empire, have the High Kings made any effort to exert their authority. ”Such unruly cattle as my people require a strong herdsman's hand to steer them from the ravine and protect them from the wolf,” said one recent high king, just before he was betrayed by a jealous cousin and taken in chains to the nearest imperial outpost.">
+          <relationships>
+            <relationship kingdom="Kingdom.empire_w" value="-1" isAtWar="true" />
+          </relationships>
+  </Kingdom>
+  <Kingdom id="empire"
+          owner="Hero.lord_1_1" 
+          banner_key="11.143.143.4345.4345.764.764.1.0.0.163.116.116.512.512.764.764.1.0.0" 
+          primary_banner_color="0xfff1c232" 
+          secondary_banner_color="0xff211F1F" 
+          label_color="0xfff1c232" 
+          color="0xfff1c232" 
+          color2="0xff211F1F" 
+          alternative_color="0xfff1c232" 
+          alternative_color2="0xff211F1F" 
+          culture="Culture.empire" 
+          settlement_banner_mesh="encounter_flag_a" 
+          flag_mesh="info_screen_flags_b" 
+          name="{=NF627oiX}Northern Empire" 
+          short_name="{=nsDj8Qxl}northern Empire" 
+          title="{=NF627oiX}Northern Empire" 
+          ruler_title="{=OoHhCa11}Senator" 
+          text="{=aEfsyVH4}Many of the oldest families of the Empire live in the north. They came here as marcher lords, granted vast tracts of land by their colleagues in the Senate to keep 'pacified' northern tribes in check and hold the frontiers against Battanian, Sturgian, and Khuzait raiders. They drained marshes and turned the river floodplains into wheatfields, cut back forests and turned the hillsides into pasture. But as the republic became an empire and as emperors became more and more dependent on money and lands to reward their loyal soldiers, the nobility here began to fear that their estates would one day be seized by some cash-starved tyrant. Consequently, in the ongoing imperial civil war they have become some of the strongest champions of Lucon, who sees a Senate of established property-holders as the supreme authority and the emperor as its servant.">
+          <relationships>
+            <relationship kingdom="Kingdom.khuzait" value="-1" isAtWar="true" />
+          </relationships>
+          <policies>
+            <policy id="policy_feudal_inheritance" />
+          </policies>
+  </Kingdom>
+  <Kingdom id="empire_w"
+          owner="Hero.lord_1_7" 
+          banner_key="11.145.145.4345.4345.764.764.1.0.0.164.5.5.512.512.764.764.1.0.0" 
+          primary_banner_color="0xff8D291A" 
+          secondary_banner_color="0xffFCDE90" 
+          label_color="0xff8D291A" 
+          color="0xff8D291A" 
+          color2="0xffFCDE90" 
+          alternative_color="0xff8D291A" 
+          alternative_color2="0xffFCDE90" 
+          culture="Culture.empire" 
+          settlement_banner_mesh="encounter_flag_a" 
+          flag_mesh="info_screen_flags_a" 
+          name="{=yG3YUySN}Western Empire" 
+          short_name="{=ZEmH0MwL}western Empire" 
+          title="{=yG3YUySN}Western Empire" 
+          ruler_title="{=OoHhCa11}Senator" 
+          text="{=mOZsbV8j}According to tradition, the first Calradians entered the continent as exiles, coming from lands across the western ocean. But the Empire's center of gravity moved east and south, and their original heartland has, for the most part, been lost to the Vlandians. The west of the Empire today, a warm green land of oak forests and volcanic outcrops, was mostly conquered from the Palaic tribes. They have intermarried with Calradian colonists and today their old languages and customs are mostly forgotten. Service in the legions has traditionally been a path out of rural poverty and many an ambitious general has drawn his most loyal recruits fron this region. The landowners here have naturally gravitated towards Garios, the partisan of soldiers and soldiers' interests, in the ongoing civil war.">
+          <relationships>
+            <relationship kingdom="Kingdom.battania" value="-1" isAtWar="true" />
+          </relationships>
+          <policies>
+            <policy id="policy_land_grants_for_veterans" />
+          </policies>
+  </Kingdom>
+  <Kingdom id="empire_s"
+          owner="Hero.lord_1_14" 
+          banner_key="11.6.6.4345.4345.764.764.1.0.0.162.7.7.512.512.764.764.1.0.0" 
+          primary_banner_color="0xff710083" 
+          secondary_banner_color="0xffFCDE90" 
+          label_color="0xff710083" 
+          color="0xff710083" 
+          color2="0xffFCDE90" 
+          alternative_color="0xff710083" 
+          alternative_color2="0xffFCDE90" 
+          culture="Culture.empire" 
+          settlement_banner_mesh="encounter_flag_a" 
+          flag_mesh="info_screen_flags_b" 
+          name="{=frBQ9mbP}Southern Empire" 
+          short_name="{=GbnlN6na}southern Empire" 
+          title="{=frBQ9mbP}Southern Empire" 
+          ruler_title="{=OoHhCa11}Senator" 
+          text="{=Xtyb9Dyr}The lands that are now the southern Empire were once ruled by proud independent city-states controlling trading routes over the Perassic Sea and the steppe. They invited the Empire into their internal feuds and one by one they were absorbed, some by treaty, some by conquest. Calradian aristocrats intermarried with merchant princes and nomad chiefs, many of whom claimed descent from the kings, champions and demigods of eastern legends. In recent generations, as these towns grew to become some of the richest and most populous in the continent, many Senatorial families elsewhere became suspicious that the southerners would someday try to make one of their own into a hereditary monarch. The southern nobility's support for Rhagaea, an unapolegetic advocate of the dynastic principle, would seem to confirm these fears.">
+          <relationships>
+            <relationship kingdom="Kingdom.aserai" value="-1" isAtWar="true" />
+          </relationships>
+          <policies>
+            <policy id="policy_royal_privilege" />
+          </policies>
+  </Kingdom>
+  <Kingdom id="khuzait"
+          owner="Hero.lord_6_1" 
+          banner_key="11.16.16.5000.5000.764.764.1.0.0.461.40.40.500.500.764.764.1.0.0" 
+          primary_banner_color="0xff00A0BA" 
+          secondary_banner_color="0xff000000" 
+          label_color="0xff00A0BA" 
+          color="0xff00A0BA" 
+          color2="0xffFFFFFF" 
+          alternative_color="0xff00A0BA" 
+          alternative_color2="0xffFFFFFF" 
+          culture="Culture.khuzait" 
+          settlement_banner_mesh="encounter_flag_f" 
+          flag_mesh="info_screen_flags_b"
+          name="{=sZLd6VHi}Khuzait" 
+          short_name="{=vJOWy1QF}Khuzaits" 
+          title="{=bF7HmNGQ}Khuzait Khanate" 
+          ruler_title="{=hwnp9abW}King" 
+          text="{=fGNdo1BK}For centuries, the tribes in the vast steppe east of the Empire were content to live as nomads, venturing into the imperial lands to raid and trade, and then returning to their ancestral freedom. Two generations ago, however, something happened far away to the east - a change in the winds, perhaps, or some terrible but distant conqueror - and the horse clans were set in motion. Urkhun the Khuzait led the nomads nearest the Empire into its far eastern provinces, conquering the towns and forming a khanate. He imposed discipline on the unruly clans, forcing them to ride to war on his command instead of simply when they wished. But after his death, the spirit of unity that he inspired was lost. His descendants still rule the khanate. But some of the other Khuzait leaders chafe under the authority of the current khan, Monchug, and others dream of becoming khan themselves.">
+          <relationships>
+            <relationship kingdom="Kingdom.empire" value="-1" isAtWar="true" />
+          </relationships>
+  </Kingdom>
+  <Kingdom id="sturgia"
+          owner="Hero.lord_2_1" 
+          banner_key="11.22.22.4000.4000.764.764.1.0.0.462.12.12.500.500.764.764.1.0.0" 
+          primary_banner_color="0xffFFFFFF" 
+          secondary_banner_color="0xff000000" 
+          label_color="0xffFFFFFF" 
+          color="0xffFFFFFF" 
+          color2="0xff224277" 
+          alternative_color="0xffFFFFFF" 
+          alternative_color2="0xff224277" 
+          culture="Culture.sturgia" 
+          settlement_banner_mesh="encounter_flag_b" 
+          flag_mesh="info_screen_flags_c" 
+          name="{=PjO7oY16}Sturgia" 
+          short_name="{=C4qjBqLO}Sturgians" 
+          title="{=iYCR3xuQ}Principality of Sturgia" 
+          ruler_title="{=FmbgPGBL}Grand Prince" 
+          text="{=bVihnRUu}The confederation of small kingdoms that is now the Principality of Sturgia came into being only a century ago. As boomtowns sprung up alongside the bays and lakes of the north, the local tribal leaders forged marriage pacts with Nords and other adventurers, hiring their swords to subdue their neighbors. Under pressure from the empire, they elected a prince to lead them in war, and eventually the princes became a hereditary office. But the idea of monarchy has never sat easily with the independence-minded boyars, and the potential for rebellion always lurks under the surface of Sturgian politics.">
+          <relationships>
+            <relationship kingdom="Kingdom.vlandia" value="-1" isAtWar="true" />
+          </relationships>
+  </Kingdom>
+  <Kingdom id="vlandia"
+          owner="Hero.lord_4_1" 
+          banner_key="11.146.14.1536.1536.764.764.1.0.0.424.132.15.497.497.764.764.0.0.0  " 
+          primary_banner_color="0xff2C4D86" 
+          secondary_banner_color="0xff000000" 
+          label_color="0xff2C4D86" 
+          color="0xff2C4D86" 
+          color2="0xffF4CA14" 
+          alternative_color="0xff2C4D86" 
+          alternative_color2="0xffF4CA14" 
+          culture="Culture.vlandia" 
+          settlement_banner_mesh="encounter_flag_d" 
+          flag_mesh="info_screen_flags_c" 
+          name="{=FjwRsf1C}Vlandia" 
+          short_name="{=8HMyTKF6}Vlandians" 
+          title="{=lAWwcO6b}Kingdom of Vlandia" 
+          ruler_title="{=hwnp9abW}King" 
+          text="{=IudGLWQZ}The Vlandian monarchy descends from Osric Iron-Arm, a warlord who seized the western coasts of the Empire and was recognized as king by the emperors as the price of peace. He in turn recognized his lieutenants as barons and counts, granting them suzerainty over their lands in exchange for rallying to his banner in war. Some Vlandian kings have sought to expand the powers of the kingship; others have allowed the barons to feud among themselves so long as the money and manpower was there when needed.">
+          <relationships>
+            <relationship kingdom="Kingdom.sturgia" value="-1" isAtWar="true" />
+          </relationships>
+  </Kingdom>
+</Kingdoms>

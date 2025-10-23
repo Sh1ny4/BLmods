@@ -1,0 +1,937 @@
+<prefabs>
+	<game_entity name="batteringram_a" old_prefab_name="" mobility="1">
+		<flags>
+			<flag name="record_to_scene_replay" value="true"/>
+			<flag name="hide_in_prefab_editors" value="true"/>
+		</flags>
+		<transform position="0.000, 0.000, 0.000" rotation_euler="0.000, 0.000, 0.000"/>
+		<physics>
+			<body_flags>
+				<body_flag name="exclude_path_snap"/>
+			</body_flags>
+		</physics>
+		<scripts>
+			<script name="BatteringRam">
+				<variables>
+					<variable name="GhostEntityMove" value="false"/>
+					<variable name="GhostEntitySpeedMultiplier" value="1.000"/>
+					<variable name="WheelDiameter" value="1.300"/>
+					<variable name="GateNavMeshId" value="50"/>
+					<variable name="DisabledNavMeshID" value="40"/>
+					<variable name="NavMeshIdToDisableOnDestination" value="-1"/>
+					<variable name="MinSpeed" value="0.100"/>
+					<variable name="MaxSpeed" value="0.500"/>
+					<variable name="DamageMultiplier" value="300.000"/>
+					<variable name="RemoveOnDeployTag" value=""/>
+					<variable name="AddOnDeployTag" value=""/>
+					<variable name="ForcedUse" value="false"/>
+					<variable name="PilotStandingPointTag" value="Pilot"/>
+					<variable name="AmmoPickUpTag" value="ammopickup"/>
+					<variable name="WaitStandingPointTag" value="Wait"/>
+					<variable name="NavMeshPrefabName" value="batteringram_c_dnm"/>
+				</variables>
+			</script>
+			<script name="DestructableComponent">
+				<variables>
+					<variable name="DestructionStates" value="destroyed"/>
+					<variable name="DestroyedByStoneOnly" value="false"/>
+					<variable name="CanBeDestroyedInitially" value="false"/>
+					<variable name="MaxHitPoint" value="20000.000"/>
+					<variable name="DestroyOnAnyHit" value="false"/>
+					<variable name="PassHitOnToParent" value="false"/>
+					<variable name="ReferenceEntityTag" value=""/>
+					<variable name="HeavyHitParticlesTag" value=""/>
+					<variable name="HeavyHitParticlesThreshold" value="5.000"/>
+					<variable name="ParticleEffectOnDestroy" value=""/>
+					<variable name="SoundEffectOnDestroy" value="event:/mission/siege/batteringram/break"/>
+					<variable name="SoundAndParticleEffectHeightOffset" value="0.000"/>
+					<variable name="SoundAndParticleEffectForwardOffset" value="0.000"/>
+					<variable name="BattleSide" value="None"/>
+					<variable name="NavMeshPrefabName" value=""/>
+				</variables>
+			</script>
+		</scripts>
+		<children>
+			<game_entity name="clean" old_prefab_name="" mobility="1">
+				<flags>
+					<flag name="record_to_scene_replay" value="true"/>
+				</flags>
+				<tags>
+					<tag name="body"/>
+					<tag name="operational"/>
+				</tags>
+				<transform rotation_euler="0.002, 0.032, 0.002"/>
+				<physics shape="bo_batteringram_c_body" override_material="wood_nonstick">
+					<body_flags>
+						<body_flag name="exclude_path_snap"/>
+					</body_flags>
+				</physics>
+				<skeleton skeleton_model="batteringram_skeleton">
+					<components>
+						<meta_mesh_component name="batteringram_c_body"/>
+					</components>
+				</skeleton>
+				<scripts>
+					<script name="SynchedMissionObject">
+						<variables>
+							<variable name="NavMeshPrefabName" value=""/>
+						</variables>
+					</script>
+				</scripts>
+				<children>
+					<game_entity name="roof_r_3" old_prefab_name="" mobility="1">
+						<scripts>
+							<script name="DestructableComponent">
+								<variables>
+									<variable name="DestructionStates" value="destroyed"/>
+									<variable name="DestroyedByStoneOnly" value="false"/>
+									<variable name="CanBeDestroyedInitially" value="false"/>
+									<variable name="MaxHitPoint" value="100.000"/>
+									<variable name="DestroyOnAnyHit" value="false"/>
+									<variable name="PassHitOnToParent" value="false"/>
+									<variable name="ReferenceEntityTag" value=""/>
+									<variable name="HeavyHitParticlesTag" value=""/>
+									<variable name="HeavyHitParticlesThreshold" value="5.000"/>
+									<variable name="ParticleEffectOnDestroy" value=""/>
+									<variable name="SoundEffectOnDestroy" value=""/>
+									<variable name="SoundAndParticleEffectHeightOffset" value="0.000"/>
+									<variable name="SoundAndParticleEffectForwardOffset" value="0.000"/>
+									<variable name="BattleSide" value="None"/>
+									<variable name="NavMeshPrefabName" value=""/>
+								</variables>
+							</script>
+						</scripts>
+						<children>
+							<game_entity name="destroyed" old_prefab_name="" visible="false" mobility="1">
+								<physics override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_r_3_destroyed_part1"/>
+								</components>
+								<children>
+									<game_entity name="particles" old_prefab_name="" mobility="1">
+										<transform position="-1.370, 2.640, 3.060"/>
+										<components>
+											<particle_system_instanced_component>
+												<effect_ref base_effect="{CF42A315-8788-4358-AB62-D6959528881B}"/>
+											</particle_system_instanced_component>
+										</components>
+									</game_entity>
+								</children>
+							</game_entity>
+							<game_entity name="clean" old_prefab_name="" mobility="1">
+								<tags>
+									<tag name="operational"/>
+								</tags>
+								<physics shape="bo_batteringram_c_roofplanks_r_3" override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_r_3"/>
+								</components>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="roof_r_2" old_prefab_name="" mobility="1">
+						<scripts>
+							<script name="DestructableComponent">
+								<variables>
+									<variable name="DestructionStates" value="destroyed"/>
+									<variable name="DestroyedByStoneOnly" value="false"/>
+									<variable name="CanBeDestroyedInitially" value="false"/>
+									<variable name="MaxHitPoint" value="100.000"/>
+									<variable name="DestroyOnAnyHit" value="false"/>
+									<variable name="PassHitOnToParent" value="false"/>
+									<variable name="ReferenceEntityTag" value=""/>
+									<variable name="HeavyHitParticlesTag" value=""/>
+									<variable name="HeavyHitParticlesThreshold" value="5.000"/>
+									<variable name="ParticleEffectOnDestroy" value=""/>
+									<variable name="SoundEffectOnDestroy" value=""/>
+									<variable name="SoundAndParticleEffectHeightOffset" value="0.000"/>
+									<variable name="SoundAndParticleEffectForwardOffset" value="0.000"/>
+									<variable name="BattleSide" value="None"/>
+									<variable name="NavMeshPrefabName" value=""/>
+								</variables>
+							</script>
+						</scripts>
+						<children>
+							<game_entity name="clean" old_prefab_name="" mobility="1">
+								<tags>
+									<tag name="operational"/>
+								</tags>
+								<physics shape="bo_batteringram_c_roofplanks_r_2" override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_r_2"/>
+								</components>
+							</game_entity>
+							<game_entity name="destroyed" old_prefab_name="" visible="false" mobility="1">
+								<physics override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_r_2_destroyed_part1"/>
+								</components>
+								<children>
+									<game_entity name="particles" old_prefab_name="" mobility="1">
+										<transform position="-1.370, 0.320, 3.060"/>
+										<components>
+											<particle_system_instanced_component>
+												<effect_ref base_effect="{CF42A315-8788-4358-AB62-D6959528881B}"/>
+											</particle_system_instanced_component>
+										</components>
+									</game_entity>
+								</children>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="roof_r_1" old_prefab_name="" mobility="1">
+						<scripts>
+							<script name="DestructableComponent">
+								<variables>
+									<variable name="DestructionStates" value="destroyed"/>
+									<variable name="DestroyedByStoneOnly" value="false"/>
+									<variable name="CanBeDestroyedInitially" value="false"/>
+									<variable name="MaxHitPoint" value="100.000"/>
+									<variable name="DestroyOnAnyHit" value="false"/>
+									<variable name="PassHitOnToParent" value="false"/>
+									<variable name="ReferenceEntityTag" value=""/>
+									<variable name="HeavyHitParticlesTag" value=""/>
+									<variable name="HeavyHitParticlesThreshold" value="5.000"/>
+									<variable name="ParticleEffectOnDestroy" value=""/>
+									<variable name="SoundEffectOnDestroy" value=""/>
+									<variable name="SoundAndParticleEffectHeightOffset" value="0.000"/>
+									<variable name="SoundAndParticleEffectForwardOffset" value="0.000"/>
+									<variable name="BattleSide" value="None"/>
+									<variable name="NavMeshPrefabName" value=""/>
+								</variables>
+							</script>
+						</scripts>
+						<children>
+							<game_entity name="clean" old_prefab_name="" mobility="1">
+								<tags>
+									<tag name="operational"/>
+								</tags>
+								<physics shape="bo_batteringram_c_roofplanks_r_1" override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_r_1"/>
+								</components>
+							</game_entity>
+							<game_entity name="destroyed" old_prefab_name="" visible="false" mobility="1">
+								<physics override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_r_1_destroyed_part1"/>
+								</components>
+								<children>
+									<game_entity name="particles" old_prefab_name="" mobility="1">
+										<transform position="-1.370, -2.160, 3.060"/>
+										<components>
+											<particle_system_instanced_component>
+												<effect_ref base_effect="{CF42A315-8788-4358-AB62-D6959528881B}"/>
+											</particle_system_instanced_component>
+										</components>
+									</game_entity>
+								</children>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="roof_l_3" old_prefab_name="" mobility="1">
+						<scripts>
+							<script name="DestructableComponent">
+								<variables>
+									<variable name="DestructionStates" value="destroyed"/>
+									<variable name="DestroyedByStoneOnly" value="false"/>
+									<variable name="CanBeDestroyedInitially" value="false"/>
+									<variable name="MaxHitPoint" value="100.000"/>
+									<variable name="DestroyOnAnyHit" value="false"/>
+									<variable name="PassHitOnToParent" value="false"/>
+									<variable name="ReferenceEntityTag" value=""/>
+									<variable name="HeavyHitParticlesTag" value=""/>
+									<variable name="HeavyHitParticlesThreshold" value="5.000"/>
+									<variable name="ParticleEffectOnDestroy" value=""/>
+									<variable name="SoundEffectOnDestroy" value=""/>
+									<variable name="SoundAndParticleEffectHeightOffset" value="0.000"/>
+									<variable name="SoundAndParticleEffectForwardOffset" value="0.000"/>
+									<variable name="BattleSide" value="None"/>
+									<variable name="NavMeshPrefabName" value=""/>
+								</variables>
+							</script>
+						</scripts>
+						<children>
+							<game_entity name="destroyed" old_prefab_name="" visible="false" mobility="1">
+								<physics override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_l_3_destroyed_part1"/>
+								</components>
+								<children>
+									<game_entity name="particles" old_prefab_name="" mobility="1">
+										<transform position="1.367, 2.639, 3.149"/>
+										<components>
+											<particle_system_instanced_component>
+												<effect_ref base_effect="{CF42A315-8788-4358-AB62-D6959528881B}"/>
+											</particle_system_instanced_component>
+										</components>
+									</game_entity>
+								</children>
+							</game_entity>
+							<game_entity name="clean" old_prefab_name="" mobility="1">
+								<tags>
+									<tag name="operational"/>
+								</tags>
+								<physics shape="bo_batteringram_c_roofplanks_l_3" override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_l_3"/>
+								</components>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="roof_l_2" old_prefab_name="" mobility="1">
+						<scripts>
+							<script name="DestructableComponent">
+								<variables>
+									<variable name="DestructionStates" value="destroyed"/>
+									<variable name="DestroyedByStoneOnly" value="false"/>
+									<variable name="CanBeDestroyedInitially" value="false"/>
+									<variable name="MaxHitPoint" value="100.000"/>
+									<variable name="DestroyOnAnyHit" value="false"/>
+									<variable name="PassHitOnToParent" value="false"/>
+									<variable name="ReferenceEntityTag" value=""/>
+									<variable name="HeavyHitParticlesTag" value=""/>
+									<variable name="HeavyHitParticlesThreshold" value="5.000"/>
+									<variable name="ParticleEffectOnDestroy" value=""/>
+									<variable name="SoundEffectOnDestroy" value=""/>
+									<variable name="SoundAndParticleEffectHeightOffset" value="0.000"/>
+									<variable name="SoundAndParticleEffectForwardOffset" value="0.000"/>
+									<variable name="BattleSide" value="None"/>
+									<variable name="NavMeshPrefabName" value=""/>
+								</variables>
+							</script>
+						</scripts>
+						<children>
+							<game_entity name="destroyed" old_prefab_name="" visible="false" mobility="1">
+								<physics override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_l_2_destroyed_part1"/>
+								</components>
+								<children>
+									<game_entity name="particles" old_prefab_name="" mobility="1">
+										<transform position="1.367, 0.319, 3.149"/>
+										<components>
+											<particle_system_instanced_component>
+												<effect_ref base_effect="{CF42A315-8788-4358-AB62-D6959528881B}"/>
+											</particle_system_instanced_component>
+										</components>
+									</game_entity>
+								</children>
+							</game_entity>
+							<game_entity name="clean" old_prefab_name="" mobility="1">
+								<tags>
+									<tag name="operational"/>
+								</tags>
+								<physics shape="bo_batteringram_c_roofplanks_l_2" override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_l_2"/>
+								</components>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="roof_l_1" old_prefab_name="" mobility="1">
+						<scripts>
+							<script name="DestructableComponent">
+								<variables>
+									<variable name="DestructionStates" value="destroyed"/>
+									<variable name="DestroyedByStoneOnly" value="false"/>
+									<variable name="CanBeDestroyedInitially" value="false"/>
+									<variable name="MaxHitPoint" value="100.000"/>
+									<variable name="DestroyOnAnyHit" value="false"/>
+									<variable name="PassHitOnToParent" value="false"/>
+									<variable name="ReferenceEntityTag" value=""/>
+									<variable name="HeavyHitParticlesTag" value=""/>
+									<variable name="HeavyHitParticlesThreshold" value="5.000"/>
+									<variable name="ParticleEffectOnDestroy" value=""/>
+									<variable name="SoundEffectOnDestroy" value=""/>
+									<variable name="SoundAndParticleEffectHeightOffset" value="0.000"/>
+									<variable name="SoundAndParticleEffectForwardOffset" value="0.000"/>
+									<variable name="BattleSide" value="None"/>
+									<variable name="NavMeshPrefabName" value=""/>
+								</variables>
+							</script>
+						</scripts>
+						<children>
+							<game_entity name="destroyed" old_prefab_name="" visible="false" mobility="1">
+								<physics override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_l_1_destroyed_part1"/>
+								</components>
+								<children>
+									<game_entity name="particles" old_prefab_name="" mobility="1">
+										<transform position="1.367, -2.168, 3.149"/>
+										<components>
+											<particle_system_instanced_component>
+												<effect_ref base_effect="{CF42A315-8788-4358-AB62-D6959528881B}"/>
+											</particle_system_instanced_component>
+										</components>
+									</game_entity>
+								</children>
+							</game_entity>
+							<game_entity name="clean" old_prefab_name="" mobility="1">
+								<tags>
+									<tag name="operational"/>
+								</tags>
+								<physics shape="bo_batteringram_c_roofplanks_l_1" override_material="wood_nonstick"/>
+								<components>
+									<meta_mesh_component name="batteringram_c_roofplanks_l_1"/>
+								</components>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="wheel_front" old_prefab_name="" mobility="1">
+						<tags>
+							<tag name="wheel"/>
+						</tags>
+						<transform position="-0.022, -3.608, 0.453" rotation_euler="-0.002, -0.032, -0.002"/>
+						<physics shape="bo_batteringram_c_wheels" override_material="wood_nonstick">
+							<body_flags>
+								<body_flag name="exclude_path_snap"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_wheels"/>
+						</components>
+					</game_entity>
+					<game_entity name="wheel_rear" old_prefab_name="" mobility="1">
+						<tags>
+							<tag name="wheel"/>
+						</tags>
+						<transform position="-0.007, 3.572, 0.448" rotation_euler="-0.002, -0.032, -0.002"/>
+						<physics shape="bo_batteringram_c_wheels" override_material="wood_nonstick">
+							<body_flags>
+								<body_flag name="exclude_path_snap"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_wheels"/>
+						</components>
+					</game_entity>
+					<game_entity name="pushing_interaction" old_prefab_name="" mobility="1">
+						<transform rotation_euler="-0.002, -0.032, -0.002"/>
+						<physics shape="bo_pushing_interaction" override_material="wood_nonstick">
+							<body_flags>
+								<body_flag name="only_collide_with_raycast"/>
+							</body_flags>
+						</physics>
+					</game_entity>
+					<game_entity name="pushers_body" old_prefab_name="" mobility="1">
+						<transform position="-0.199, 1.731, 1.366" rotation_euler="-0.002, -0.032, -0.002"/>
+						<children>
+							<game_entity name="pusher_l_front" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="move"/>
+								</tags>
+								<transform position="1.320, -3.409, -1.375" rotation_euler="0.000, 0.000, -3.140"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_l_back" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="move"/>
+								</tags>
+								<transform position="1.205, 0.267, -1.374" rotation_euler="0.000, 0.000, -3.140"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_l_middle" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="move"/>
+								</tags>
+								<transform position="1.336, -1.562, -1.375" rotation_euler="0.000, 0.000, -3.140"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_r_middle" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="move"/>
+								</tags>
+								<transform position="-1.001, -1.554, -1.374" rotation_euler="0.000, 0.000, -3.140"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_r_front" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="move"/>
+								</tags>
+								<transform position="-0.973, -3.401, -1.375" rotation_euler="0.000, 0.000, -3.140"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_r_back" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="move"/>
+								</tags>
+								<transform position="-0.981, 0.285, -1.374" rotation_euler="0.000, 0.000, -3.140"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="pushers_ram" old_prefab_name="" mobility="1">
+						<transform position="-0.026, 4.062, 1.057" rotation_euler="-0.002, -0.032, -0.002"/>
+						<physics shape="bo_batteringram_c_ram" override_material="wood_nonstick">
+							<body_flags>
+								<body_flag name="exclude_path_snap"/>
+							</body_flags>
+						</physics>
+						<children>
+							<game_entity name="pusher_r_back" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="pull"/>
+									<tag name="left"/>
+								</tags>
+								<transform position="-0.670, -1.990, -1.040" rotation_euler="0.000, 0.000, 3.141"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_l_back" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="pull"/>
+									<tag name="right"/>
+								</tags>
+								<transform position="0.750, -2.040, -1.040" rotation_euler="0.000, 0.000, 3.141"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_l_middle" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="pull"/>
+									<tag name="right"/>
+								</tags>
+								<transform position="0.750, -3.880, -1.040" rotation_euler="0.000, 0.000, 3.141"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_l_front" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="pull"/>
+									<tag name="right"/>
+								</tags>
+								<transform position="0.750, -5.710, -1.040" rotation_euler="0.000, 0.000, 3.141"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_r_middle" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="pull"/>
+									<tag name="left"/>
+								</tags>
+								<transform position="-0.670, -3.830, -1.040" rotation_euler="0.000, 0.000, 3.141"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+							<game_entity name="pusher_r_front" old_prefab_name="" mobility="1">
+								<flags>
+									<flag name="record_to_scene_replay" value="true"/>
+								</flags>
+								<visibility_masks>
+									<visibility_mask name="visible_only_when_editing" value="true"/>
+								</visibility_masks>
+								<tags>
+									<tag name="pull"/>
+									<tag name="left"/>
+								</tags>
+								<transform position="-0.672, -5.654, -1.040" rotation_euler="0.000, 0.000, 3.114"/>
+								<components>
+									<meta_mesh_component name="icon_man"/>
+								</components>
+								<scripts>
+									<script name="StandingPoint">
+										<variables>
+											<variable name="AutoSheathWeapons" value="true"/>
+											<variable name="AutoEquipWeaponsOnUseStopped" value="false"/>
+											<variable name="AutoWieldWeapons" value="false"/>
+											<variable name="TranslateUser" value="true"/>
+											<variable name="HasRecentlyBeenRechecked" value="false"/>
+											<variable name="NavMeshPrefabName" value=""/>
+										</variables>
+									</script>
+								</scripts>
+							</game_entity>
+						</children>
+					</game_entity>
+					<game_entity name="targeting_sphere" old_prefab_name="" mobility="1">
+						<visibility_masks>
+							<visibility_mask name="visible_only_when_editing" value="true"/>
+						</visibility_masks>
+						<tags>
+							<tag name="targeting_entity"/>
+						</tags>
+						<transform position="-0.065, 0.383, 2.046" rotation_euler="-0.002, -0.032, -0.002" scale="10.000, 10.000, 10.000"/>
+						<components>
+							<meta_mesh_component name="barrier_sphere">
+								<mesh name="barrier_sphere" material="ghost"/>
+							</meta_mesh_component>
+						</components>
+					</game_entity>
+					<game_entity name="wait_pos_ground" old_prefab_name="" mobility="1">
+						<visibility_masks>
+							<visibility_mask name="visible_only_when_editing" value="true"/>
+						</visibility_masks>
+						<tags>
+							<tag name="wait"/>
+						</tags>
+						<transform position="-0.496, 8.333, -0.033" rotation_euler="0.002, 0.032, 3.141"/>
+						<components>
+							<meta_mesh_component name="icon_man"/>
+						</components>
+					</game_entity>
+					<game_entity name="capsule_collider" old_prefab_name="" mobility="1">
+						<transform position="-0.063, 0.004, 1.956" rotation_euler="-0.032, 0.002, 1.569" scale="2.595, 2.595, 2.595"/>
+						<physics shape="bo_capsule_collider" override_material="wood_nonstick">
+							<body_flags>
+								<body_flag name="exclude_path_snap"/>
+								<body_flag name="only_collide_with_raycast"/>
+							</body_flags>
+						</physics>
+					</game_entity>
+				</children>
+			</game_entity>
+			<game_entity name="destroyed" old_prefab_name="" visible="false" mobility="1">
+				<physics shape="bo_batteringram_c_body_destroyed"/>
+				<components>
+					<meta_mesh_component name="batteringram_c_body_destroyed"/>
+				</components>
+				<scripts>
+					<script name="SynchedMissionObject">
+						<variables>
+							<variable name="NavMeshPrefabName" value="batteringram_a_destroyed_blocker_dnm"/>
+						</variables>
+					</script>
+				</scripts>
+				<children>
+					<game_entity name="part1" old_prefab_name="" mobility="1">
+						<transform position="0.063, -1.902, 3.029" rotation_euler="-0.003, 0.077, -1.634"/>
+						<physics shape="bo_composite_batteringram_c_part1" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part1"/>
+						</components>
+					</game_entity>
+					<game_entity name="part10" old_prefab_name="" mobility="1">
+						<transform position="0.290, 2.315, 3.152" rotation_euler="0.015, -0.087, 1.517"/>
+						<physics shape="bo_composite_batteringram_c_part10" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part10"/>
+						</components>
+					</game_entity>
+					<game_entity name="part2" old_prefab_name="" mobility="1">
+						<transform position="-1.907, -3.421, 3.053" rotation_euler="0.006, -0.194, -0.032"/>
+						<physics shape="bo_composite_batteringram_c_part2" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part2"/>
+						</components>
+					</game_entity>
+					<game_entity name="part3" old_prefab_name="" mobility="1">
+						<transform position="-2.224, -3.136, 1.885" rotation_euler="-0.074, 1.580, 0.000"/>
+						<physics shape="bo_composite_batteringram_c_part3" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part3"/>
+						</components>
+					</game_entity>
+					<game_entity name="part4" old_prefab_name="" mobility="1">
+						<transform position="-2.656, -0.989, 1.782" rotation_euler="0.000, 1.253, 0.000"/>
+						<physics shape="bo_composite_batteringram_c_part4" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part4"/>
+						</components>
+					</game_entity>
+					<game_entity name="part5" old_prefab_name="" mobility="1">
+						<transform position="0.819, -2.874, 3.087" rotation_euler="0.000, 0.209, 0.000"/>
+						<physics shape="bo_composite_batteringram_c_part5" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part5"/>
+						</components>
+					</game_entity>
+					<game_entity name="part6" old_prefab_name="" mobility="1">
+						<transform position="2.235, -3.274, 1.868" rotation_euler="0.000, 1.581, 0.000"/>
+						<physics shape="bo_composite_batteringram_c_part6" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part6"/>
+						</components>
+					</game_entity>
+					<game_entity name="part7" old_prefab_name="" mobility="1">
+						<transform position="1.907, 1.307, 1.808" rotation_euler="-0.207, 1.439, -0.027"/>
+						<physics shape="bo_composite_batteringram_c_part7" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part7"/>
+						</components>
+					</game_entity>
+					<game_entity name="part8" old_prefab_name="" mobility="1">
+						<transform position="-0.788, 0.151, 2.987" rotation_euler="0.000, 0.070, -1.646"/>
+						<physics shape="bo_composite_batteringram_c_part8" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part8"/>
+						</components>
+					</game_entity>
+					<game_entity name="part9" old_prefab_name="" mobility="1">
+						<transform position="-2.956, -1.037, 2.866" rotation_euler="0.000, -0.099, -0.106"/>
+						<physics shape="bo_composite_batteringram_c_part9" mass="20.000">
+							<body_flags>
+								<body_flag name="dynamic"/>
+							</body_flags>
+						</physics>
+						<components>
+							<meta_mesh_component name="batteringram_c_part9"/>
+						</components>
+					</game_entity>
+					<game_entity name="particles" old_prefab_name="" mobility="1">
+						<tags>
+							<tag name="fireParticles"/>
+						</tags>
+						<components>
+							<particle_system_instanced_component>
+								<effect_ref base_effect="{9B70C16F-E00E-4D28-A3FD-8FBBD5555FC2}"/>
+							</particle_system_instanced_component>
+						</components>
+					</game_entity>
+				</children>
+			</game_entity>
+		</children>
+	</game_entity>
+</prefabs>

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <strings>
+    <!-- #region Troop Overhaul-->
+      <!-- aserai -->
+      <string id="YATO_ArB"      text="Aserai Beduin" />
+      <string id="YATO_AMF"      text="Aserai Mamluk Footman" />
+      <string id="YATO_AMS"      text="Aserai Mamluk Soldier" />
+      <string id="YATO_AMI"      text="Aserai Mamluk Infantry" />
+      <string id="YATO_AMVI"     text="Aserai Mamluk Veteran Infantry" />
+      <string id="YATO_AMC"      text="Aserai Mamluk Camelry" />
+      <string id="YATO_AMHC"     text="Aserai Mamluk Heavy Camelry" />
+      <string id="YATO_AS"       text="Aserai Skirmisher" />
+      <string id="YATO_AK"       text="Aserai Kawas" />
+      <string id="YATO_AVK"      text="Aserai Veteran Kawas" />
+      <string id="YATO_AMK"      text="Aserai Master Kawas" />
+      <string id="YATO_AB"       text="Aserai Beyzade" />
+      <string id="YATO_AAF"      text="Aserai Azdrak Faris" />
+      <string id="YATO_AFF"      text="Aserai Foddi Faris" />
+      <string id="YATO_AZF"      text="Aserai Zehabi Faris" />
+      <!-- battania -->
+      <string id="YATO_BrF"      text="Battanian Fyrd" />
+      <string id="YATO_BW"       text="Battanian Wildling" />
+      <string id="YATO_Sa"       text="Battanian Savage" />
+      <string id="YATO_BFx"      text="Battanian Falxman" />
+      <string id="YATO_BVFx"     text="Battanian Veteran Falxman" />
+      <string id="YATO_BPF"      text="Battanian Pathfinder" />
+      <string id="YATO_BS"       text="Battanian Scout" />
+      <string id="YATO_BH"       text="Battanian Horseman" />
+      <string id="YATO_BK"       text="Battanian Kern" />
+      <string id="YATO_BWa"      text="Battanian Warrior" />
+      <string id="YATO_BR"       text="Battanian Riglach" />
+      <string id="YATO_BFi"      text="Battanian Fian" />
+      <string id="YATO_BO"       text="Battanian Oathsworn" />
+      <string id="YATO_BG"       text="Battanian Galloglass" />
+      <string id="YATO_BSw"      text="Battanian Swaethwr" />
+      <!-- empire -->
+      <string id="YATO_IR"       text="Imperial Recruit" />
+      <string id="YATO_II"       text="Imperial Infantryman" />
+      <string id="YATO_IL"       text="Imperial Legionary" />
+      <string id="YATO_IVL"      text="Imperial Veteran Legionary" />
+      <string id="YATO_IEL"      text="Imperial Elite Legionary" />
+      <string id="YATO_ICv"      text="Imperial Cavalryman" />
+      <string id="YATO_IVCv"     text="Imperial Veteran Cavalryman" />
+      <string id="YATO_IS"       text="Imperial Skirmisher" />
+      <string id="YATO_IA"       text="Imperial Archer" />
+      <string id="YATO_IVA"      text="Imperial Veteran Archer" />
+      <string id="YATO_IEA"      text="Imperial Elite Archer" />
+      <string id="YATO_IHA"      text="Imperial Horse Archer" />
+      <string id="YATO_IVHA"     text="Imperial Veteran Horse Archer" />
+      <string id="YATO_IE"       text="Imperial Equites" />
+      <string id="YATO_ICat"     text="Imperial Cataphract" />
+      <string id="YATO_IVCat"    text="Imperial Veteran Cataphract" />
+      <string id="YATO_IECat"    text="Imperial Elite Cataphract" />
+      <!-- khuzait -->
+      <string id="YATO_KrT"      text="Khuzait Tribesman" />
+      <string id="YATO_KN"       text="Khuzait Nomad" />
+      <string id="YATO_KH"       text="Khuzait Horseman" />
+      <string id="YATO_KL"       text="Khuzait Lancer" />
+      <string id="YATO_KHL"      text="Khuzait Heavy Lancer" />
+      <string id="YATO_KHA"      text="Khuzait Horse Archer" />
+      <string id="YATO_KVHA"     text="Khuzait Veteran Horse Archer" />
+      <string id="YATO_KF"       text="Khuzait Footman" />
+      <string id="YATO_KBw"      text="Khuzait Bowman" />
+      <string id="YATO_KM"       text="Khuzait Marksman" />
+      <string id="YATO_KKo"      text="Khuzait Korchi" />
+      <string id="YATO_KKh"      text="Khuzait Kheshig" />
+      <string id="YATO_KB"       text="Khuzait Bahadur" />
+      <string id="YATO_KD"       text="Khuzait Darkhan" />
+      <!-- sturgia -->
+      <string id="YATO_SrV"      text="Sturgian Volunteer" />
+      <string id="YATO_SF"       text="Sturgian Footman" />
+      <string id="YATO_SWa"      text="Sturgian Warrior" />
+      <string id="YATO_SS"       text="Sturgian Spearman" />
+      <string id="YATO_SHS"      text="Sturgian Heavy Spearman" />
+      <string id="YATO_SLB"      text="Sturgian Line Breaker" />
+      <string id="YATO_SA"       text="Sturgian Axeman" />
+      <string id="YATO_SHA"      text="Sturgian Heavy Axeman" />
+      <string id="YATO_SWo"      text="Sturgian Woodman" />
+      <string id="YATO_SAr"      text="Sturgian Archer" />
+      <string id="YATO_SVA"      text="Sturgian Veteran Archer" />
+      <string id="YATO_SO"       text="Sturgian Otrok" />
+      <string id="YATO_SD"       text="Sturgian Druzhinnik" />
+      <string id="YATO_SG"       text="Sturgian Grid" />
+      <string id="YATO_SM"       text="Sturgian Malaia" />
+      <!-- vlandia -->
+      <string id="YATO_VrL"      text="Vlandian Levy" />
+      <string id="YATO_VLI"      text="Vlandian Levy Infantry" />
+      <string id="YATO_VI"       text="Vlandian Infantry" />
+      <string id="YATO_VSe"      text="Vlandian Sergeant" />
+      <string id="YATO_VH"       text="Vlandian Horseman" />
+      <string id="YATO_VCo"      text="Vlandian Coursier" />
+      <string id="YATO_VCa"      text="Vlandian Cavalier" />
+      <string id="YATO_VLC"      text="Vlandian Levy Crossbowman" />
+      <string id="YATO_VCr"      text="Vlandian Crossbowman" />
+      <string id="YATO_VVC"      text="Vlandian Veteran Crossbowman" />
+      <string id="YATO_VSh"      text="Vlandian Arbaletrier" />
+      <string id="YATO_VrE"      text="Vlandian Ecuyer" />
+      <string id="YATO_VAu"      text="Vlandian Auxilliaire" />
+      <string id="YATO_VCh"      text="Vlandian Chevalier" />
+      <string id="YATO_VChB"     text="Vlandian Chevalier Banneret" />
+      <!-- Mercs -->
+      <string id="YATO_MF"       text="Mercenary Footman" />
+      <string id="YATO_MP"       text="Mercenary Pikeman" />
+      <string id="YATO_MI"       text="Mercenary Infantry" />
+      <string id="YATO_MS"       text="Mercenary Swordman" />
+      <string id="YATO_MH"       text="Mercenary Horseman" />
+      <string id="YATO_MC"       text="Mercenary Cavalry" />
+      <string id="YATO_MCr"      text="Mercenary Crossbowman" />
+      <string id="YATO_MSh"      text="Mercenary Sharpshooter " />
+      <string id="YATO_MM"       text="Mercenary Marksman" />
+      <string id="YATO_SSF"      text="Sword Follower" />
+      <string id="YATO_SSH"      text="Sword Huntress" />
+      <string id="YATO_SSD"      text="Sword Defender" />
+      <string id="YATO_SSS"      text="Sword Sister" />
+      <string id="YATO_SlH"      text="Slave Hunter" />
+      <string id="YATO_SlD"      text="Slave Driver" />
+      <string id="YATO_SlC"      text="Slave Crusher" />
+      <string id="YATO_SlM"      text="Slave Master" />
+    <!-- #endregion -->
+
+
+    <!-- #region CCR-->
+      <!-- Family-->
+      <string id="CCR_Family_Choice_ARais"            text="rais" />
+      <string id="CCR_Family_Choice_AMamluks"         text="mamluks" />
+      <string id="CCR_Family_Choice_AMerchant"        text="merchants" />
+      <string id="CCR_Family_Choice_AFarmers"         text="farmers" />
+      <string id="CCR_Family_Choice_AArtisans"        text="artisans" />
+      <string id="CCR_Family_Choice_AThugs"           text="thugs" />
+      
+      <string id="CCR_Family_Choice_Bchieftains"      text="chieftains" />
+      <string id="CCR_Family_Choice_Bhealers"         text="healers" />
+      <string id="CCR_Family_Choice_Bfarmers"         text="farmers" />
+      <string id="CCR_Family_Choice_Bartisans"        text="artisans" />
+      <string id="CCR_Family_Choice_Bforesters"       text="foresters" />
+      <string id="CCR_Family_Choice_Bbards"           text="bards" />
+      
+      <string id="CCR_Family_Choice_Earistocrates"    text="aristocrates" />
+      <string id="CCR_Family_Choice_Emerchants"       text="merchants" />
+      <string id="CCR_Family_Choice_Efreeholders"     text="freeholders" />
+      <string id="CCR_Family_Choice_Eartisans"        text="artisans" />
+      <string id="CCR_Family_Choice_Esoldiers"        text="soldiers" />
+      <string id="CCR_Family_Choice_Evagabonds"       text="vagabonds" />
+      
+      <string id="CCR_Family_Choice_Knoyans"          text="noyans" />
+      <string id="CCR_Family_Choice_Knomads"          text="nomads" />
+      <string id="CCR_Family_Choice_Kmerchants"       text="merchants" />
+      <string id="CCR_Family_Choice_Kartisans"        text="artisans" />
+      <string id="CCR_Family_Choice_Kwarriors"        text="warriors" />
+      <string id="CCR_Family_Choice_Kthugs"           text="thugs" />
+      
+      <string id="CCR_Family_Choice_Sboyars"          text="boyars" />
+      <string id="CCR_Family_Choice_Smerchants"       text="merchants" />
+      <string id="CCR_Family_Choice_Sfarmers"         text="farmers" />
+      <string id="CCR_Family_Choice_Sartisans"        text="artisans" />
+      <string id="CCR_Family_Choice_Swarriors"        text="warriors" />
+      <string id="CCR_Family_Choice_Sraiders"         text="raiders" />
+      
+      <string id="CCR_Family_Choice_Vbarons"          text="barons" />
+      <string id="CCR_Family_Choice_Vmerchants"       text="merchants" />
+      <string id="CCR_Family_Choice_Vyeomens"         text="yeomen" />
+      <string id="CCR_Family_Choice_Vartisans"        text="artisans" />
+      <string id="CCR_Family_Choice_Vsoldiers"        text="soldiers" />
+      <string id="CCR_Family_Choice_Vmercenaries"     text="mercenaries" />
+
+      <!-- Receveid education -->
+      <string id="CCR_Education_Choice_Faris"         text="become a faris" />
+      <string id="CCR_Education_Choice_Hearthguard"   text="enter the hearthguard" />
+      <string id="CCR_Education_Choice_Cataphract"    text="become a cataphract" />
+      <string id="CCR_Education_Choice_KhanGuard"     text="enter a khan's guard" />
+      <string id="CCR_Education_Choice_Druzhina"      text="join a druzhina" />
+      <string id="CCR_Education_Choice_Knight"        text="become a knight" />
+      <string id="CCR_Education_Choice_Commander"     text="lead armies" />
+      <string id="CCR_Education_Choice_Court"         text="be part of the court" />
+      <string id="CCR_Education_Choice_trade"         text="become a merchant" />
+      <string id="CCR_Education_Choice_crafting"      text="learn a trade" />
+      <string id="CCR_Education_Choice_scholar"       text="become a scholar" />
+      <string id="CCR_Education_Choice_religious"     text="be a {?PLAYER.GENDER}lady{?}man{\?} of faith" />
+      <string id="CCR_Education_Choice_farmer"        text="tend to the fields" />
+      <string id="CCR_Education_Choice_lady"          text="become a lady in waiting" />
+      <string id="CCR_Education_Choice_defense"       text="learn how to defend yourself" />
+      <string id="CCR_Education_Choice_trickery"      text="know how to trick others" />
+      
+      <!-- favorite idiom -->
+      <string id="CCR_Idiom_choice_fighter"           text="Better to be a warrior in a garden than a gardener in a war." />
+      <string id="CCR_Idiom_choice_healthy"           text="A healthy mind in a healthy body." />
+      <string id="CCR_Idiom_choice_prevention"        text="Prevention is better than cure." />
+      <string id="CCR_Idiom_choice_wellbegun"         text="Well begun is half done." />
+      <string id="CCR_Idiom_choice_bold"              text="Fortune favors the bold." />
+      <string id="CCR_Idiom_choice_forwarned"         text="Forewarned is forearmed." />
+      <string id="CCR_Idiom_choice_invention"         text="Necessity is the mother of invention." />
+      <string id="CCR_Idiom_choice_armed"             text="Men with weapons never starve." />
+      <string id="CCR_Idiom_choice_conquer"           text="To conquer without risk is to triumph without glory." />
+      <string id="CCR_Idiom_choice_means"             text="The end justifies the means." />
+
+      <!-- start in life -->
+      <string id="CCR_Start_Choice_Afaris"        text="a faris" />
+      <string id="CCR_Start_Choice_Acaravaner"    text="a caravaner" />
+      <string id="CCR_Start_Choice_Amerchant"     text="a merchant" />
+      <string id="CCR_Start_Choice_Acraftman"     text="a craftman" />
+      <string id="CCR_Start_Choice_Afarmer"       text="a farmer" />
+      <string id="CCR_Start_Choice_Amamluke"      text="mamluke" />
+      <string id="CCR_Start_Choice_Ahorsearcher"  text="mounted archer" />
+      <string id="CCR_Start_Choice_Aarcher"       text="archer" />
+      <string id="CCR_Start_Choice_Adesertbandit" text="a desert bandit" />
+      
+      <string id="CCR_Start_Choice_Bfian"         text="a member of a fianna" />
+      <string id="CCR_Start_Choice_Bdruid"        text="a druid" />
+      <string id="CCR_Start_Choice_Bmerchant"     text="a merchant" />
+      <string id="CCR_Start_Choice_Bcraftman"     text="a craftman" />
+      <string id="CCR_Start_Choice_Bforester"     text="a forester" />
+      <string id="CCR_Start_Choice_Bwildling"     text="wildling" />
+      <string id="CCR_Start_Choice_Bscout"        text="scout" />
+      <string id="CCR_Start_Choice_Bkern"         text="part of the kern" />
+      <string id="CCR_Start_Choice_Bforestbandit" text="a forest bandit" />
+
+      <string id="CCR_Start_Choice_Ecommander"    text="a centurion" />
+      <string id="CCR_Start_Choice_Eengineer"     text="an engineer's apprentice" />
+      <string id="CCR_Start_Choice_Emerchant"     text="a merchant" />
+      <string id="CCR_Start_Choice_Ecraftman"     text="a craftman" />
+      <string id="CCR_Start_Choice_Epeasant"      text="a peasant" />
+      <string id="CCR_Start_Choice_Elegionary"    text="legionary" />
+      <string id="CCR_Start_Choice_Earcher"       text="archer" />
+      <string id="CCR_Start_Choice_Ecavalry"      text="light cavalry" />
+      <string id="CCR_Start_Choice_Ehorsearcher"  text="mounted archer" />
+      <string id="CCR_Start_Choice_Elooter"       text="a looter" />
+
+      <string id="CCR_Start_Choice_Kkhanguard"    text="part of a khan's guard" />
+      <string id="CCR_Start_Choice_Knomad"        text="a nomad" />
+      <string id="CCR_Start_Choice_Kmerchant"     text="a merchant" />
+      <string id="CCR_Start_Choice_Kcraftman"     text="a craftman" />
+      <string id="CCR_Start_Choice_Kfarmer"       text="a farmer" />
+      <string id="CCR_Start_Choice_Kcavalry"      text="part of the cavalry" />
+      <string id="CCR_Start_Choice_Khorsearcher"  text="mounted archer" />
+      <string id="CCR_Start_Choice_Kinfantry"     text="infantry" />
+      <string id="CCR_Start_Choice_Ksteppebandit" text="a steppe bandit" />
+      
+      <string id="CCR_Start_Choice_Sdruzhina"     text="a member of a druzhina" />
+      <string id="CCR_Start_Choice_Sfur_hunter"   text="fur hunter" />
+      <string id="CCR_Start_Choice_Smerchant"     text="a merchant" />
+      <string id="CCR_Start_Choice_Scraftman"     text="a craftman" />
+      <string id="CCR_Start_Choice_Speasant"      text="a peasant" />
+      <string id="CCR_Start_Choice_Sinfantry"     text="part of the infantry" />
+      <string id="CCR_Start_Choice_Sshocktroop"   text="shock troop" />
+      <string id="CCR_Start_Choice_Sarcher"       text="bowman" />
+      <string id="CCR_Start_Choice_Ssearaider"    text="a raider" />
+      
+      <string id="CCR_Start_Choice_Vknight"       text="a knight" /> 
+      <string id="CCR_Start_Choice_Vchamberlain"  text="chamberlain" /> 
+      <string id="CCR_Start_Choice_Vmerchant"     text="a merchant" /> 
+      <string id="CCR_Start_Choice_Vguild"        text="a member of a guild" /> 
+      <string id="CCR_Start_Choice_Vserf"         text="a serf" /> 
+      <string id="CCR_Start_Choice_Vinfantry"     text="levied footman" /> 
+      <string id="CCR_Start_Choice_Vcavalry"      text="light cavalry" /> 
+      <string id="CCR_Start_Choice_Vcrossbowman"  text="levied crossbowman" /> 
+      <string id="CCR_Start_Choice_Vbandit"       text="a highwayman" /> 
+
+      <!-- reason for adventuring -->
+      <string id="CCR_Reason_travel"              text="to discover the world" />
+      <string id="CCR_Reason_desc_travel"         text="The temptation of travel was to much for you, as you always dreamt of seeing the world." />
+      <string id="CCR_Reason_revenge"             text="to take revenge" />
+      <string id="CCR_Reason_desc_revenge"        text="After being wronged, you felt the need for revenge. With that goal in mind, you wandered throughout Calradia to get reparations" />
+      <string id="CCR_Reason_forced_out"          text="after being forced out" />
+      <string id="CCR_Reason_desc_forced_out"     text="After one last disagreement with you, your parents forced you out. With nowhere to go, adventuring was all you could do" />
+      <string id="CCR_Reason_money"               text="in search of money" />
+      <string id="CCR_Reason_desc_money"          text="You always wanted to make riches, and it was obvious for you that staying at home would never allow you do it." />
+      <string id="CCR_Reason_power"               text="to become one of the powerful" />
+      <string id="CCR_Reason_desc_power"          text="Seeing how those in power had many advantages, you joined on an adventure to join them, or even replace them." />
+      <string id="CCR_Reason_history"             text="to mark history" />
+      <string id="CCR_Reason_desc_history"        text="With all the wars in Calradia, there are many way one could carve {?PLAYER.GENDER}her{?}his{\?} name in history." />
+      <string id="CCR_Reason_loss"                text="after the loss of a loved one" />
+      <string id="CCR_Reason_desc_loss"           text="After losing some close to you, you left to see if you could fill that hole" />
+      <string id="CCR_Reason_crafting"            text="to practice your trade" />
+      <string id="CCR_Reason_desc_crafting"       text="Your craftmanship has been an important part of your life, but your skill wasn't enough. You thus decided to embark on a journey to improve at it." />
+      <string id="CCR_Reason_helping"             text="to help those in need" />
+      <string id="CCR_Reason_desc_helping"        text="Having been taught in medicine, you decide to set out and help those in need, as with the wars many have suffered." />
+      <string id="CCR_Reason_prove_worth"         text="to prove your fighting skills" />
+      <string id="CCR_Reason_desc_prove_worth"    text="Attaching much importance to your fighting skill, you figured there was no better place than calradia to prove your might." />
+  
+      <!-- starting age -->
+      <string id="CCR_Age_16_desc"                text="Some might say you are too young, but your eagerness more than makes up for your lack of experience." />
+    <!-- #endregion -->
+    </strings>
+</base>
