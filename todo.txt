@@ -30,6 +30,7 @@ systèmes de recruitement
     - levy
     - volontaires
     - service
+    - retenue
 
 
 ----- Nouveaux Systèmes -----
@@ -46,25 +47,18 @@ voyager avec une caravane
 blocage navmesh pour châteaux
 
 ----- Tweaks -----
-    Pas de caravan guard en mercenaire de tavernes
-    cheval en civil mais pas dans les sièges
+    cutscenes en fullscreen
+    moins de troupes au départ
+    pas de caravan guard en mercenaire de tavernes
+    cheval en civil 
+    pas de cheval dans les sièges
     mathf.clamp IA combat
     perte de renommé
-    nb troupe max lié au leadership; pas steward. pas de gain par niveau de clan. moins de troupes au départ
     bouton pour l'encyclopedie
-    cutscenes en fullscreen
     attendre coûte de l'argent
-    changement de relation dans le log
+    changement de relations dans le log
     meilleurs vitese de passage de temps
     empires unifiés
-
------ patreons -----
-refind
-flameshot
-ancient civilization
-bretonnia
-ECM
-pardeike (harmony)
 
 ----- commissions -----
 camel armor rigged
