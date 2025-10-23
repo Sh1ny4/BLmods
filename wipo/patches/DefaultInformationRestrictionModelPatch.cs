@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.CampaignSystem.Party;
+﻿using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Settlements;
-using TaleWorlds.CampaignSystem.Settlements.Workshops;
 using TaleWorlds.CampaignSystem.GameComponents;
 
-namespace wipo.patches.Tweaks
+namespace wipo.patches
 {
     internal class DefaultInformationRestrictionModelPatch : DefaultInformationRestrictionModel
     {

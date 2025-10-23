@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Inventory;
 
-namespace wipo.patches.Tweaks
+namespace wipo.patches
 {
     [HarmonyPatch(typeof(SPInventoryVM), nameof(SPInventoryVM.IsSearchAvailable), MethodType.Getter)]
     internal class IsSearchAvailablePatch

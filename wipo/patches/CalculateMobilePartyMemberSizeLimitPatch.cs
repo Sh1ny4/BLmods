@@ -8,7 +8,7 @@ using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace wipo.patches.PerksPatch
+namespace wipo.patches
 {
     [HarmonyPatch(typeof(DefaultPartySizeLimitModel), "CalculateMobilePartyMemberSizeLimit")]
     internal class CalculateMobilePartyMemberSizeLimitPatch : DefaultPartySizeLimitModel
@@ -57,42 +57,6 @@ namespace wipo.patches.PerksPatch
             if (partyMapFaction != null && partyMapFaction.IsKingdomFaction && partyLeader.MapFaction.Leader == partyLeader)
             {
                 result.Add(20f, _factionLeaderText, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.OneHanded.Prestige))
-            {
-                result.Add(DefaultPerks.OneHanded.Prestige.SecondaryBonus, DefaultPerks.OneHanded.Prestige.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.TwoHanded.Hope))
-            {
-                result.Add(DefaultPerks.TwoHanded.Hope.SecondaryBonus, DefaultPerks.TwoHanded.Hope.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.Athletics.ImposingStature))
-            {
-                result.Add(DefaultPerks.Athletics.ImposingStature.SecondaryBonus, DefaultPerks.Athletics.ImposingStature.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.Bow.MerryMen))
-            {
-                result.Add(DefaultPerks.Bow.MerryMen.PrimaryBonus, DefaultPerks.Bow.MerryMen.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.Tactics.HordeLeader))
-            {
-                result.Add(DefaultPerks.Tactics.HordeLeader.PrimaryBonus, DefaultPerks.Tactics.HordeLeader.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.Scouting.MountedScouts))
-            {
-                result.Add(DefaultPerks.Scouting.MountedScouts.SecondaryBonus, DefaultPerks.Scouting.MountedScouts.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.Leadership.Authority))
-            {
-                result.Add(DefaultPerks.Leadership.Authority.SecondaryBonus, DefaultPerks.Leadership.Authority.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.Leadership.UpliftingSpirit))
-            {
-                result.Add(DefaultPerks.Leadership.UpliftingSpirit.SecondaryBonus, DefaultPerks.Leadership.UpliftingSpirit.Name, null);
-            }
-            if (partyLeader.GetPerkValue(DefaultPerks.Leadership.TalentMagnet))
-            {
-                result.Add(DefaultPerks.Leadership.TalentMagnet.PrimaryBonus, DefaultPerks.Leadership.TalentMagnet.Name, null);
             }
             if (partyLeader.GetSkillValue(DefaultSkills.Leadership) > Campaign.Current.Models.CharacterDevelopmentModel.MaxSkillRequiredForEpicPerkBonus && partyLeader.GetPerkValue(DefaultPerks.Leadership.UltimateLeader))
             {

@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
-using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
@@ -27,7 +26,7 @@ namespace wipo
             if (flag)
             {
                 CampaignGameStarter starter = gameStarterObject as CampaignGameStarter;
-                starter.AddModel(new patches.Tweaks.DefaultInformationRestrictionModelPatch());
+                starter.AddModel(new patches.DefaultInformationRestrictionModelPatch());
             }
         }
     }

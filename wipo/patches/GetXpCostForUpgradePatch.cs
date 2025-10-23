@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Library;
 
-namespace wipo.patches.CostPatch
+namespace wipo.patches
 {
     [HarmonyPatch(typeof(DefaultPartyTroopUpgradeModel), nameof(DefaultPartyTroopUpgradeModel.GetXpCostForUpgrade))]
     public class GetXpCostForUpgradePatch
