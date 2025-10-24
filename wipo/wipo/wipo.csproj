@@ -80,8 +80,6 @@
   <ItemGroup>
     <Compile Include="main.cs" />
     <Compile Include="patches\FoodPatch.cs" />
-    <Compile Include="patches\GetCharacterWagePatch.cs" />
-    <Compile Include="patches\GetXpCostForUpgradePatch.cs" />
     <Compile Include="patches\CalculateMobilePartyMemberSizeLimitPatch.cs" />
     <Compile Include="patches\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\CanGetDisorganizedPatch.cs" />
