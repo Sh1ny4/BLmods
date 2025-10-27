@@ -125,20 +125,3 @@ public void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)
         }
     }
 }
-
-namespace TaleWorlds.CampaignSystem.GameComponents
-{
-	// Token: 0x0200015A RID: 346
-	public class DefaultTavernMercenaryTroopsModel : TavernMercenaryTroopsModel
-	{
-		// Token: 0x170006CF RID: 1743
-		// (get) Token: 0x06001A5F RID: 6751 RVA: 0x00087050 File Offset: 0x00085250
-		public override float RegularMercenariesSpawnChance
-		{
-			get
-			{
-				return 0.7f;
-			}
-		}
-	}
-}
