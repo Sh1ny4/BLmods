@@ -4,7 +4,7 @@ using TaleWorlds.CampaignSystem;
 namespace wipo.patches
 {
     [HarmonyPatch(typeof(DefaultTavernMercenaryTroopsModel), nameof(DefaultTavernMercenaryTroopsModel.RegularMercenariesSpawnChance), MethodType.Getter)]
-    internal class IsSearchAvailablePatch
+    internal class RegularMercenariesSpawnChancePatch
     {
         [HarmonyPostfix]
         static void Postfix(ref float __result)
