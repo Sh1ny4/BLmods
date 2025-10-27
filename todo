@@ -49,7 +49,6 @@ blocage navmesh pour châteaux
 ----- Tweaks -----
     cutscenes en fullscreen
     moins de troupes au départ
-    pas de caravan guard en mercenaire de tavernes
     cheval en civil 
     pas de cheval dans les sièges
     mathf.clamp IA combat
