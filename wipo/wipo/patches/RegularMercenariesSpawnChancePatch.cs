@@ -3,7 +3,7 @@ using TaleWorlds.CampaignSystem;
 
 namespace wipo.patches
 {
-    [HarmonyPatch(typeof(DefaultTavernMercenaryTroopsModel), nameof(DefaultTavernMercenaryTroopsModel.DefaultTavernMercenaryTroopsModel), MethodType.Getter)]
+    [HarmonyPatch(typeof(DefaultTavernMercenaryTroopsModel), nameof(DefaultTavernMercenaryTroopsModel.RegularMercenariesSpawnChance), MethodType.Getter)]
     internal class IsSearchAvailablePatch
     {
         [HarmonyPostfix]
