@@ -125,3 +125,6 @@ public void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)
         }
     }
 }
+
+		[BannerlordConfig.ConfigPropertyUnbounded]
+		public static float UIScale { get; set; } = 1f;
