@@ -38,6 +38,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="SandBox">
+      <HintPath>..\..\..\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
+    </Reference>
+    <Reference Include="StoryMode">
+      <HintPath>..\..\..\StoryMode\bin\Win64_Shipping_Client\StoryMode.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="TaleWorlds.CampaignSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -52,6 +58,14 @@
     </Reference>
     <Reference Include="TaleWorlds.Core.ViewModelCollection">
       <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.Core.ViewModelCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.DotNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.Engine, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.Engine.dll</HintPath>
     </Reference>
     <Reference Include="TaleWorlds.GauntletUI">
       <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.GauntletUI.dll</HintPath>
@@ -79,14 +93,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.cs" />
+    <Compile Include="patches\ClanStuff\CanPlayerCreateArmyPatch.cs" />
     <Compile Include="patches\FoodPatch.cs" />
-    <Compile Include="patches\CalculateMobilePartyMemberSizeLimitPatch.cs" />
+    <Compile Include="patches\ClanStuff\GetClanTierPartySizeEffectForHeroPatch.cs" />
     <Compile Include="patches\BanditsAroundHideoutsPatch.cs" />
     <Compile Include="patches\CanGetDisorganizedPatch.cs" />
-    <Compile Include="patches\CreateArmyPatch.cs" />
+    <Compile Include="patches\ClanStuff\CreateArmyPatch.cs" />
     <Compile Include="patches\DefaultInformationRestrictionModelPatch.cs" />
     <Compile Include="patches\IsSearchAvailablePatch.cs" />
     <Compile Include="patches\LoyaltyPatch.cs" />
+    <Compile Include="patches\TownHorsePatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
