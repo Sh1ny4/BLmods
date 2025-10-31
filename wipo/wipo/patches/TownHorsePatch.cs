@@ -1,4 +1,5 @@
-﻿using SandBox;
+﻿using HarmonyLib;
+using SandBox;
 using SandBox.Missions.MissionLogics;
 using SandBox.Missions.MissionLogics.Towns;
 using TaleWorlds.CampaignSystem;
@@ -6,16 +7,18 @@ using TaleWorlds.Core;
 
 namespace wipo.patches
 {
+    [HarmonyPatch(typeof(TownCenterMissionController), nameof(TownCenterMissionController.AfterStart))]
     internal class TownHorsePatch : TownCenterMissionController
     {
-        public override void AfterStart()
+        [HarmonyPrefix]
+        static bool AfterStart(ref TownCenterMissionController __instance)
         {
             bool isNight = Campaign.Current.IsNight;
-            base.Mission.SetMissionMode(MissionMode.StartUp, true);
-            base.Mission.IsInventoryAccessible = !Campaign.Current.IsMainHeroDisguised;
-            base.Mission.IsQuestScreenAccessible = true;
-            MissionAgentHandler missionBehavior = base.Mission.GetMissionBehavior<MissionAgentHandler>();
-            SandBoxHelpers.MissionHelper.SpawnPlayer(base.Mission.DoesMissionRequireCivilianEquipment, true, false, false, "");
+            __instance.Mission.SetMissionMode(MissionMode.StartUp, true);
+            __instance.Mission.IsInventoryAccessible = !Campaign.Current.IsMainHeroDisguised;
+            __instance.Mission.IsQuestScreenAccessible = true;
+            MissionAgentHandler missionBehavior = __instance.Mission.GetMissionBehavior<MissionAgentHandler>();
+            SandBoxHelpers.MissionHelper.SpawnPlayer(__instance.Mission.DoesMissionRequireCivilianEquipment, false, false, false, "");
             missionBehavior.SpawnLocationCharacters(null);
             SandBoxHelpers.MissionHelper.SpawnHorses();
             if (!isNight)
@@ -26,6 +29,7 @@ namespace wipo.patches
                 SandBoxHelpers.MissionHelper.SpawnGeese();
                 SandBoxHelpers.MissionHelper.SpawnChicken();
             }
+            return false;
         }
     }
 }

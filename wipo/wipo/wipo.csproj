@@ -104,7 +104,6 @@
     <Compile Include="patches\CanGetDisorganizedPatch.cs" />
     <Compile Include="patches\ClanStuff\CreateArmyPatch.cs" />
     <Compile Include="patches\DefaultInformationRestrictionModelPatch.cs" />
-    <Compile Include="patches\HorseTownPatch.cs" />
     <Compile Include="patches\IsSearchAvailablePatch.cs" />
     <Compile Include="patches\LoyaltyPatch.cs" />
     <Compile Include="patches\RegularMercenariesSpawnChancePatch.cs" />

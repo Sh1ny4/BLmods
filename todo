@@ -50,7 +50,6 @@ blocage navmesh pour châteaux
 ----- Tweaks -----
     cutscenes en fullscreen
     moins de troupes au départ
-    cheval en civil 
     pas de cheval dans les sièges
     mathf.clamp IA combat
     perte de renommé
