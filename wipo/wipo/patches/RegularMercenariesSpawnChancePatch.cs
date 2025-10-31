@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.GameComponents;
 
 namespace wipo.patches
 {

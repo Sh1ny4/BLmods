@@ -90,6 +90,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
     </Reference>
+    <Reference Include="TaleWorlds.ScreenSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.ScreenSystem.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="patches\DefaultInformationRestrictionModelPatch.cs" />
     <Compile Include="patches\IsSearchAvailablePatch.cs" />
     <Compile Include="patches\LoyaltyPatch.cs" />
+    <Compile Include="patches\RegularMercenariesSpawnChancePatch.cs" />
     <Compile Include="patches\TownHorsePatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
