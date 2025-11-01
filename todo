@@ -49,14 +49,12 @@ blocage navmesh pour châteaux
 
 ----- Tweaks -----
     cutscenes en fullscreen
-    moins de troupes au départ
     pas de cheval dans les sièges
     mathf.clamp IA combat
     perte de renommé
     bouton pour l'encyclopedie
     attendre coûte de l'argent
     changement de relations dans le log
-    meilleurs vitese de passage de temps
     empires unifiés
 
 ----- commissions -----

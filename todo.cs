@@ -130,3 +130,8 @@ public void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)
 public static float UIScale { get; set; } = 1f;
 
 public class GauntletSceneNotification 
+
+public float SpeedUpMultiplier { get; set; } = 4f;
+
+public class SceneNotification__TaleWorlds_Core_ViewModelCollection_Information_SceneNotificationVM : Widget, IGeneratedGauntletMovieRoot
+	{
