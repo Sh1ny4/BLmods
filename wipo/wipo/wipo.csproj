@@ -126,7 +126,6 @@
     <Compile Include="patches\LoyaltyPatch.cs" />
     <Compile Include="patches\RegularMercenariesSpawnChancePatch.cs" />
     <Compile Include="patches\UIstuff\CinematicsFullScreen.cs" />
-    <Compile Include="patches\UIstuff\EncyclopediaStretch.cs" />
     <Compile Include="patches\UIstuff\EncyclopediaFullScreen.cs" />
     <Compile Include="patches\TownHorsePatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

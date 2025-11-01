@@ -48,9 +48,7 @@ voyager avec une caravane
 blocage navmesh pour châteaux
 
 ----- Tweaks -----
-    cutscenes en fullscreen
     pas de cheval dans les sièges
-    mathf.clamp IA combat
     perte de renommé
     bouton pour l'encyclopedie
     attendre coûte de l'argent
