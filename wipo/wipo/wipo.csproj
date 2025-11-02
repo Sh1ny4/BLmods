@@ -125,9 +125,16 @@
     <Compile Include="patches\IsSearchAvailablePatch.cs" />
     <Compile Include="patches\LoyaltyPatch.cs" />
     <Compile Include="patches\RegularMercenariesSpawnChancePatch.cs" />
-    <Compile Include="patches\UIstuff\CinematicsFullScreen.cs" />
     <Compile Include="patches\UIstuff\EncyclopediaFullScreen.cs" />
     <Compile Include="patches\TownHorsePatch.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaHeroPage.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaListPage.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaConceptPage.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaClanPage.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaFactionPage.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaSettlementsPage.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaHomePage.cs" />
+    <Compile Include="patches\UIstuff\EncyclopediaUnitPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
