@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="main.cs" />
     <Compile Include="patches\ClanStuff\CanPlayerCreateArmyPatch.cs" />
+    <Compile Include="patches\GetCharacterWagePatch.cs" />
     <Compile Include="patches\FoodPatch.cs" />
     <Compile Include="patches\ClanStuff\GetClanTierPartySizeEffectForHeroPatch.cs" />
     <Compile Include="patches\BanditsAroundHideoutsPatch.cs" />
