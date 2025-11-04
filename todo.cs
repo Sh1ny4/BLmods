@@ -126,3 +126,5 @@ public void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)
     }
 }
 public float SpeedUpMultiplier { get; set; } = 4f;
+
+PartyBase.MainParty
