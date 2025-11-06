@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.cs" />
+    <Compile Include="patches\CanPartyUpgradeTroopToTargetPatch.cs" />
     <Compile Include="patches\ClanStuff\CanPlayerCreateArmyPatch.cs" />
     <Compile Include="patches\GetCharacterWagePatch.cs" />
     <Compile Include="patches\FoodPatch.cs" />
