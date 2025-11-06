@@ -1,7 +1,7 @@
 ```/singleplayer _MODULES_*Bannerlord.Harmony*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*YetAnotherTroopOverhaul*EliteRecruitsInCastles*CharacterCreationRedone*TournamentEquipmentRedone*wipo*_MODULES_```
 
 ## Reworks
-### Better tourneys :
+#### Better tourneys :
     Tied to feasts
     fewer participants, only named NPCs ?
     Balanced armors
@@ -10,7 +10,7 @@
     - battania = bow contest
     - khuzait = horse archery contest
 
-### Clan tier
+#### Clan tier
     No clan tiers but instead levels of nobility granted by the kingdom, they are linked to the clan's influence
     | Level | Aserai    	| Battania    	| Empire    	| Khuzait    	| Sturgia    	| Vlandia    	| Perks
     |:------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------
@@ -20,13 +20,7 @@
     |   4   | Emir			| Earl			| Consul 		| Tarkhan  		| Knyaz			| Duc			| Controls a town, can create an army
     |   5   | Sultan		| High King		| Imperator		| Khan			| Grand Prince	| Roi			| Controls a Kingdom
 
-### systèmes Political Systems
-    changeable avec un changement de policy
-    - parlement
-    - royauté élue
-    - royauté hereditaire
-
-### recruitement system
+#### recruitement system
     can be changed with a policy
     - levy
     - volonteer
@@ -37,15 +31,15 @@ Warband Skills & Perks
 
 ## New Systems
 
-Serve as a Soldier
+#### Serve as a Soldier
 
-Camps
+#### Camps
     Used by AI at night > not camping at night damages morale
     allows to train troops, read, hunt
 
-Ability to join a caravan to travel
+#### Ability to join a caravan to travel
 
-castles can block passage through navmesh
+#### castles can block passage through navmesh
 
 ## Tweaks
     pas de cheval dans les sièges
