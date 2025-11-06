@@ -1,7 +1,7 @@
-/singleplayer _MODULES_*Bannerlord.Harmony*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*YetAnotherTroopOverhaul*EliteRecruitsInCastles*CharacterCreationRedone*TournamentEquipmentRedone*wipo*_MODULES_
+```/singleplayer _MODULES_*Bannerlord.Harmony*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*YetAnotherTroopOverhaul*EliteRecruitsInCastles*CharacterCreationRedone*TournamentEquipmentRedone*wipo*_MODULES_```
 
------ Reworks Complets -----
-meilleurs tournois :
+## Reworks Complets
+### meilleurs tournois :
     liés à des feasts
     moins de participants
     armures equilibrées
@@ -10,7 +10,7 @@ meilleurs tournois :
     - battania = tir à l'arc
     - khuzait = tir à l'arc monté
 
-pas de niveau de clan mais des niveaux de noblesse donnés par le royaume, le niveau est lié à l'influence du clan
+### pas de niveau de clan mais des niveaux de noblesse donnés par le royaume, le niveau est lié à l'influence du clan
     | Level | Aserai    	| Battania    	| Empire    	| Khuzait    	| Sturgia    	| Vlandia    	| Perks
     |:------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------
     |   1   | Faris 		| Fian	 		| Cataphract	| Kheshig		| Druzhina 		| Chevalier		| Gagne une arme de tier 6
@@ -19,13 +19,13 @@ pas de niveau de clan mais des niveaux de noblesse donnés par le royaume, le ni
     |   4   | Emir			| Earl			| Consul 		| Tarkhan  		| Knyaz			| Duc			| Contrôle une ville, Peut créer une armée
     |   5   | Sultan		| High King		| Imperator		| Khan			| Grand Prince	| Roi			| Contrôle un royaume
 
-systèmes politiques
+### systèmes politiques
     changeable avec un changement de policy
     - parlement
     - royauté élue
     - royauté hereditaire
 
-systèmes de recruitement
+### systèmes de recruitement
     changeable avec un changement de policy
     - levy
     - volontaires
@@ -34,7 +34,7 @@ systèmes de recruitement
 
 Skills de Warband
 
------ Nouveaux Systèmes -----
+## Nouveaux Systèmes
 Serve as a Soldier
 
 Camps
@@ -47,7 +47,7 @@ voyager avec une caravane
 
 blocage navmesh pour châteaux
 
------ Tweaks -----
+## Tweaks -----
     pas de cheval dans les sièges
     perte de renommé
     bouton pour l'encyclopedie
