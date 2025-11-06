@@ -15,25 +15,25 @@
     | Level | Aserai    	| Battania    	| Empire    	| Khuzait    	| Sturgia    	| Vlandia    	| Perks
     |:------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------
     |   1   | Faris 		| Fian	 		| Cataphract	| Kheshig		| Druzhina 		| Chevalier		| gets a tier 6 weapon
-    |   2   | Sheikh 		| Chieftain		| Patrician		| Noyan			| Boyar			| Baron			| Contrôle un village, Peut voter pour les décisions du royaume, Gagne 5 troupes d'élite
-    |   3   | Muqaddam		| 				| Senator		| 				| 				| Comte			| Contrôle un chateau, gagne un conseil : Marshal, Steward, Chancellor
-    |   4   | Emir			| Earl			| Consul 		| Tarkhan  		| Knyaz			| Duc			| Contrôle une ville, Peut créer une armée
-    |   5   | Sultan		| High King		| Imperator		| Khan			| Grand Prince	| Roi			| Contrôle un royaume
+    |   2   | Sheikh 		| Chieftain		| Patrician		| Noyan			| Boyar			| Baron			| Controls a village, can vote in the kingdom's decisions, gains a retinue
+    |   3   | Muqaddam		| 				| Senator		| 				| 				| Comte			| Controls a castle, has a council Marshal, Steward, Chancellor
+    |   4   | Emir			| Earl			| Consul 		| Tarkhan  		| Knyaz			| Duc			| Controls a town, can create an army
+    |   5   | Sultan		| High King		| Imperator		| Khan			| Grand Prince	| Roi			| Controls a Kingdom
 
-### systèmes politiques
+### systèmes Political Systems
     changeable avec un changement de policy
     - parlement
     - royauté élue
     - royauté hereditaire
 
-### systèmes de recruitement
-    changeable avec un changement de policy
+### recruitement system
+    can be changed with a policy
     - levy
-    - volontaires
+    - volonteer
     - service
-    - retenue
+    - retinue
 
-Skills de Warband
+Warband Skills & Perks
 
 ## New Systems
 
@@ -47,7 +47,7 @@ Ability to join a caravan to travel
 
 castles can block passage through navmesh
 
-## Tweaks -----
+## Tweaks
     pas de cheval dans les sièges
     Loss of renown & influence after defeat
     button for the encyclopedia
