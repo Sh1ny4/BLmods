@@ -2,13 +2,13 @@
 
 ## Reworks
 #### Better tourneys :
-    Tied to feasts
-    fewer participants, only named NPCs ?
-    Balanced armors
-    three steps : duels + race + culturaly specific one
-    - vlandia = jousting
-    - battania = bow contest
-    - khuzait = horse archery contest
+> Tied to feasts
+> fewer participants, only named NPCs ?
+> Balanced armors
+> three steps : duels + race + culturaly specific one
+> - vlandia = jousting
+> - battania = bow contest
+> - khuzait = horse archery contest
 
 #### Clan tier
     No clan tiers but instead levels of nobility granted by the kingdom, they are linked to the clan's influence
@@ -21,11 +21,11 @@
     |   5   | Sultan		| High King		| Imperator		| Khan			| Grand Prince	| Roi			| Controls a Kingdom
 
 #### recruitement system
-    can be changed with a policy
-    - levy
-    - volonteer
-    - service
-    - retinue
+> can be changed with a policy
+> - levy
+> - volonteer
+> - service
+> - retinue
 
 #### Warband Skills & Perks
 
@@ -34,20 +34,20 @@
 #### Serve as a Soldier
 
 #### Camps
-    Used by AI at night > not camping at night damages morale
-    allows to train troops, read, hunt
+> Used by AI at night > not camping at night damages morale
+> allows to train troops, read, hunt
 
 #### Ability to join a caravan to travel
 
 #### castles can block passage through navmesh
 
 ## Tweaks
-    pas de cheval dans les sièges
-    Loss of renown & influence after defeat
-    button for the encyclopedia
-    waiting in settlements costs money
-    unified empires
+> pas de cheval dans les sièges
+> Loss of renown & influence after defeat
+> button for the encyclopedia
+> waiting in settlements costs money
+> unified empires
 
 ## commissions
-horse armours => chainmail with tableau on top
-pavise but good
+> horse armours => chainmail with tableau on top
+> pavise but good
