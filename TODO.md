@@ -34,20 +34,21 @@
 #### Serve as a Soldier
 
 #### Camps
-> Used by AI at night > not camping at night damages morale
-> allows to train troops, read, hunt
+> - Used by AI at night > not camping at night damages morale
+> - allows to train troops, read, hunt
 
 #### Ability to join a caravan to travel
 
 #### castles can block passage through navmesh
 
 ## Tweaks
-> pas de cheval dans les sièges
-> Loss of renown & influence after defeat
-> button for the encyclopedia
-> waiting in settlements costs money
-> unified empires
+> - pas de cheval dans les sièges
+> - Loss of renown & influence after defeat
+> - button for the encyclopedia
+> - waiting in settlements costs money
+> - unified empires
 
 ## commissions
 > horse armours => chainmail with tableau on top
+
 > pavise but good
