@@ -49,6 +49,5 @@
 > - unified empires
 
 ## commissions
-> horse armours => chainmail with tableau on top
-
-> pavise but good
+> - horse armours => chainmail with tableau on top
+> - pavise but good
