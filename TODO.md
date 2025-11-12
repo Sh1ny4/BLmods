@@ -2,10 +2,10 @@
 
 ## Reworks
 #### Better tourneys :
-> tied to feasts
-> fewer participants, only named NPCs/nobles ?
-> balanced armors
-> scene changes with town level
+> - tied to feasts
+> - fewer participants, only named NPCs/nobles ?
+> - balanced armors
+> - scene changes with town level
 
     | Culture  | Contest 1	                | Contest 2	                        |
     |----------|----------------------------|-----------------------------------|
