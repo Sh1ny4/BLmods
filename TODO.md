@@ -6,9 +6,11 @@
 > fewer participants, only named NPCs ?
 > Balanced armors
 > three steps : duels + race + culturaly specific one
+> - battania = bow contest, point per hit and speed but penalty on missed target
+> - khuzait = horse archery contest, point per hit and speed but penalty on missed target
+> - empire = 
+> - sturgia = 20v20 battle, point per "kill"
 > - vlandia = jousting
-> - battania = bow contest
-> - khuzait = horse archery contest
 
 #### Clan tier
     No clan tiers but instead levels of nobility granted by the kingdom, they are linked to the clan's influence
