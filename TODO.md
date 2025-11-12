@@ -1,17 +1,21 @@
-```/singleplayer _MODULES_*Bannerlord.Harmony*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*YetAnotherTroopOverhaul*EliteRecruitsInCastles*CharacterCreationRedone*TournamentEquipmentRedone*wipo*_MODULES_```
+``/singleplayer _MODULES_*Bannerlord.Harmony*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*YetAnotherTroopOverhaul*EliteRecruitsInCastles*CharacterCreationRedone*TournamentEquipmentRedone*wipo*_MODULES_``
 
 ## Reworks
 #### Better tourneys :
-> Tied to feasts
-> fewer participants, only named NPCs ?
-> Balanced armors
-> three steps : duels + race + culturaly specific one
-> - battania = bow contest, point per hit and speed but penalty on missed target
-> - khuzait = horse archery contest, point per hit and speed but penalty on missed target
-> - empire = 
-> - sturgia = 20v20 battle, point per "kill"
-> - vlandia = jousting
+> tied to feasts
+> fewer participants, only named NPCs/nobles ?
+> balanced armors
+> scene changes with town level
 
+    | Culture  | Contest 1	                | Contest 2	                        |
+    |----------|----------------------------|-----------------------------------|
+    | Aserai   | duels    	                | Cataphract	                    |
+    | Battania | bow contest	            | duels        		                |
+    | Empire   | gladiator	                | chariot race		                |
+    | Khuzait  | horse archery              | horse race 		                |
+    | Sturgia  | duels	                    | 20v20 battle                      |
+    | Vlandia  | horse race		            | jousting	                        |
+  
 #### Clan tier
     No clan tiers but instead levels of nobility granted by the kingdom, they are linked to the clan's influence
     | Level | Aserai    	| Battania    	| Empire    	| Khuzait    	| Sturgia    	| Vlandia    	| Perks
