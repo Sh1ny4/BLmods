@@ -41,15 +41,15 @@
 
 #### Camps
 > - Used by AI at night > not camping at night damages morale
-> - allows to train troops, read, hunt
+> - Allows to train troops, read, hunt
 
 #### Ability to join a caravan to travel
 
-#### castles can block passage through navmesh
+#### Castles can block passage through navmesh
 
 ## Tweaks
 > - pas de cheval dans les sièges
-> - Loss of renown & influence after defeat
+> - loss of renown & influence after defeat
 > - button for the encyclopedia
 > - waiting in settlements costs money
 > - unified empires
