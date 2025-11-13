@@ -48,7 +48,7 @@
 #### Castles can block passage through navmesh
 
 ## Tweaks
-> - pas de cheval dans les sièges
+> - remove horses in castles
 > - loss of renown & influence after defeat
 > - button for the encyclopedia
 > - waiting in settlements costs money
