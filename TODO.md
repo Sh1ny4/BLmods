@@ -7,24 +7,24 @@
 > - balanced armors
 > - scene changes with town level
 
-Culture  | Contest 1	            | Contest 2	                        
-   -- | :--- | :---
-Aserai   | duels    	            | jousting
-Battania | bow contest	            | duels
-Empire   | gladiator	            | chariot race
-Khuzait  | horse archery            | horse race
-Sturgia  | duels	                | 20v20 battle
-Vlandia  | horse race		        | jousting
+Culture  | Contest 1	          | Contest 2	                        
+-------- | :------------------ | :---
+Aserai   | duels    	          | jousting
+Battania | bow contest	       | duels
+Empire   | gladiator	          | chariot race
+Khuzait  | horse archery       | horse race
+Sturgia  | duels	             | 20v20 battle
+Vlandia  | horse race		    | jousting
 
 #### Clan tier
-    No clan tiers but instead levels of nobility granted by the kingdom, they are linked to the clan's influence
-    | Level | Aserai    	| Battania    	| Empire    	| Khuzait    	| Sturgia    	| Vlandia    	| Perks
-    |:------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------
-    |   1   | Faris 		| Fian	 		| Cataphract	| Kheshig		| Druzhina 		| Chevalier		| gets a tier 6 weapon
-    |   2   | Sheikh 		| Chieftain		| Patrician		| Noyan			| Boyar			| Baron			| Controls a village, can vote in the kingdom's decisions, gains a retinue
-    |   3   | Muqaddam		| 				| Senator		| 				| 				| Comte			| Controls a castle, has a council Marshal, Steward, Chancellor
-    |   4   | Emir			| Earl			| Consul 		| Tarkhan  		| Knyaz			| Duc			| Controls a town, can create an army
-    |   5   | Sultan		| High King		| Imperator		| Khan			| Grand Prince	| Roi			| Controls a Kingdom
+ No clan tiers but instead levels of nobility granted by the kingdom, they are linked to the clan's influence
+ | Level | Aserai    	| Battania    	| Empire    	| Khuzait    	| Sturgia    	| Vlandia    	| Perks
+ |:------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------
+ |   1   | Faris 		| Fian	 		| Cataphract	| Kheshig		| Druzhina 		| Chevalier		| gets a tier 6 weapon
+ |   2   | Sheikh 		| Chieftain		| Patrician		| Noyan			| Boyar			| Baron			| Controls a village, can vote in the kingdom's decisions, gains a retinue
+ |   3   | Muqaddam		| 				| Senator		| 				| 				| Comte			| Controls a castle, has a council Marshal, Steward, Chancellor
+ |   4   | Emir			| Earl			| Consul 		| Tarkhan  		| Knyaz			| Duc			| Controls a town, can create an army
+ |   5   | Sultan		| High King		| Imperator		| Khan			| Grand Prince	| Roi			| Controls a Kingdom
 
 #### recruitement system
 > can be changed with a policy
