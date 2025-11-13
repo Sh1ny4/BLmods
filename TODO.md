@@ -17,9 +17,9 @@
 | Vlandia  | horse race		  | jousting
 
 #### Clan tier
-No clan tiers but instead ranks of nobility granted by the kingdom, they are linked to the clan's influence
-Loss of renown and influence
-Banner once becoming a noble for a kingdom
+> - No clan tiers but instead ranks of nobility granted by the kingdom, they are linked to the clan's influence
+> - Loss of renown and influence
+> - Banner once becoming a noble for a kingdom
 | Level | Aserai   | Battania   | Empire    	| Khuzait | Sturgia      | Vlandia   | Perks
 |:------|:---------|:-----------|:-----------|:--------|:-------------|:----------|:--------------
 |   1   | Faris 		 | Fian	 		   | Cataphract	| Kheshig	| Druzhina     | Chevalier	| gets a tier 6 weapon
