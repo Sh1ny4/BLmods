@@ -8,7 +8,7 @@
 > - scene changes with town level
 
     | Culture  | Contest 1	                | Contest 2	                        |
-    |----------|----------------------------|-----------------------------------|
+    |:---------|:---------------------------|:----------------------------------|
     | Aserai   | duels    	                | jousting    	                    |
     | Battania | bow contest	            | duels        		                |
     | Empire   | gladiator	                | chariot race		                |
