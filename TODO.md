@@ -1,4 +1,4 @@
-``/singleplayer _MODULES_*Bannerlord.Harmony*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*YetAnotherTroopOverhaul*EliteRecruitsInCastles*CharacterCreationRedone*TournamentEquipmentRedone*wipo*_MODULES_``
+``/singleplayer _MODULES_*Bannerlord.Harmony*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*YetAnotherTroopOverhaul*EliteRecruitsInCastles*CharacterCreationRedone*TournamentEquipmentRedone*FullScreenCinematics*wipo*_MODULES_``
 
 ## Reworks
 #### Better tourneys :
@@ -9,7 +9,7 @@
 
     | Culture  | Contest 1	                | Contest 2	                        |
     |----------|----------------------------|-----------------------------------|
-    | Aserai   | duels    	                | Cataphract	                    |
+    | Aserai   | duels    	                | jousting    	                    |
     | Battania | bow contest	            | duels        		                |
     | Empire   | gladiator	                | chariot race		                |
     | Khuzait  | horse archery              | horse race 		                |
