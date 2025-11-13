@@ -7,14 +7,14 @@
 > - balanced armors
 > - scene changes with town level
 
-    | Culture  | Contest 1	                | Contest 2	                        |
-    |:---------|:---------------------------|:----------------------------------|
-    | Aserai   | duels    	                | jousting    	                    |
-    | Battania | bow contest	            | duels        		                |
-    | Empire   | gladiator	                | chariot race		                |
-    | Khuzait  | horse archery              | horse race 		                |
-    | Sturgia  | duels	                    | 20v20 battle                      |
-    | Vlandia  | horse race		            | jousting	                        |
+    Culture  | Contest 1	                | Contest 2	                        
+    |:-------|:---------------------------|:-----------------
+    Aserai   | duels    	                | jousting
+    Battania | bow contest	            | duels
+    Empire   | gladiator	                | chariot race
+    Khuzait  | horse archery              | horse race
+    Sturgia  | duels	                    | 20v20 battle
+    Vlandia  | horse race		            | jousting
   
 #### Clan tier
     No clan tiers but instead levels of nobility granted by the kingdom, they are linked to the clan's influence
