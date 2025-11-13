@@ -55,13 +55,9 @@
 > - unified empires
 
 ## CS to check
-``
-private void AddSkinArmorWeaponMultiMeshesToEntity(uint teamColor1, uint teamColor2, bool needBatchedVersion, bool forceUseFaceCache = false)
-
-public void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)
-
-void IMissionListener.OnEquipItemsFromSpawnEquipment(Agent agent, Agent.CreationType creationType)
-``
+``private void AddSkinArmorWeaponMultiMeshesToEntity(uint teamColor1, uint teamColor2, bool needBatchedVersion, bool forceUseFaceCache = false)``
+``public void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)``
+``void IMissionListener.OnEquipItemsFromSpawnEquipment(Agent agent, Agent.CreationType creationType)``
 
 ## commissions
 > - horse armours => chainmail with tableau on top
