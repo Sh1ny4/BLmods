@@ -21,6 +21,10 @@ void IMissionListener.OnEquipItemsFromSpawnEquipment(Agent agent, Agent.Creation
 
 #### Serve as a Soldier
 
+#### Ability to join a caravan to travel
+> - Companions use it to travel
+> - On an attack you can choose to join the fight
+
 #### Better tourneys :
 > - tied to feasts
 > - fewer participants, only named NPCs/nobles ?
@@ -36,13 +40,12 @@ void IMissionListener.OnEquipItemsFromSpawnEquipment(Agent agent, Agent.Creation
 | Sturgia  | duels	        | 20v20 battle
 | Vlandia  | horse race		  | jousting
 
-#### Ability to join a caravan to travel
 
 #### Warband Skills & Perks
 
 #### Castles can block passage through navmesh
 
-#### Clan tier
+### Clan Stuff
 > - No clan tiers but instead ranks of nobility granted by the kingdom, they are linked to the clan's influence
 > - Loss of renown and influence
 > - Banner once becoming a noble for a kingdom
