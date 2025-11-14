@@ -104,6 +104,9 @@
     <Reference Include="TaleWorlds.MountAndBlade.GauntletUI.Widgets">
       <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.GauntletUI.Widgets.dll</HintPath>
     </Reference>
+    <Reference Include="TaleWorlds.MountAndBlade.View">
+      <HintPath>..\..\..\Native\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.View.dll</HintPath>
+    </Reference>
     <Reference Include="TaleWorlds.ObjectSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
@@ -124,6 +127,7 @@
     <Compile Include="patches\CanGetDisorganizedPatch.cs" />
     <Compile Include="patches\ClanStuff\CreateArmyPatch.cs" />
     <Compile Include="patches\DefaultInformationRestrictionModelPatch.cs" />
+    <Compile Include="patches\CaparisonColor\AddMountMeshPatch.cs" />
     <Compile Include="patches\IsSearchAvailablePatch.cs" />
     <Compile Include="patches\LoyaltyPatch.cs" />
     <Compile Include="patches\RegularMercenariesSpawnChancePatch.cs" />
