@@ -1,6 +1,5 @@
-﻿using System;
+﻿using HarmonyLib;
 using System.Collections.Generic;
-using HarmonyLib;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.Library;
@@ -14,7 +13,6 @@ namespace wipo.patches.CaparisonColor
     {
         public static bool Prefix(ref List<MetaMesh> __result, MBAgentVisuals agentVisual, ItemObject mountItem, ItemObject harnessItem, string mountCreationKeyStr, Agent agent = null)
         {
-            var SetVoiceDefinitionAccess = AccessTools.Method(typeof(MountVisualCreator), "SetVoiceDefinition");
             List<MetaMesh> metaMeshList = new List<MetaMesh>();
             HorseComponent horseComponent = mountItem.HorseComponent;
             uint maxValue = uint.MaxValue;
@@ -142,31 +140,26 @@ namespace wipo.patches.CaparisonColor
 
         public static void SetVoiceDefinition(Agent agent, int seedForRandomVoiceTypeAndPitch)
         {
-            try
+            MBAgentVisuals agentVisuals = (agent != null) ? agent.AgentVisuals : null;
+            if ((agentVisuals != null))
             {
-                MBAgentVisuals agentVisuals = (agent != null) ? agent.AgentVisuals : null;
-                if ((agentVisuals != null))
+                string collisionInfoClassName = agent.GetSoundAndCollisionInfoClassName();
+                int length = (!string.IsNullOrEmpty(collisionInfoClassName)) ? SkinVoiceManager.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(collisionInfoClassName) : 0;
+                if (length == 0)
                 {
-                    string collisionInfoClassName = agent.GetSoundAndCollisionInfoClassName();
-                    int length = (!string.IsNullOrEmpty(collisionInfoClassName)) ? SkinVoiceManager.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(collisionInfoClassName) : 0;
-                    if (length == 0)
-                    {
-                        agentVisuals.SetVoiceDefinitionIndex(-1, 0f);
-                    }
-                    else
-                    {
-                        int num = MathF.Abs(seedForRandomVoiceTypeAndPitch);
-                        float voicePitch = (float)num * 4.656613E-10f;
-                        int[] definitionIndices = new int[length];
-                        SkinVoiceManager.GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(collisionInfoClassName, definitionIndices);
-                        int voiceDefinitionIndex = definitionIndices[num % length];
-                        agentVisuals.SetVoiceDefinitionIndex(voiceDefinitionIndex, voicePitch);
-                    }
+                    agentVisuals.SetVoiceDefinitionIndex(-1, 0f);
+                }
+                else
+                {
+                    int num = MathF.Abs(seedForRandomVoiceTypeAndPitch);
+                    float voicePitch = (float)num * 4.656613E-10f;
+                    int[] definitionIndices = new int[length];
+                    SkinVoiceManager.GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(collisionInfoClassName, definitionIndices);
+                    int voiceDefinitionIndex = definitionIndices[num % length];
+                    agentVisuals.SetVoiceDefinitionIndex(voiceDefinitionIndex, voicePitch);
                 }
             }
-            catch (Exception e)
-            {
-            }
+
         }
     }
 }
