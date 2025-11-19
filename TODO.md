@@ -5,16 +5,13 @@
 > - loss of renown & influence after defeat
 > - button for the encyclopedia
 > - waiting in settlements costs money
-> - unified empires
 
 ## CS to check
 ```
-private void AddSkinArmorWeaponMultiMeshesToEntity(uint teamColor1, uint teamColor2, bool needBatchedVersion, bool forceUseFaceCache = false)
-public void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)
-void IMissionListener.OnEquipItemsFromSpawnEquipment(Agent agent, Agent.CreationType creationType)
 private float _desiredTotalCompanionCount
 private void CreateGenericScene()
 character_menu_c
+public SavedGameVM(
 ```
 ## Reworks and Additions
 
@@ -28,44 +25,50 @@ character_menu_c
 > - Companions use it to travel
 > - On an attack you can choose to join the fight
 
-#### Better tourneys :
-> - tied to feasts
-> - fewer participants, only named NPCs/nobles ?
-> - balanced armors
-> - scene changes with town level
-
-| Culture  | Contest 1	   | Contest 2	  |                     
-|:---------|:--------------|:-------------|
-| Aserai   | duels         | jousting     |
-| Battania | bow contest   | duels        |
-| Empire   | gladiator     | chariot race |
-| Khuzait  | horse archery | horse race   |
-| Sturgia  | duels         | 20v20 battle |
-| Vlandia  | horse race    | jousting     |
 
 #### Warband Skills & Perks
 
 #### Castles can block passage through navmesh
 
+|                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
+|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
+| Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        |
+
+### Kingdom Stuff
+> - Different kingdom get different inner working
+> - internal rebellions can happen
+> - unified empires
+
+|                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
+|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
+| Internal Politics  | Inherited Monarchy | Elected Monarchy   | Oligarchy          | Strongest General  | Elected Monarchy   | Inherited Monarchy | can be changed by policy
+| Recruitement Type  | Volonteer          | Retinue            | Service            | Levy               | Retinue            | Levy               | can be changed by policy
+
 ### Clan Stuff
 > - No clan tiers but instead ranks of nobility granted by the kingdom, they are linked to the clan's influence
 > - Loss of renown and influence
-> - Banner once becoming a noble for a kingdom
+> - Noble opinion is separated from the clan's
 
-| Level | Aserai   | Battania  | Empire     | Khuzait | Sturgia      | Vlandia   | Perks
-|:------|:---------|:----------|:-----------|:--------|:-------------|:----------|:--------------
-|   1   | Faris    | Fian      | Cataphract | Kheshig | Druzhina     | Chevalier | gets a tier 6 weapon
-|   2   | Sheikh   | Chieftain | Patrician  | Noyan   | Boyar        | Baron     | Controls a village, can vote in the kingdom's decisions, gains a retinue
-|   3   | Muqaddam |           | Senator    |         |              | Comte     | Controls a castle, has a council Marshal, Steward, Chancellor
-|   4   | Emir     | Earl      | Consul     | Tarkhan | Knyaz        | Duc       | Controls a town, can create an army
-|   5   | Sultan   | High King | Imperator  | Khan    | Grand Prince | Roi       | Controls a Kingdom
+|                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
+|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
+| Clan Tier 1        | Faris              | Fian               | Cataphract         | Kheshig            | Druzhina           | Chevalier          | gets a tier 6 weapon, has a banner
+| Clan Tier 2        | Sheikh             | Chieftain          | Centurion          | Noyan              | Boyar              | Baron              | Controls a village, can vote in the kingdom's decisions, gains a retinue
+| Clan Tier 3        | Muqaddam           |                    | Tribunes           |                    |                    | Comte              | Controls a castle, has a council Marshal, Steward, Chancellor
+| Clan Tier 4        | Emir               | Earl               | Legatus            | Tarkhan            | Knyaz              | Duc                | Controls a town, can create an army
+| Clan Tier 5        | Sultan             | High King          | General            | Khan               | Grand Prince       | Roi                | Controls a Faction
+| Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        |
 
-#### recruitement system
-> can be changed with a policy
-> - levy
-> - volonteer
-> - service
-> - retinue
+### Tournament Stuff :
+> - more types of tournaments
+> - tied to feasts
+> - fewer participants, only named NPCs/nobles ?
+> - balanced armors
+> - scene changes with town level
+
+|                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
+|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
+| Tournament Stage 1 | Placeholder        | Bow Contest        | Gladiator          | Horse Race         | Duels              | Jousting           |
+| Tournament Stage 2 | Placeholder        | Duels              | Chariot Race       | Horse Archery      | 20v20 battle       | Horse Race         |
 
 ## commissions
 > - horse armours => chainmail with tableau on top

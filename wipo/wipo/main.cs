@@ -19,15 +19,5 @@ namespace wipo
             if (!(game.GameType is Campaign)) return;
             Campaign.Current.CampaignBehaviorManager.RemoveBehavior<BackstoryCampaignBehavior>();
         }
-        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
-        {
-            base.OnGameStart(game, gameStarterObject);
-            bool flag = game.GameType is Campaign;
-            if (flag)
-            {
-                CampaignGameStarter starter = gameStarterObject as CampaignGameStarter;
-                starter.AddModel(new patches.DefaultInformationRestrictionModelPatch());
-            }
-        }
     }
 }

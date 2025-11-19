@@ -36,15 +36,15 @@ namespace wipo.patches.CaparisonColor
             if (harnessItem != null)
             {
                 metaMesh = harnessItem.GetMultiMesh(false, false, true);
-                if (harnessItem.IsUsingTeamColor)
+                if (harnessItem.IsUsingTeamColor && SavedColorData.colordata !=null)
                 {
                     for (int meshIndex = 0; meshIndex < metaMesh.MeshCount; meshIndex++)
                     {
                         Mesh meshAtIndex = metaMesh.GetMeshAtIndex(meshIndex);
                         if (!meshAtIndex.HasTag("no_team_color"))
                         {
-                            meshAtIndex.Color = 4281281067U;
-                            meshAtIndex.Color2 = 4281281067U;
+                            meshAtIndex.Color = SavedColorData.colordata.color1.Value;
+                            meshAtIndex.Color2 = SavedColorData.colordata.color2.Value;
                         }
                     }
                 }
