@@ -33,6 +33,7 @@ public SavedGameVM
 ### Recruitement Stuff
 > - can be changed with a kingdom policy
 > - can only recruit mercs until you join a kingdom
+> - need a deserialize, an xml that defines for each kingdom which type of recruitement and ineach case what recruit we get
 > > - Retinue : you hire a tier 5 noble troop. Alongside it you get a tier 2 noble troop, 2 tier 3 inf and a tier 2 ranged.
 > > - Volunteer : same as vanilla, need to recruit a lot
 > > - Levy : You get a lot of low tier troops at the cost of prosperity / hearts.
