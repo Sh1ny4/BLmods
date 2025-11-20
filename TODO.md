@@ -11,7 +11,7 @@
 private float _desiredTotalCompanionCount
 private void CreateGenericScene()
 character_menu_c
-public SavedGameVM(
+public SavedGameVM
 ```
 ## Reworks and Additions
 
@@ -30,19 +30,27 @@ public SavedGameVM(
 
 #### Castles can block passage through navmesh
 
-|                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
-|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
-| Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        |
-
-### Kingdom Stuff
-> - Different kingdom get different inner working
-> - internal rebellions can happen
-> - unified empires
+### Recruitement Stuff
+> - can be changed with a kingdom policy
+> > - Retinue : you hire a tier 5 noble troop. Alongside it you get a tier 2 noble troop, 2 tier 3 inf and a tier 2 ranged.
+> > - Volunteer : same as vanilla, need to recruit a lot
+> > - Levy : You get a lot of low tier troops at the cost of prosperity / hearts.
 
 |                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
 |:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
-| Internal Politics  | Inherited Monarchy | Elected Monarchy   | Oligarchy          | Strongest General  | Elected Monarchy   | Inherited Monarchy | can be changed by policy
-| Recruitement Type  | Volonteer          | Retinue            | Service            | Levy               | Retinue            | Levy               | can be changed by policy
+| Recruitement Type  | Volonteer          | Retinue            | Volonteer          | Levy               | Retinue            | Levy               | can be changed by policy
+
+### Tournament Stuff :
+> - more types of tournaments
+> - tied to feasts
+> - fewer participants, only named NPCs/nobles ?
+> - balanced armors
+> - scene changes with town level
+
+|                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
+|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
+| Tournament Stage 1 | Placeholder        | Bow Contest        | Gladiator          | Horse Race         | Duels              | Jousting           |
+| Tournament Stage 2 | Placeholder        | Duels              | Chariot Race       | Horse Archery      | 20v20 battle       | Horse Race         |
 
 ### Clan Stuff
 > - No clan tiers but instead ranks of nobility granted by the kingdom, they are linked to the clan's influence
@@ -58,17 +66,19 @@ public SavedGameVM(
 | Clan Tier 5        | Sultan             | High King          | General            | Khan               | Grand Prince       | Roi                | Controls a Faction
 | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        |
 
-### Tournament Stuff :
-> - more types of tournaments
-> - tied to feasts
-> - fewer participants, only named NPCs/nobles ?
-> - balanced armors
-> - scene changes with town level
+### Kingdom Stuff
+> - Different kingdom get different inner working
+> - internal rebellions can happen
+> - unified empires
 
 |                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
 |:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
-| Tournament Stage 1 | Placeholder        | Bow Contest        | Gladiator          | Horse Race         | Duels              | Jousting           |
-| Tournament Stage 2 | Placeholder        | Duels              | Chariot Race       | Horse Archery      | 20v20 battle       | Horse Race         |
+| Internal Politics  | Inherited Monarchy | Elected Monarchy   | Oligarchy          | Strongest General  | Elected Monarchy   | Inherited Monarchy | can be changed by policy
+
+---
+|                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Note
+|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:------------------ |:--------------
+| Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        | Placeholder        |
 
 ## commissions
 > - horse armours => chainmail with tableau on top
