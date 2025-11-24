@@ -12,6 +12,7 @@ private float _desiredTotalCompanionCount
 private void CreateGenericScene()
 character_menu_c
 public SavedGameVM
+public class SandBoxViewSubModule : MBSubModuleBase
 ```
 
 ## Reworks and Additions
