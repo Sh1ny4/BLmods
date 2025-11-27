@@ -14,10 +14,8 @@ using TaleWorlds.Localization;
 
 namespace wipo.patches
 {
-    // Token: 0x020003E9 RID: 1001
     public class EducationPatch : EducationCampaignBehavior
     {
-        // Token: 0x06003D77 RID: 15735 RVA: 0x0010BA90 File Offset: 0x00109C90
         public override void RegisterEvents()
         {
             if (!CampaignOptions.IsLifeDeathCycleDisabled)
@@ -29,7 +27,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D78 RID: 15736 RVA: 0x0010BB00 File Offset: 0x00109D00
         private void OnHeroComesOfAge(Hero hero)
         {
             Hero mother = hero.Mother;
@@ -45,13 +42,11 @@ namespace wipo.patches
             this._previousEducations.Remove(hero);
         }
 
-        // Token: 0x06003D79 RID: 15737 RVA: 0x0010BB54 File Offset: 0x00109D54
         public override void SyncData(IDataStore dataStore)
         {
             dataStore.SyncData<Dictionary<Hero, short>>("_previousEducations", ref this._previousEducations);
         }
 
-        // Token: 0x06003D7A RID: 15738 RVA: 0x0010BB68 File Offset: 0x00109D68
         public void GetOptionProperties(Hero child, string optionKey, List<string> previousOptions, out TextObject optionTitle, out TextObject description, out TextObject effect, out ValueTuple<CharacterAttribute, int>[] attributes, out ValueTuple<SkillObject, int>[] skills, out ValueTuple<SkillObject, int>[] focusPoints, out EducationCampaignBehavior.EducationCharacterProperties[] educationCharacterProperties)
         {
             EducationCampaignBehavior.EducationStage stage = this.GetStage(child);
@@ -87,7 +82,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D7B RID: 15739 RVA: 0x0010BC68 File Offset: 0x00109E68
         public void GetPageProperties(Hero child, List<string> previousChoices, out TextObject title, out TextObject description, out TextObject instruction, out EducationCampaignBehavior.EducationCharacterProperties[] defaultCharacterProperties, out string[] availableOptions)
         {
             EducationCampaignBehavior.EducationStage stage = this.GetStage(child);
@@ -99,14 +93,12 @@ namespace wipo.patches
             availableOptions = page.GetAvailableOptions(stage.StringIdToEducationOption(previousChoices));
         }
 
-        // Token: 0x06003D7C RID: 15740 RVA: 0x0010BCBC File Offset: 0x00109EBC
         public bool IsValidEducationNotification(EducationMapNotification data)
         {
             EducationCampaignBehavior.EducationStage stage = this.GetStage(data.Child);
             return data.Child.IsAlive && data.Age > 0 && data.Child.Age < (float)Campaign.Current.Models.AgeModel.HeroComesOfAge && stage != null;
         }
 
-        // Token: 0x06003D7D RID: 15741 RVA: 0x0010BD14 File Offset: 0x00109F14
         private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail details, bool showNotifications)
         {
             if (victim.Clan == Clan.PlayerClan && this._previousEducations.ContainsKey(victim))
@@ -115,14 +107,12 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D7E RID: 15742 RVA: 0x0010BD40 File Offset: 0x00109F40
         public void GetStageProperties(Hero child, out int pageCount)
         {
             EducationCampaignBehavior.EducationStage stage = this.GetStage(child);
             pageCount = stage.PageCount;
         }
 
-        // Token: 0x06003D7F RID: 15743 RVA: 0x0010BD5D File Offset: 0x00109F5D
         private void OnCharacterCreationOver()
         {
             if (CampaignOptions.IsLifeDeathCycleDisabled)
@@ -131,7 +121,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D80 RID: 15744 RVA: 0x0010BD74 File Offset: 0x00109F74
         private void OnDailyTick()
         {
             if (MapEvent.PlayerMapEvent == null)
@@ -159,7 +148,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D81 RID: 15745 RVA: 0x0010BE74 File Offset: 0x0010A074
         private EducationCampaignBehavior.ChildAgeState GetClosestStage(Hero child)
         {
             EducationCampaignBehavior.ChildAgeState result = EducationCampaignBehavior.ChildAgeState.Year2;
@@ -174,7 +162,6 @@ namespace wipo.patches
             return result;
         }
 
-        // Token: 0x06003D82 RID: 15746 RVA: 0x0010BEA8 File Offset: 0x0010A0A8
         private EducationCampaignBehavior.ChildAgeState GetLastDoneStage(Hero child)
         {
             short result;
@@ -185,7 +172,6 @@ namespace wipo.patches
             return EducationCampaignBehavior.ChildAgeState.Invalid;
         }
 
-        // Token: 0x06003D83 RID: 15747 RVA: 0x0010BEC8 File Offset: 0x0010A0C8
         private void OnFinalize(EducationCampaignBehavior.EducationStage stage, Hero child, List<string> chosenOptions)
         {
             foreach (string optionKey in chosenOptions)
@@ -206,13 +192,11 @@ namespace wipo.patches
             this._activeChild = null;
         }
 
-        // Token: 0x06003D84 RID: 15748 RVA: 0x0010BF74 File Offset: 0x0010A174
         private bool HasNotificationForAge(Hero child, int age)
         {
             return Campaign.Current.CampaignInformationManager.InformationDataExists<EducationMapNotification>((EducationMapNotification notification) => notification.Child == child && notification.Age == age);
         }
 
-        // Token: 0x06003D85 RID: 15749 RVA: 0x0010BFB0 File Offset: 0x0010A1B0
         private void ShowEducationNotification(Hero child, int age)
         {
             TextObject textObject = GameTexts.FindText("str_education_notification_right", null);
@@ -228,7 +212,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D86 RID: 15750 RVA: 0x0010C054 File Offset: 0x0010A254
         private void DoEducationUntil(Hero child, EducationCampaignBehavior.ChildAgeState childAgeState)
         {
             short num;
@@ -245,8 +228,7 @@ namespace wipo.patches
                 }
             }
         }
-
-        // Token: 0x06003D87 RID: 15751 RVA: 0x0010C098 File Offset: 0x0010A298
+        
         private void DoStage(Hero child, EducationCampaignBehavior.EducationStage stage)
         {
             List<string> list = new List<string>();
@@ -258,31 +240,26 @@ namespace wipo.patches
             this.OnFinalize(stage, child, list);
         }
 
-        // Token: 0x06003D88 RID: 15752 RVA: 0x0010C0E5 File Offset: 0x0010A2E5
         public void Finalize(Hero child, List<string> chosenOptions)
         {
             this.OnFinalize(this.GetStage(child), child, chosenOptions);
         }
 
-        // Token: 0x06003D89 RID: 15753 RVA: 0x0010C0F6 File Offset: 0x0010A2F6
         private bool IsHeroChildOfPlayer(Hero child)
         {
             return Hero.MainHero.Children.Contains(child);
         }
 
-        // Token: 0x06003D8A RID: 15754 RVA: 0x0010C108 File Offset: 0x0010A308
         private bool ChildCultureHasLorekeeper(Hero child)
         {
             return child.Culture.StringId == "khuzait" || child.Culture.StringId == "battania";
         }
 
-        // Token: 0x06003D8B RID: 15755 RVA: 0x0010C138 File Offset: 0x0010A338
         private bool ChildCultureHasBard(Hero child)
         {
             return child.Culture.StringId == "battania";
         }
 
-        // Token: 0x06003D8C RID: 15756 RVA: 0x0010C150 File Offset: 0x0010A350
         private EducationCampaignBehavior.EducationStage GetStage(Hero child)
         {
             short num;
@@ -298,7 +275,6 @@ namespace wipo.patches
             return this.GetStage(child, state);
         }
 
-        // Token: 0x06003D8D RID: 15757 RVA: 0x0010C188 File Offset: 0x0010A388
         private EducationCampaignBehavior.EducationStage GetStage(Hero child, EducationCampaignBehavior.ChildAgeState state)
         {
             if (this._activeStage == null || this._activeStage.Target != state || child != this._activeChild)
@@ -334,7 +310,6 @@ namespace wipo.patches
             return this._activeStage;
         }
 
-        // Token: 0x06003D8E RID: 15758 RVA: 0x0010C260 File Offset: 0x0010A460
         private EducationCampaignBehavior.EducationStage CreateStage2(Hero child)
         {
             EducationCampaignBehavior.EducationStage educationStage = new EducationCampaignBehavior.EducationStage(EducationCampaignBehavior.ChildAgeState.Year2);
@@ -436,7 +411,6 @@ namespace wipo.patches
             return educationStage;
         }
 
-        // Token: 0x06003D8F RID: 15759 RVA: 0x0010C752 File Offset: 0x0010A952
         private static int ChildStateToAge(EducationCampaignBehavior.ChildAgeState state)
         {
             switch (state)
@@ -458,7 +432,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D90 RID: 15760 RVA: 0x0010C784 File Offset: 0x0010A984
         private void Stage2Selection(List<SkillObject> skills, EducationCampaignBehavior.EducationPage previousPage, EducationCampaignBehavior.EducationPage currentPage, EducationCampaignBehavior.EducationCharacterProperties[] childProperties, EducationCampaignBehavior.EducationCharacterProperties[] tutorProperties)
         {
             for (int i = 0; i < skills.Count; i++)
@@ -503,7 +476,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D91 RID: 15761 RVA: 0x0010C978 File Offset: 0x0010AB78
         private void Stage16Selection(ValueTuple<TextObject, TextObject, SkillObject>[] titleDescSkillTuple, EducationCampaignBehavior.EducationPage currentPage, EducationCampaignBehavior.EducationCharacterProperties[] childProperties)
         {
             for (int i = 0; i < titleDescSkillTuple.Length; i++)
@@ -537,7 +509,6 @@ namespace wipo.patches
             }
         }
 
-        // Token: 0x06003D92 RID: 15762 RVA: 0x0010CA58 File Offset: 0x0010AC58
         private EducationCampaignBehavior.EducationStage CreateStage5(Hero child)
         {
             EducationCampaignBehavior.EducationStage educationStage = new EducationCampaignBehavior.EducationStage(EducationCampaignBehavior.ChildAgeState.Year5);
@@ -619,7 +590,6 @@ namespace wipo.patches
             return educationStage;
         }
 
-        // Token: 0x06003D93 RID: 15763 RVA: 0x0010D258 File Offset: 0x0010B458
         private EducationCampaignBehavior.EducationStage CreateStage8(Hero child)
         {
             TextObject title = new TextObject("{=CU3u0c02}Childhood", null);
@@ -1018,7 +988,6 @@ namespace wipo.patches
             return educationStage;
         }
 
-        // Token: 0x06003D94 RID: 15764 RVA: 0x0010F010 File Offset: 0x0010D210
         private EducationCampaignBehavior.EducationStage CreateStage11(Hero child)
         {
             TextObject title = new TextObject("{=ok8lSW6M}Youth", null);
@@ -1103,7 +1072,6 @@ namespace wipo.patches
             return educationStage;
         }
 
-        // Token: 0x06003D95 RID: 15765 RVA: 0x0010F738 File Offset: 0x0010D938
         private EducationCampaignBehavior.EducationStage CreateStage14(Hero child)
         {
             TextObject title = new TextObject("{=rcoueCmk}Adolescence", null);
@@ -1191,7 +1159,6 @@ namespace wipo.patches
             return educationStage;
         }
 
-        // Token: 0x06003D96 RID: 15766 RVA: 0x0010FF80 File Offset: 0x0010E180
         private EducationCampaignBehavior.EducationStage CreateStage16(Hero child)
         {
             TextObject title = new TextObject("{=Ww3uU5e6}Young Adulthood", null);
@@ -1514,7 +1481,6 @@ namespace wipo.patches
             return educationStage;
         }
 
-        // Token: 0x06003D97 RID: 15767 RVA: 0x001119A8 File Offset: 0x0010FBA8
         private void GetHighestThreeAttributes(Hero hero, out ValueTuple<CharacterAttribute, int>[] maxAttributes)
         {
             ValueTuple<CharacterAttribute, int>[] array = new ValueTuple<CharacterAttribute, int>[Attributes.All.Count];
@@ -1528,89 +1494,40 @@ namespace wipo.patches
                              select x).Take(3).ToArray<ValueTuple<CharacterAttribute, int>>();
         }
 
-        // Token: 0x0400127B RID: 4731
         private const char Separator = ';';
-
-        // Token: 0x0400127C RID: 4732
         private const int AttributeIncrease = 1;
-
-        // Token: 0x0400127D RID: 4733
         private const int FocusIncrease = 1;
-
-        // Token: 0x0400127E RID: 4734
         private const int SkillIncrease = 5;
-
-        // Token: 0x0400127F RID: 4735
         private readonly TextObject _pickAttributeText = new TextObject("{=m7iBf6fQ}Pick an Attribute", null);
-
-        // Token: 0x04001280 RID: 4736
         private readonly TextObject _confirmResultsText = new TextObject("{=La9qAlfi}Confirm the Results", null);
-
-        // Token: 0x04001281 RID: 4737
         private readonly TextObject _chooseTalentText = new TextObject("{=K9fcqr0K}Choose a Talent", null);
-
-        // Token: 0x04001282 RID: 4738
         private readonly TextObject _chooseTutorText = new TextObject("{=B7JVLc4u}Choose a Tutor", null);
-
-        // Token: 0x04001283 RID: 4739
         private readonly TextObject _guideTutorText = new TextObject("{=VbWAsWWY}Guide the Tutor", null);
-
-        // Token: 0x04001284 RID: 4740
         private readonly TextObject _chooseFocusText = new TextObject("{=HBZS0bug}Choose a Focus", null);
-
-        // Token: 0x04001285 RID: 4741
         private readonly TextObject _chooseSkillText = new TextObject("{=5BEGa9ZS}Choose a Skill", null);
-
-        // Token: 0x04001286 RID: 4742
         private readonly TextObject _chooseGiftText = new TextObject("{=DcoDtW2A}Choose a Gift", null);
-
-        // Token: 0x04001287 RID: 4743
         private readonly TextObject _chooseAchievementText = new TextObject("{=26sKJehk}Choose an Achievement", null);
-
-        // Token: 0x04001288 RID: 4744
         private Dictionary<Hero, short> _previousEducations = new Dictionary<Hero, short>();
-
-        // Token: 0x04001289 RID: 4745
         private readonly TextObject _chooseTaskText = new TextObject("{=SUNKjdZ9}Choose a Task", null);
-
-        // Token: 0x0400128A RID: 4746
         private readonly TextObject _chooseRequestText = new TextObject("{=jNBVoObj}Choose a Request", null);
-
-        // Token: 0x0400128B RID: 4747
         private Hero _activeChild;
-
-        // Token: 0x0400128C RID: 4748
         private EducationCampaignBehavior.EducationStage _activeStage;
-
-        // Token: 0x020007CF RID: 1999
         private enum ChildAgeState : short
         {
-            // Token: 0x04001F18 RID: 7960
             Invalid = -1,
-            // Token: 0x04001F19 RID: 7961
             Year2,
-            // Token: 0x04001F1A RID: 7962
             Year5,
-            // Token: 0x04001F1B RID: 7963
             Year8,
-            // Token: 0x04001F1C RID: 7964
             Year11,
-            // Token: 0x04001F1D RID: 7965
             Year14,
-            // Token: 0x04001F1E RID: 7966
             Year16,
-            // Token: 0x04001F1F RID: 7967
             Count,
-            // Token: 0x04001F20 RID: 7968
             First = 0,
-            // Token: 0x04001F21 RID: 7969
             Last = 5
         }
-
-        // Token: 0x020007D0 RID: 2000
+        
         private class EducationOption
         {
-            // Token: 0x0600628E RID: 25230 RVA: 0x001BA360 File Offset: 0x001B8560
             public void OnConsequence(Hero child)
             {
                 EducationCampaignBehavior.EducationOption.EducationOptionConsequenceDelegate consequence = this._consequence;
@@ -1629,7 +1546,6 @@ namespace wipo.patches
                 }
             }
 
-            // Token: 0x0600628F RID: 25231 RVA: 0x001BA3E0 File Offset: 0x001B85E0
             public EducationOption(TextObject title, TextObject description, TextObject effect, EducationCampaignBehavior.EducationOption.EducationOptionConditionDelegate condition, EducationCampaignBehavior.EducationOption.EducationOptionConsequenceDelegate consequence, CharacterAttribute[] attributes, SkillObject[] skills, EducationCampaignBehavior.EducationCharacterProperties childProperties, EducationCampaignBehavior.EducationCharacterProperties specialCharacterProperties = default(EducationCampaignBehavior.EducationCharacterProperties))
             {
                 this.Title = title;
@@ -1644,7 +1560,6 @@ namespace wipo.patches
                 this.RandomValue = MBRandom.RandomInt(0, int.MaxValue);
             }
 
-            // Token: 0x06006290 RID: 25232 RVA: 0x001BA46C File Offset: 0x001B866C
             private TextObject GetEffectText(TextObject effect)
             {
                 TextObject textObject = new TextObject("{=JfBTbsX2}{EFFECT_DESCRIPTION}{NEW_LINE_1}{SKILL_DESCRIPTION}{NEW_LINE_2}{ATTRIBUTE_DESCRIPTION}", null);
@@ -1711,50 +1626,22 @@ namespace wipo.patches
                 return textObject;
             }
 
-            // Token: 0x04001F22 RID: 7970
             public readonly EducationCampaignBehavior.EducationOption.EducationOptionConditionDelegate Condition;
-
-            // Token: 0x04001F23 RID: 7971
             private readonly EducationCampaignBehavior.EducationOption.EducationOptionConsequenceDelegate _consequence;
-
-            // Token: 0x04001F24 RID: 7972
             public readonly TextObject Title;
-
-            // Token: 0x04001F25 RID: 7973
             public readonly TextObject Description;
-
-            // Token: 0x04001F26 RID: 7974
             public readonly TextObject Effect;
-
-            // Token: 0x04001F27 RID: 7975
             public readonly CharacterAttribute[] Attributes;
-
-            // Token: 0x04001F28 RID: 7976
             public readonly SkillObject[] Skills;
-
-            // Token: 0x04001F29 RID: 7977
             public readonly EducationCampaignBehavior.EducationCharacterProperties ChildProperties;
-
-            // Token: 0x04001F2A RID: 7978
             public readonly EducationCampaignBehavior.EducationCharacterProperties SpecialCharacterProperties;
-
-            // Token: 0x04001F2B RID: 7979
             public readonly int RandomValue;
-
-            // Token: 0x020008E0 RID: 2272
-            // (Invoke) Token: 0x06006896 RID: 26774
             public delegate bool EducationOptionConditionDelegate(EducationCampaignBehavior.EducationOption option, List<EducationCampaignBehavior.EducationOption> previousOptions);
-
-            // Token: 0x020008E1 RID: 2273
-            // (Invoke) Token: 0x0600689A RID: 26778
             public delegate bool EducationOptionConsequenceDelegate(EducationCampaignBehavior.EducationOption option);
         }
 
-        // Token: 0x020007D1 RID: 2001
         private class EducationStage
         {
-            // Token: 0x17001518 RID: 5400
-            // (get) Token: 0x06006291 RID: 25233 RVA: 0x001BA65E File Offset: 0x001B885E
             public int PageCount
             {
                 get
@@ -1763,14 +1650,12 @@ namespace wipo.patches
                 }
             }
 
-            // Token: 0x06006292 RID: 25234 RVA: 0x001BA66B File Offset: 0x001B886B
             public EducationStage(EducationCampaignBehavior.ChildAgeState targetAge)
             {
                 this.Target = targetAge;
                 this._superPages = new List<List<EducationCampaignBehavior.EducationPage>>();
             }
 
-            // Token: 0x06006293 RID: 25235 RVA: 0x001BA688 File Offset: 0x001B8888
             public EducationCampaignBehavior.EducationPage AddPage(int pageIndex, TextObject title, TextObject description, TextObject instruction, EducationCampaignBehavior.EducationCharacterProperties childProperties = default(EducationCampaignBehavior.EducationCharacterProperties), EducationCampaignBehavior.EducationCharacterProperties specialCharacterProperties = default(EducationCampaignBehavior.EducationCharacterProperties), EducationCampaignBehavior.EducationPage.EducationPageConditionDelegate condition = null)
             {
                 while (pageIndex >= this._superPages.Count)
@@ -1782,7 +1667,6 @@ namespace wipo.patches
                 return educationPage;
             }
 
-            // Token: 0x06006294 RID: 25236 RVA: 0x001BA700 File Offset: 0x001B8900
             private Equipment GetChildEquipmentForOption(Hero child, string optionKey, List<string> previousOptions)
             {
                 string[] array = optionKey.Split(new char[]
@@ -1823,7 +1707,6 @@ namespace wipo.patches
                 return equipment ?? MBEquipmentRoster.EmptyEquipment;
             }
 
-            // Token: 0x06006295 RID: 25237 RVA: 0x001BA85C File Offset: 0x001B8A5C
             private Equipment GetChildEquipmentForPage(Hero child, EducationCampaignBehavior.EducationPage page, List<string> previousOptions)
             {
                 Equipment equipment = null;
@@ -1844,7 +1727,6 @@ namespace wipo.patches
                 return equipment ?? MBEquipmentRoster.EmptyEquipment;
             }
 
-            // Token: 0x06006296 RID: 25238 RVA: 0x001BA924 File Offset: 0x001B8B24
             private EducationCampaignBehavior.EducationCharacterProperties GetChildPropertiesForOption(Hero child, string optionKey, List<string> previousOptions)
             {
                 string[] array = optionKey.Split(new char[]
@@ -1861,7 +1743,6 @@ namespace wipo.patches
                 return new EducationCampaignBehavior.EducationCharacterProperties(child.CharacterObject, childEquipmentForOption, option.ChildProperties.ActionId, option.ChildProperties.PrefabId, option.ChildProperties.UseOffHand);
             }
 
-            // Token: 0x06006297 RID: 25239 RVA: 0x001BA9A8 File Offset: 0x001B8BA8
             private EducationCampaignBehavior.EducationCharacterProperties GetChildPropertiesForPage(Hero child, EducationCampaignBehavior.EducationPage page, List<string> previousOptions)
             {
                 EducationCampaignBehavior.EducationCharacterProperties childPropertiesForOption;
@@ -1879,7 +1760,6 @@ namespace wipo.patches
                 return childPropertiesForOption;
             }
 
-            // Token: 0x06006298 RID: 25240 RVA: 0x001BAA20 File Offset: 0x001B8C20
             private CharacterObject GetSpecialCharacterForOption(Hero child, string optionKey, List<string> previousOptions)
             {
                 string[] array = optionKey.Split(new char[]
@@ -1910,7 +1790,6 @@ namespace wipo.patches
                 return result;
             }
 
-            // Token: 0x06006299 RID: 25241 RVA: 0x001BAAF8 File Offset: 0x001B8CF8
             private EducationCampaignBehavior.EducationCharacterProperties GetSpecialCharacterPropertiesForPage(Hero child, EducationCampaignBehavior.EducationPage page, List<string> previousOptions)
             {
                 EducationCampaignBehavior.EducationCharacterProperties result = EducationCampaignBehavior.EducationCharacterProperties.Invalid;
@@ -1932,7 +1811,6 @@ namespace wipo.patches
                 return result;
             }
 
-            // Token: 0x0600629A RID: 25242 RVA: 0x001BAB88 File Offset: 0x001B8D88
             private EducationCampaignBehavior.EducationCharacterProperties GetSpecialCharacterPropertiesForOption(Hero child, string optionKey, List<string> previousOptions)
             {
                 EducationCampaignBehavior.EducationCharacterProperties invalid = EducationCampaignBehavior.EducationCharacterProperties.Invalid;
@@ -1945,7 +1823,6 @@ namespace wipo.patches
                 return invalid;
             }
 
-            // Token: 0x0600629B RID: 25243 RVA: 0x001BABE8 File Offset: 0x001B8DE8
             public EducationCampaignBehavior.EducationOption GetOption(string optionKey)
             {
                 string[] array = optionKey.Split(new char[]
@@ -1955,7 +1832,6 @@ namespace wipo.patches
                 return this._superPages[int.Parse(array[0])][int.Parse(array[1])].GetOption(optionKey);
             }
 
-            // Token: 0x0600629C RID: 25244 RVA: 0x001BAC30 File Offset: 0x001B8E30
             public EducationCampaignBehavior.EducationPage GetPage(List<string> previousOptionKeys)
             {
                 List<EducationCampaignBehavior.EducationOption> list = this.StringIdToEducationOption(previousOptionKeys);
@@ -1973,7 +1849,6 @@ namespace wipo.patches
                 return null;
             }
 
-            // Token: 0x0600629D RID: 25245 RVA: 0x001BACB8 File Offset: 0x001B8EB8
             public List<EducationCampaignBehavior.EducationOption> StringIdToEducationOption(List<string> previousOptionKeys)
             {
                 List<EducationCampaignBehavior.EducationOption> list = new List<EducationCampaignBehavior.EducationOption>();
@@ -1984,13 +1859,11 @@ namespace wipo.patches
                 return list;
             }
 
-            // Token: 0x0600629E RID: 25246 RVA: 0x001BAD14 File Offset: 0x001B8F14
             public override string ToString()
             {
                 return this.Target.ToString();
             }
 
-            // Token: 0x0600629F RID: 25247 RVA: 0x001BAD28 File Offset: 0x001B8F28
             internal EducationCampaignBehavior.EducationCharacterProperties[] GetCharacterPropertiesForPage(Hero child, EducationCampaignBehavior.EducationPage page, List<string> previousChoices)
             {
                 EducationCampaignBehavior.EducationCharacterProperties childPropertiesForPage = this.GetChildPropertiesForPage(child, page, previousChoices);
@@ -2007,7 +1880,6 @@ namespace wipo.patches
                 return list.ToArray();
             }
 
-            // Token: 0x060062A0 RID: 25248 RVA: 0x001BAD80 File Offset: 0x001B8F80
             internal EducationCampaignBehavior.EducationCharacterProperties[] GetCharacterPropertiesForOption(Hero child, EducationCampaignBehavior.EducationOption option, string optionKey, List<string> previousOptions)
             {
                 EducationCampaignBehavior.EducationCharacterProperties childPropertiesForOption = this.GetChildPropertiesForOption(child, optionKey, previousOptions);
@@ -2024,17 +1896,12 @@ namespace wipo.patches
                 return list.ToArray();
             }
 
-            // Token: 0x04001F2C RID: 7980
             private List<List<EducationCampaignBehavior.EducationPage>> _superPages;
-
-            // Token: 0x04001F2D RID: 7981
             public readonly EducationCampaignBehavior.ChildAgeState Target;
         }
 
-        // Token: 0x020007D2 RID: 2002
         public struct EducationCharacterProperties
         {
-            // Token: 0x060062A1 RID: 25249 RVA: 0x001BADD7 File Offset: 0x001B8FD7
             public EducationCharacterProperties(CharacterObject character, Equipment equipment, string actionId, string prefabId, bool useOffHand)
             {
                 this.Character = character;
@@ -2044,49 +1911,41 @@ namespace wipo.patches
                 this.UseOffHand = useOffHand;
             }
 
-            // Token: 0x060062A2 RID: 25250 RVA: 0x001BADFE File Offset: 0x001B8FFE
             public EducationCharacterProperties(string actionId, string prefabId, bool useOffHand)
             {
                 this = new EducationCampaignBehavior.EducationCharacterProperties(null, null, actionId, prefabId, useOffHand);
             }
 
-            // Token: 0x060062A3 RID: 25251 RVA: 0x001BAE0B File Offset: 0x001B900B
             public EducationCharacterProperties(string actionId)
             {
                 this = new EducationCampaignBehavior.EducationCharacterProperties(null, null, actionId, string.Empty, false);
             }
 
-            // Token: 0x060062A4 RID: 25252 RVA: 0x001BAE1C File Offset: 0x001B901C
             public static bool operator ==(EducationCampaignBehavior.EducationCharacterProperties a, EducationCampaignBehavior.EducationCharacterProperties b)
             {
                 return a.Character == b.Character && a.Equipment == b.Equipment && a.ActionId == b.ActionId && a.PrefabId == b.PrefabId;
             }
 
-            // Token: 0x060062A5 RID: 25253 RVA: 0x001BAE6B File Offset: 0x001B906B
             public static bool operator !=(EducationCampaignBehavior.EducationCharacterProperties a, EducationCampaignBehavior.EducationCharacterProperties b)
             {
                 return !(a == b);
             }
 
-            // Token: 0x060062A6 RID: 25254 RVA: 0x001BAE78 File Offset: 0x001B9078
             public bool Equals(EducationCampaignBehavior.EducationCharacterProperties other)
             {
                 return this.Character.Equals(other.Character) && this.Equipment.Equals(other.Equipment) && this.ActionId.Equals(other.ActionId) && this.PrefabId.Equals(other.PrefabId);
             }
 
-            // Token: 0x060062A7 RID: 25255 RVA: 0x001BAED1 File Offset: 0x001B90D1
             public override bool Equals(object obj)
             {
                 return obj != null && obj is EducationCampaignBehavior.EducationCharacterProperties && this.Equals((EducationCampaignBehavior.EducationCharacterProperties)obj);
             }
 
-            // Token: 0x060062A8 RID: 25256 RVA: 0x001BAEEC File Offset: 0x001B90EC
             public override int GetHashCode()
             {
                 return ((this.ActionId.GetHashCode() * 397 ^ this.Character.GetHashCode()) * 397 ^ this.Equipment.GetHashCode()) * 397 ^ this.PrefabId.GetHashCode();
             }
 
-            // Token: 0x060062A9 RID: 25257 RVA: 0x001BAF3A File Offset: 0x001B913A
             public sbyte GetUsedHandBoneIndex()
             {
                 if (!this.UseOffHand)
@@ -2096,33 +1955,17 @@ namespace wipo.patches
                 return FaceGen.GetBaseMonsterFromRace(this.Character.Race).OffHandItemBoneIndex;
             }
 
-            // Token: 0x04001F2E RID: 7982
             public readonly CharacterObject Character;
-
-            // Token: 0x04001F2F RID: 7983
             public readonly Equipment Equipment;
-
-            // Token: 0x04001F30 RID: 7984
             public readonly string ActionId;
-
-            // Token: 0x04001F31 RID: 7985
             public readonly string PrefabId;
-
-            // Token: 0x04001F32 RID: 7986
             public readonly bool UseOffHand;
-
-            // Token: 0x04001F33 RID: 7987
             public static readonly EducationCampaignBehavior.EducationCharacterProperties Default = new EducationCampaignBehavior.EducationCharacterProperties("act_inventory_idle_start");
-
-            // Token: 0x04001F34 RID: 7988
             public static readonly EducationCampaignBehavior.EducationCharacterProperties Invalid = default(EducationCampaignBehavior.EducationCharacterProperties);
         }
 
-        // Token: 0x020007D3 RID: 2003
         private class EducationPage
         {
-            // Token: 0x17001519 RID: 5401
-            // (get) Token: 0x060062AB RID: 25259 RVA: 0x001BAF8B File Offset: 0x001B918B
             public IEnumerable<EducationCampaignBehavior.EducationOption> Options
             {
                 get
@@ -2131,7 +1974,6 @@ namespace wipo.patches
                 }
             }
 
-            // Token: 0x060062AC RID: 25260 RVA: 0x001BAF98 File Offset: 0x001B9198
             public EducationPage(string id, TextObject title, TextObject description, TextObject instruction, EducationCampaignBehavior.EducationCharacterProperties childProperties, EducationCampaignBehavior.EducationCharacterProperties specialCharacterProperties, EducationCampaignBehavior.EducationPage.EducationPageConditionDelegate condition = null)
             {
                 this._id = id;
@@ -2145,14 +1987,12 @@ namespace wipo.patches
                 this.SpecialCharacterProperties = specialCharacterProperties;
             }
 
-            // Token: 0x060062AD RID: 25261 RVA: 0x001BAFF2 File Offset: 0x001B91F2
             public void AddOption(EducationCampaignBehavior.EducationOption option)
             {
                 this._options.Add(this._id + ";" + this._keyIndex.ToString(), option);
                 this._keyIndex++;
             }
 
-            // Token: 0x060062AE RID: 25262 RVA: 0x001BB02C File Offset: 0x001B922C
             public EducationCampaignBehavior.EducationOption GetOption(string optionKey)
             {
                 EducationCampaignBehavior.EducationOption result;
@@ -2160,7 +2000,6 @@ namespace wipo.patches
                 return result;
             }
 
-            // Token: 0x060062AF RID: 25263 RVA: 0x001BB04C File Offset: 0x001B924C
             public string[] GetAvailableOptions(List<EducationCampaignBehavior.EducationOption> previousEducationOptions)
             {
                 List<string> list = new List<string>();
@@ -2174,35 +2013,15 @@ namespace wipo.patches
                 return list.ToArray();
             }
 
-            // Token: 0x04001F35 RID: 7989
             public readonly EducationCampaignBehavior.EducationPage.EducationPageConditionDelegate Condition;
-
-            // Token: 0x04001F36 RID: 7990
             public readonly TextObject Title;
-
-            // Token: 0x04001F37 RID: 7991
             public readonly TextObject Description;
-
-            // Token: 0x04001F38 RID: 7992
             public readonly TextObject Instruction;
-
-            // Token: 0x04001F39 RID: 7993
             private readonly string _id;
-
-            // Token: 0x04001F3A RID: 7994
             private int _keyIndex;
-
-            // Token: 0x04001F3B RID: 7995
             private readonly Dictionary<string, EducationCampaignBehavior.EducationOption> _options;
-
-            // Token: 0x04001F3C RID: 7996
             public readonly EducationCampaignBehavior.EducationCharacterProperties ChildProperties;
-
-            // Token: 0x04001F3D RID: 7997
             public readonly EducationCampaignBehavior.EducationCharacterProperties SpecialCharacterProperties;
-
-            // Token: 0x020008E2 RID: 2274
-            // (Invoke) Token: 0x0600689E RID: 26782
             public delegate bool EducationPageConditionDelegate(EducationCampaignBehavior.EducationPage page, List<EducationCampaignBehavior.EducationOption> previousOptions);
         }
     }
