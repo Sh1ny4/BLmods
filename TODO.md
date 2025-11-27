@@ -77,6 +77,7 @@ public class SandBoxViewSubModule : MBSubModuleBase
 | Recruitement Type  | Volonteer          | Retinue            | Volonteer          | Levy               | Retinue            | Levy               | Can be changed with a policy
 | Tournament Stage 1 | Placeholder        | Bow Contest        | Gladiator          | Horse Race         | Duels              | Jousting           |
 | Tournament Stage 2 | Placeholder        | Duels              | Chariot Race       | Horse Archery      | XvX battle         | Horse Race         |
+| Tournament Stage 2 | Placeholder        | Throwing Contest   | Boat Battle        | Bow Contest        | Throwing Contest   | Duels              |
 | Internal Politics  | Inherited Monarchy | Elected Monarchy   | Oligarchy          | Strongest Clan     | Elected Monarchy   | Inherited Monarchy | Can be changed with a policy
 | Clan Tier 1        | Faris              | Fian               | Cataphract         | Kheshig            | Druzhina           | Chevalier          | Gets a tier 6 weapon, has a banner, gains a retinue
 | Clan Tier 2        | Sheikh             | Chieftain          | Centurion          | Noyan              | Boyar              | Baron              | Controls a village, can vote in the kingdom's decisions
