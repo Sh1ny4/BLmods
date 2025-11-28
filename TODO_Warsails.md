@@ -30,3 +30,11 @@
 |:---------------------|:---------------------|:---------------------|:---------------------|:---------------------|:---------------------|:---------------------|:---------------------|
 | Sailor Tier 1        | Aserai               | Battanian            | Imperial             | Khuzait              | Nord Raider          | Sturgian             | Vlandian Moussallion |
 | Sailor Tier 2        | Aserai               |                      | Imperial             |                      | Nord Viking          | Sturgian             | Vlandian Marin       |
+
+### Adapt TER
+- Add a set for Nords
+
+### Adapt CCR
+- Add the Nord CC
+  - Special paths are viking and Huskarl
+- Edit sturgia to repalce raider with forester
