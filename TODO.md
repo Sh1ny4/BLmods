@@ -17,14 +17,6 @@ public class SandBoxViewSubModule : MBSubModuleBase
 
 ## Reworks and Additions
 
-#### Regiments of Renown
-- Khergits
-- Nord : Berserker
-- Rhodok :
-- Sarranids : 
-- Swadian :
-- Vaegir : Varyag Guard
-
 #### Camps
  - Used by AI at night or if ratio of wounded troops > 50% && no enemy in sight
  - Not camping at night damages morale
