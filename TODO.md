@@ -17,6 +17,14 @@ public class SandBoxViewSubModule : MBSubModuleBase
 
 ## Reworks and Additions
 
+#### Regiments of Renown
+- Khergits
+- Nord : Berserker
+- Rhodok :
+- Sarranids : 
+- Swadian :
+- Vaegir : Varyag Guard
+
 #### Camps
  - Used by AI at night or if ratio of wounded troops > 50% && no enemy in sight
  - Not camping at night damages morale
@@ -77,7 +85,7 @@ public class SandBoxViewSubModule : MBSubModuleBase
 |:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------
 | Tournament Stage 1 | Placeholder        | Bow Contest        | Gladiator          | Horse Race         | Duels              | Jousting           |
 | Tournament Stage 2 | Placeholder        | Duels              | Chariot Race       | Horse Archery      | XvX battle         | Horse Race         |
-| Tournament Stage 2 | Placeholder        | Throwing Contest   | Boat Battle        | Bow Contest        | Throwing Contest   | Duels              |
+| Tournament Stage 3 | Placeholder        | Throwing Contest   | Boat Battle        | Bow Contest        | Throwing Contest   | Duels              |
 | Recruitement Type  | Volonteer          | Retinue            | Volonteer          | Levy               | Retinue            | Levy               | Can be changed with a policy
 | Internal Politics  | Inherited Monarchy | Elected Monarchy   | Oligarchy          | Strongest Clan     | Elected Monarchy   | Inherited Monarchy | Can be changed with a policy
 | Clan Tier 1        | Faris              | Fian               | Cataphract         | Kheshig            | Druzhina           | Chevalier          | Gets a tier 6 weapon, has a banner, gains a retinue
