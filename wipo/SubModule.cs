@@ -6,7 +6,7 @@ using TaleWorlds.MountAndBlade;
 
 namespace wipo
 {
-    public class main : MBSubModuleBase
+    public class SubModule : MBSubModuleBase
     {
         protected override void OnSubModuleLoad()
         {

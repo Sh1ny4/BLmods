@@ -18,7 +18,7 @@
 		<SubModule>
 			<Name value="wipo" />
 			<DLLName value="wipo.dll" />
-			<SubModuleClassType value="wipo.main" />
+			<SubModuleClassType value="wipo.SubModule" />
 			<Tags />
 		</SubModule>
 	</SubModules>
