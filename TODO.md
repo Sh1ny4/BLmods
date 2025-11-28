@@ -32,15 +32,6 @@ public class SandBoxViewSubModule : MBSubModuleBase
 
 #### Castles can block passage through navmesh
 
-## Recruitement Stuff
- - Can only recruit mercs until you join a kingdom
- - Levelling requires more XP
- - Need a deserialize, an xml that defines for each kingdom which type of recruitement and in each case what recruit we get
- - Three types :
-   - Levy : You get a lot of low tier troops at the cost of prosperity / hearts.
-   - Retinue : you hire a tier 5 noble troop. Alongside it you get a tier 2 noble troop, 3 tier 2 inf and a tier 2 ranged. Retinues are only in castles
-   - Volunteer : same as vanilla, need to recruit a lot with a limited pool
-
 ## Tournament Stuff :
  - Tied to feasts
  - Fewer participants, only named NPCs (isHero)
@@ -53,7 +44,17 @@ public class SandBoxViewSubModule : MBSubModuleBase
    - Horse Archery : Fastest to end a course with targets to destroy, penality for each missed target
    - Horse Race : Fastest to end the race
    - Jousting : Similar to vanilla, only 1v1
+   - Throwing Contest : first to hit all targets, the one with the most if not all are done, the one that did it the fastest as third decider
    - XvX battle : The one with the most kills wins, with bonus points if his team wins
+
+## Recruitement Stuff
+ - Can only recruit mercs until you join a kingdom
+ - Levelling requires more XP
+ - Need a deserialize, an xml that defines for each kingdom which type of recruitement and in each case what recruit we get
+ - Three types :
+   - Levy : You get a lot of low tier troops at the cost of prosperity / hearts.
+   - Retinue : you hire a tier 5 noble troop. Alongside it you get a tier 2 noble troop, 3 tier 2 inf and a tier 2 ranged. Retinues are only in castles
+   - Volunteer : same as vanilla, need to recruit a lot with a limited pool
 
 ## Clan Stuff
  - Clan tiers start when joining a faction, before that renown only influences the chances of receiving an invitation
@@ -74,10 +75,10 @@ public class SandBoxViewSubModule : MBSubModuleBase
 
 |                    | Aserai             | Battania           | Empire             | Khuzait            | Sturgia            | Vlandia            | Notes
 |:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------|:-------------------
-| Recruitement Type  | Volonteer          | Retinue            | Volonteer          | Levy               | Retinue            | Levy               | Can be changed with a policy
 | Tournament Stage 1 | Placeholder        | Bow Contest        | Gladiator          | Horse Race         | Duels              | Jousting           |
 | Tournament Stage 2 | Placeholder        | Duels              | Chariot Race       | Horse Archery      | XvX battle         | Horse Race         |
 | Tournament Stage 2 | Placeholder        | Throwing Contest   | Boat Battle        | Bow Contest        | Throwing Contest   | Duels              |
+| Recruitement Type  | Volonteer          | Retinue            | Volonteer          | Levy               | Retinue            | Levy               | Can be changed with a policy
 | Internal Politics  | Inherited Monarchy | Elected Monarchy   | Oligarchy          | Strongest Clan     | Elected Monarchy   | Inherited Monarchy | Can be changed with a policy
 | Clan Tier 1        | Faris              | Fian               | Cataphract         | Kheshig            | Druzhina           | Chevalier          | Gets a tier 6 weapon, has a banner, gains a retinue
 | Clan Tier 2        | Sheikh             | Chieftain          | Centurion          | Noyan              | Boyar              | Baron              | Controls a village, can vote in the kingdom's decisions
